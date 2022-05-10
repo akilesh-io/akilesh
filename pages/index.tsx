@@ -5,11 +5,12 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
 import Container from '../components/container'
-
+import { Navbar } from '../components/Navbar';
 
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
+      <Navbar />
       <Head>
         <title>Akilesh</title>
         <meta name="description" content="Hello There :)" />
