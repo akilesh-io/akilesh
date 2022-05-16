@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  CaseSensitivePathsPlugin: true,
+  reactStrictMode: true
 }
 
 module.exports = nextConfig
