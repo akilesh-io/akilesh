@@ -59,20 +59,20 @@ export const Navbar = () => {
                         }   w-full lg:inline-flex lg:flex-grow lg:w-auto`}
                 >
 
-                    <div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto pt-6 lg:pt-0'>
+                    <div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto pt-6 lg:pt-0 lg:mr-5'>
                         {/* navigate to blog.akilesh.io */}
                         <Link href='https://blog.akilesh.io/'>
-                            <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-cyan-600 hover:text-white '>
+                            <a className='lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-cyan-600 hover:text-white '>
                                 Blog
                             </a>
                         </Link>
                         <Link href='/work'>
-                            <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-cyan-600 hover:text-white'>
+                            <a className='lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-cyan-600 hover:text-white'>
                                 Work
                             </a>
                         </Link>
                         <Link href="mailto:2112akilesh@gmail.com">
-                            <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-cyan-600 hover:text-white'>
+                            <a className='lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-cyan-600 hover:text-white'>
                                 Contact
                             </a>
                         </Link>
