@@ -51,9 +51,10 @@ export const Footer = () => {
       </div>
 
       <div className="container pt-9">
-        <p className="text-slate-800">Drop a Message</p>
         <div className="flex justify-center mb-9">
-          <a href="#!" className="mr-9 text-gray-800">
+
+          {/* Facebook */}
+          <a target="_blank" rel="noopener noreferrer" href="https://facebook.com/hselikA" className="mr-9 text-gray-800">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -70,7 +71,9 @@ export const Footer = () => {
               ></path>
             </svg>
           </a>
-          <a href="#!" className="mr-9 text-gray-800">
+
+          {/* Twitter */}
+          <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/hselikA" className="mr-9 text-gray-800">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -87,7 +90,9 @@ export const Footer = () => {
               ></path>
             </svg>
           </a>
-          <a href="#!" className="mr-9 text-gray-800">
+
+          {/* Mail */}
+          <a href="mailto:2112akilesh@gmail.com" target="_blank" rel="noopener noreferrer" className="mr-9 text-gray-800">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -102,7 +107,9 @@ export const Footer = () => {
               ></path>
             </svg>
           </a>
-          <a href="#!" className="mr-9 text-gray-800">
+
+          {/* Instagram */}
+          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/hselikakilesh/" className="mr-9 text-gray-800">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -119,7 +126,9 @@ export const Footer = () => {
               ></path>
             </svg>
           </a>
-          <a href="#!" className="text-gray-800">
+
+          {/* Github */}
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/Akilesh2112" className="text-gray-800">
             <svg
               aria-hidden="true"
               focusable="false"

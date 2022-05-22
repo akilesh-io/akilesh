@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Image from 'next/image'
 
+
+import logo from '../public/svg/logo.svg';
+
 export const Navbar = () => {
 
     const [active, setActive] = useState(false);
@@ -12,9 +15,10 @@ export const Navbar = () => {
 
     return (
         <>
-            <nav className='flex items-center flex-wrap bg-slate-100 p-3 '>
+            <nav className='flex items-center flex-wrap bg-slate-100 p-3 lg:p-0 '>
                 <Link href='/'>
-                    <a className='inline-flex items-center p-1 mr-4 '>
+                    <a className='inline-flex items-center p-1 mr-4 lg:p-0'>
+                        <Image src={logo}  alt="logo" />
                         {/* <svg
                             viewBox='0 0 24 24'
                             xmlns='http://www.w3.org/2000/svg'
@@ -55,26 +59,21 @@ export const Navbar = () => {
                         }   w-full lg:inline-flex lg:flex-grow lg:w-auto`}
                 >
 
-                    <div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto'>
+                    <div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto pt-6 lg:pt-0'>
                         {/* navigate to blog.akilesh.io */}
                         <Link href='https://blog.akilesh.io/'>
                             <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-cyan-600 hover:text-white '>
                                 Blog
                             </a>
                         </Link>
-                        <Link href='/'>
+                        <Link href='/work'>
                             <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-cyan-600 hover:text-white'>
                                 Work
                             </a>
                         </Link>
-                        <Link href='/about'>
+                        <Link href="mailto:2112akilesh@gmail.com">
                             <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-cyan-600 hover:text-white'>
-                                About us
-                            </a>
-                        </Link>
-                        <Link href='/'>
-                            <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-cyan-600 hover:text-white'>
-                                Contact us
+                                Contact
                             </a>
                         </Link>
                     </div>
