@@ -27,12 +27,13 @@ const Home: NextPage = () => {
               <h2>Livestorm control&rarr;</h2>
               <p>Control is my take on a external sidebar plugin for livestorm.</p>
             </a>
-        </div>
-        <div className={styles.grid}>
+
+
             <a href="https://article-town-a3add.web.app/" className={styles.card}>
               <h2>Article town&rarr;</h2>
               <p>Article town is a web page helps you to share your article and follow others article.</p>
             </a>
+            
         </div>
         </main>
 
