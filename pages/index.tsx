@@ -22,7 +22,7 @@ const Home: NextPage = () => {
           <h1 className={styles.title}>
             Hello I&#39;m <a href="https://akilesh.io">Akilesh !!</a>
           </h1>
-        <div className={styles.grid}>
+          <div className={styles.grid}>
             <a href="https://play.google.com/store/apps/details?id=com.livestorm.control" className={styles.card}>
               <h2>Livestorm control&rarr;</h2>
               <p>Control is my take on a external sidebar plugin for livestorm.</p>
@@ -33,8 +33,9 @@ const Home: NextPage = () => {
               <h2>Article town&rarr;</h2>
               <p>Article town is a web page helps you to share your article and follow others article.</p>
             </a>
-            
-        </div>
+
+
+          </div>
         </main>
 
       </Layout>
