@@ -1,53 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Container from './container';
+import { Subscribe } from './subscribe';
+
+import { SubscribeSize } from '@/lib/types';
 
 export const Footer = () => {
   return (
     <footer className="text-center text-white bg-white">
       <div>
-        <form action="">
-          <div className="grid md:grid-cols-3 gird-cols-1 gap-4 flex justify-center items-center">
-            <div className="md:ml-auto md:mb-6">
-              <p className="text-slate-800">
-                <strong>Sign up for my newsletter</strong>
-              </p>
-            </div>
-
-            <div className="md:mb-6">
-              <input
-                type="text"
-                className="
-                form-control
-                block
-                w-full
-                px-3
-                py-1.5
-                text-base
-                font-normal
-                text-gray-700
-                bg-white bg-clip-padding
-                border border-solid border-gray-300
-                rounded
-                transition
-                ease-in-out
-                m-0
-                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-              "
-                id="exampleFormControlInput1"
-                placeholder="Email address" />
-            </div>
-
-            <div className="md:mr-auto mb-6">
-              <button type="submit" className="inline-block px-6 py-2 border-2 
-              border-white text-white font-medium text-xs leading-tight 
-              uppercase rounded hover:bg-neutral-700 bg-slate-900
-              focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </form>
+        <div className="col-span-2 mt-8 xl:mt-0">
+          <Subscribe size={SubscribeSize.SMALL} />
+        </div>
       </div>
 
       <div className="container pt-9">
