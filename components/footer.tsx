@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import Container from './Container';
 import { Subscribe } from './Subscribe';
 
 export const Footer = () => {

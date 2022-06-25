@@ -3,11 +3,10 @@ import { Navbar } from './Navbar';
 import Meta from './Meta'
 
 type Props = {
-  preview?: boolean
   children: React.ReactNode
 }
 
-const Layout = ({ preview, children }: Props) => {
+const Layout = ({ children }: Props) => {
   return (
     <>
       <div className="mx-4 lg:mx-8">

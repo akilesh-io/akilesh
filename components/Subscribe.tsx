@@ -1,8 +1,6 @@
-import { Form, SubscribeSize, Subscribers } from '@/lib/types';
+import { Form, Subscribers } from '@/lib/types';
 import { fetcher } from '@/lib/fetcher';
 import { useSubscribeToNewsletter } from '@/lib/hooks/useSubscribeToNewsletter';
-
-import React, { useRef, useState } from 'react';
 
 import { ErrorMessage } from './ErrorMessage';
 import { LoadingSpinner } from './LoadingSpinner';
