@@ -1,4 +1,7 @@
+[![DeepSource](https://deepsource.io/gh/Akilesh2112/hselika.svg/?label=active+issues&show_trend=true&token=VKpH0jbNa6Cr4c_AAEcBgNCr)](https://deepsource.io/gh/Akilesh2112/hselika/?ref=repository-badge)
+
 This is a [Next.js](https://nextjs.org/) personal blog project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
 
 ## Getting Started
 
