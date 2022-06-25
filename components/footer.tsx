@@ -3,14 +3,12 @@ import Link from 'next/link';
 import Container from './container';
 import { Subscribe } from './subscribe';
 
-import { SubscribeSize } from '@/lib/types';
-
 export const Footer = () => {
   return (
     <footer className="text-center text-white bg-white">
       <div>
         <div className="col-span-2 mt-8 xl:mt-0">
-          <Subscribe size={SubscribeSize.SMALL} />
+          <Subscribe />
         </div>
       </div>
 
