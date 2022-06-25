@@ -6,9 +6,7 @@ export default function Meta() {
             <script
                 defer
                 data-domain="akilesh.io"
-                src="https://plausible.articl.me/js/plausible.js">
-
-            </script>
+                src="https://plausible.articl.me/js/plausible.js" />
 
         </Head>
     )
