@@ -68,7 +68,7 @@ function InlineSubscribe({ handleSubscribe, form, inputRef }) {
 
 export function Subscribe() {
     const { form, subscribe, inputEl } = useSubscribeToNewsletter();
-    const { data: subData } = useSWR<Subscribers>('/api/subscribers', fetcher);
+    const { data: subData } = useSWR<Subscribers>('/api/subscribe', fetcher);
 
     return (
         <InlineSubscribe
