@@ -57,18 +57,20 @@ function InlineSubscribe({ handleSubscribe, form, inputRef }) {
                     </div>
                 </div>
             </form>
-            {form.state === Form.Error ? (
-                <ErrorMessage>{form.message}</ErrorMessage>
-            ) : form.state === Form.Success ? (
-                <SuccessMessage>{form.message}</SuccessMessage>
-            ) : null}
+            <div className='flex justify-center items-center'>
+                {form.state === Form.Error ? (
+                    <ErrorMessage>{form.message}</ErrorMessage>
+                ) : form.state === Form.Success ? (
+                    <SuccessMessage>{form.message}</SuccessMessage>
+                ) : null}
+            </div>
         </div>
     )
 }
 
 export function Subscribe() {
     const { form, subscribe, inputEl } = useSubscribeToNewsletter();
-   // const { data: subData } = useSWR<Subscribers>('/api/subscribe', fetcher);
+    // const { data: subData } = useSWR<Subscribers>('/api/subscribe', fetcher);
 
     return (
         <InlineSubscribe
