@@ -9,7 +9,7 @@ export default function Work() {
             <Head>
                 <title>Works</title>
                 <meta name="description" content="Works" />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/favicon.png" />
             </Head>
             <main className={styles.main}>
                 <div className={styles.grid}>
