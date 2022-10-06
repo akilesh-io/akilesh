@@ -69,7 +69,7 @@ export const Footer = () => {
           </a>
 
           {/* Instagram */}
-          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/hselikakilesh/" className="mr-9 text-gray-800">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/akileshselika/" className="mr-9 text-gray-800">
             <svg
               aria-hidden="true"
               focusable="false"
