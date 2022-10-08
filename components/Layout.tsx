@@ -9,7 +9,7 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <div className="mx-4 lg:mx-8">
+      <div>
         <Meta />
         <Navbar />
         <div className="min-h-screen">
