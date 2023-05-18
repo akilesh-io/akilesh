@@ -1,13 +1,17 @@
-import Head from 'next/head'
+import Script from "next/script";
 
 export default function Meta() {
-    return (
-        <Head>
-            <script
-                defer
-                data-domain="akilesh.io"
-                src="https://plausible.articl.me/js/plausible.js" />
-
-        </Head>
-    )
+  return (
+    <>
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
+      <noscript>
+        {/* eslint-disable @next/next/no-img-element */}
+        <img
+          src="https://queue.simpleanalyticscdn.com/noscript.gif"
+          alt=""
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </noscript>
+    </>
+  );
 }
