@@ -8,4 +8,4 @@ const nextConfig = {
   },
 }
 
-module.exports = withSentryConfig( nextConfig );
+module.exports = nextConfig;
