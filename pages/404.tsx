@@ -22,13 +22,13 @@ export default function Custom404() {
                             </div>
                         </div>
                         <div>
-                            <Image src="https://i.ibb.co/G9DC8S0/404-2.png" alt="404"/>
+                            <img src="https://res.cloudinary.com/davkfrmah/image/upload/v1684478940/Akilesh/404.png" alt="404" />
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="hidden lg:block lg:w-1/2 relative">
                     {/* <Image src={me} /> */}
-                    <Image src="https://i.ibb.co/ck1SGFJ/Group.png" alt="404"/>
+                    <img src="https://res.cloudinary.com/davkfrmah/image/upload/v1684478941/Akilesh/Group.png" alt="Group" />
                 </div>
             </div>
         </>
