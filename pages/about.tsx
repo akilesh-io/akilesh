@@ -6,8 +6,8 @@ export default function FirstPost() {
         <Layout>
             <h1 className="text-3xl font-bold underline">First Post</h1>
             <Link href="/">
-                <a>Back to home</a>
+                Back to home
             </Link>
         </Layout>
-    )
+    );
 }
