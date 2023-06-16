@@ -19,9 +19,9 @@ export default function Work() {
                     </a>
 
 
-                    <a href="https://article-town-a3add.web.app/" className={styles.card}>
-                        <h2>Article town&rarr;</h2>
-                        <p>Article town is a web page helps you to share your article and follow others article.</p>
+                    <a href="https://filmingo.us/" className={styles.card}>
+                        <h2>Filmingo&rarr;</h2>
+                        <p>Filmingo is an innovative and immersive movie-watching application.</p>
                     </a>
 
 

@@ -22,9 +22,7 @@ const Home: NextPage = () => {
             <a href="https://Filmingo.us/" className={styles.card}>
               <h2>Filmingo&rarr;</h2>
               <p>
-                Filmingo is an innovative and immersive movie-watching
-                application designed to bring people together, regardless of
-                their physical location
+                Filmingo is an innovative and immersive movie-watching application.
               </p>
             </a>
 
