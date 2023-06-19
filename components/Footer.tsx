@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Subscribe } from "./test";
+import { Subscribe } from "./Subscribe";
 
 export const Footer = () => {
   return (

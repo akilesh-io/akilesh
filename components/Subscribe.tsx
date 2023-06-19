@@ -1,12 +1,10 @@
 import { Form, Subscribers } from "@/lib/types";
-import { fetcher } from "@/lib/fetcher";
 import { useSubscribeToNewsletter } from "@/lib/hooks/useSubscribeToNewsletter";
 
 import { ErrorMessage } from "./ErrorMessage";
 import { LoadingSpinner } from "./LoadingSpinner";
 import { SuccessMessage } from "./SuccessMessage";
 
-import useSWR from "swr";
 
 function InlineSubscribe({ handleSubscribe, form, inputRef }) {
   return (
