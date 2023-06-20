@@ -9,7 +9,7 @@ export function useSubscribeToNewsletter() {
     e.preventDefault();
     setForm({ state: Form.Loading });
 
-    const res = await fetch(`/api/subscribe-user`, {
+    const res = await fetch(`/api/subscribe`, {
       body: JSON.stringify({
         email: inputEl.current.value
       }),
