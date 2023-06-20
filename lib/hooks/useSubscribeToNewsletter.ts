@@ -10,13 +10,13 @@ export function useSubscribeToNewsletter() {
     setForm({ state: Form.Loading });
 
     const res = await fetch(`/api/subscribe`, {
-      body: JSON.stringify({
-        email: inputEl.current.value
-      }),
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      method: 'POST'
+      body: JSON.stringify({
+        email: inputEl.current.value
+      })
     });
 
     const { error } = await res.json();
