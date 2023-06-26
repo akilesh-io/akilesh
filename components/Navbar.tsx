@@ -49,12 +49,12 @@ export const Navbar = () => {
           >
             <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto pt-6 lg:pt-0 lg:mr-5">
               {/* navigate to blog.akilesh.io */}
-              <a
-                href="https://blog.akilesh.io/"
+              <Link
+                href="/blog"
                 className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white  "
               >
                 Blog
-              </a>
+              </Link>
               <Link
                 href="/work"
                 passHref

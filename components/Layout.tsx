@@ -10,7 +10,7 @@ const Layout = ({ children }: Props) => {
     <>
       <div>
         <Navbar />
-        <div className="min-h-screen">
+        <div className="min-h-screen pt-20">
           <main>{children}</main>
         </div>
         <Footer />

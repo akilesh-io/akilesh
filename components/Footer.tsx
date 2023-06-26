@@ -3,7 +3,7 @@ import { Subscribe } from "./Subscribe";
 
 export const Footer = () => {
   return (
-    <footer className="text-center text-white bg-white">
+    <footer className="text-center">
       <div>
         <div className="col-span-2 mt-8 xl:mt-0">
           <Subscribe />
