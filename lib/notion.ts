@@ -31,7 +31,7 @@ export const getAllArticles = async (databaseId) => {
         },
         sorts: [
             {
-                property: 'Date',
+                property: 'Published',
                 direction: 'descending'
             }
         ]
@@ -39,6 +39,49 @@ export const getAllArticles = async (databaseId) => {
 
     return response.results;
 };
+
+export const getMoreArticlesToSuggest = async (
+    databaseId,
+    currentArticleTitle
+  ) => {
+    let moreArticles;
+  
+    const response = await notion.databases.query({
+      database_id: databaseId,
+      filter: {
+        and: [
+          {
+            property: 'Status',
+            select: {
+              equals: 'Publish'
+            }
+          },
+        //   {
+        //     property: 'Name',
+        //     text: {
+        //       does_not_equal: currentArticleTitle
+        //     }
+        //   }
+        ]
+      }
+    });
+  
+    moreArticles = response.results.map((article: any) => {
+      return {
+        title: article.properties.Name.title[0].plain_text,
+        coverImage:
+          article.properties?.coverImage?.files[0]?.file?.url ||
+          article.properties.coverImage?.files[0]?.external?.url ||
+          'https://via.placeholder.com/600x400.png',
+        publishedDate: article.properties.Published.date.start,
+        summary: article.properties?.Summary.rich_text[0]?.plain_text
+      };
+    });
+  
+  
+    return moreArticles.slice(0, 3);
+  };
+
 
 export const convertToArticleList = (tableData: any) => {
     let tags: string[] = [];
