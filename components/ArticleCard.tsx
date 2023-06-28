@@ -2,6 +2,10 @@ import { Article } from '@/lib/types';
 import Image from 'next/legacy/image';
 import slugify from 'slugify';
 
+//import { useIsArticleRead } from '@/hooks/useIsArticleRead';
+import { handleArticleClicked } from '@/lib/handleArticleClick';
+
+
 type Props = {
   article: Article;
 };
@@ -11,7 +15,7 @@ export function ArticleCard({ article }: Props) {
 
   return (
     <div>
-      <button>
+      <button onClick={() => handleArticleClicked(slug)}>
         <div className="group">
           <Image
             className="rounded-3xl group-hover:opacity-75"
@@ -26,9 +30,9 @@ export function ArticleCard({ article }: Props) {
           />
           <div className="w-full text-left">
             <h3 className="mt-2 text-2xl">{article.title}</h3>
-            <span className="flex items-center text-base font-semibold">
+            {/* <span className="flex items-center text-base font-semibold">
               {' '}
-            </span>
+            </span> */}
           </div>
         </div>
       </button>
