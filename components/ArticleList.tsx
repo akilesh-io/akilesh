@@ -14,7 +14,7 @@ export function ArticleList({
       </div>
       {showEndMessage && (
         <div className="flex items-center justify-center space-x-2 text-xs text-slate-400 dark:text-slate-500">
-          <p>You&apos;ve reached the end of the list.</p>
+          <p>Blog posted with Lemonto.</p>
           <svg
             className="w-5"
             viewBox="0 0 24 24"
