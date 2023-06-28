@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Layout from "@/components/Layout";
+import Layout from "layout/Layout";
 import styles from "@/styles/Home.module.css";
 import Head from "next/head";
 
