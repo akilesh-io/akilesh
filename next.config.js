@@ -10,6 +10,7 @@ const nextConfig = {
       'via.placeholder.com', // for articles that do not have a cover image
       'pbs.twimg.com', // Twitter Profile Picture
       'iad.microlink.io', // link preview
+      'images.unsplash.com', // If notion cover image is from, unsplash
       'res.cloudinary.com',
     ],
   },
