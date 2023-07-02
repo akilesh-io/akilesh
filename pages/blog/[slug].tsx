@@ -333,7 +333,8 @@ export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
   publishedDate = page.properties.Published.date.start;
   summary = page.properties.Summary?.rich_text[0]?.plain_text;
   coverImage =
-    page.cover.external.url ||
+    page.cover?.file?.url ||
+    page.cover?.external?.url ||
     page.properties?.coverImage?.files[0]?.file?.url ||
     page.properties.coverImage?.files[0]?.external?.url ||
     "https://via.placeholder.com/600x400.png";

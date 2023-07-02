@@ -96,7 +96,8 @@ export const convertToArticleList = (tableData: any) => {
                 return { name: tag.name, id: tag.id };
             }),
             coverImage:
-                article.cover.external.url ||
+                article.cover?.external?.url ||
+                article.cover?.file?.url ||
                 article.properties?.coverImage?.files[0]?.file?.url ||
                 article.properties.coverImage?.files[0]?.external?.url ||
                 'https://via.placeholder.com/600x400.png',
