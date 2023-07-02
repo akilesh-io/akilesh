@@ -1,5 +1,3 @@
-import slugify from "slugify";
-
 import Layout from "layout/Layout";
 import { ArticleList } from "@/components/ArticleList";
 //import { TotalArticles } from "@/components/statistics/TotalArticles";
