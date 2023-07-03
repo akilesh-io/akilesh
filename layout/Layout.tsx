@@ -1,22 +1,22 @@
-import { Footer } from '../components/Footer';
-import { Navbar } from '../components/Navbar';
+import { Footer } from "../components/Footer";
+import { Navbar } from "../components/Navbar";
 
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <div>
+      <div className="flex flex-col mx-auto max-w-screen-md justify-center px-4 bg-white dark:bg-dark prose prose-lg dark:prose-dark relative pt-24">
         <Navbar />
-        <div className="min-h-screen pt-20">
+        <div>
           <main>{children}</main>
         </div>
         <Footer />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
