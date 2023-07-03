@@ -3,6 +3,7 @@ import Script from "next/script";
 export default function Meta() {
   return (
     <>
+      <Script src="//embed.typeform.com/next/embed.js"></Script>
       <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
       <noscript>
         {/* eslint-disable @next/next/no-img-element */}
