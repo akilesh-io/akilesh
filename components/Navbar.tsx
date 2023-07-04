@@ -14,7 +14,7 @@ export const Navbar = () => {
   return (
     <>
       <div className="container mx-auto">
-        <nav className="flex items-center flex-wrap bg-slate-100 p-3 lg:p-0 ">
+        <nav className="flex items-center flex-wrap p-3 lg:p-0 ">
           <Link href="/" passHref>
             <Image src={logo} alt="logo" />
           </Link>

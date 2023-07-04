@@ -1,10 +1,11 @@
-import Link from "next/link";
 import { Subscribe } from "./Subscribe";
 
 export const Footer = () => {
   return (
     <footer className="text-center">
-      <hr className="w-48 h-1 mx-auto mt-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"></hr>
+      <div>
+        <hr className="w-48 h-1 mx-auto mt-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"></hr>
+      </div>
 
       <div>
         <div className="col-span-2 mt-8 xl:mt-0">
