@@ -25,7 +25,7 @@ export function ArticleList({
             data-tf-transitive-search-params
             data-tf-medium="snippet"
           >
-            Blog posted with Lemonto.
+            Blog posted with Lamonto.
           </button>
           <Image src={lemon} alt="lemon" width={30} />
         </div>
