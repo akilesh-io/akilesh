@@ -31,7 +31,7 @@ export const getAllArticles = async (databaseId) => {
         },
         sorts: [
             {
-                property: 'Published',
+                property: 'Publish date',
                 direction: 'descending'
             }
         ]
@@ -73,8 +73,7 @@ export const getMoreArticlesToSuggest = async (
           article.properties?.coverImage?.files[0]?.file?.url ||
           article.properties.coverImage?.files[0]?.external?.url ||
           'https://via.placeholder.com/600x400.png',
-        publishedDate: article.properties.Published.date.start,
-        summary: article.properties?.Summary.rich_text[0]?.plain_text
+        //publishDate: article.properties.publish_date.date.start,
       };
     });
   
@@ -88,7 +87,7 @@ export const convertToArticleList = (tableData: any) => {
     const articles = tableData.map((article: any) => {
         return {
             title: article.properties.Name.title[0].plain_text,
-            tags: article.properties.tags.multi_select?.map((tag) => {
+            tags: article.properties.Tags.multi_select?.map((tag) => {
                 if (!tags.includes(tag.name)) {
                     const newList = [...tags, tag.name];
                     tags = newList;
@@ -101,10 +100,7 @@ export const convertToArticleList = (tableData: any) => {
                 article.properties?.coverImage?.files[0]?.file?.url ||
                 article.properties.coverImage?.files[0]?.external?.url ||
                 'https://via.placeholder.com/600x400.png',
-            //publishedDate: article.properties.Published?.date?.start,
-            summary:
-                article.properties?.Summary.rich_text[0]?.plain_text ??
-                'Placeholder summary',
+            publishedDate: article.properties['Publish date']?.date?.start,
             status: article.properties?.Status.select.name,
         };
     });
@@ -146,5 +142,16 @@ export const getArticlePage = (data, slug) => {
     return response;
 };
 
+//export const getPage = async () => {
+    // const blocks = await notion.pages.retrieve({
+    //     page_id: 'c485723c7cb747f683e7c9f20d458685'
+    // });
+
+//     let blocks = await notion.blocks.children.list({
+//         block_id: 'c485723c7cb747f683e7c9f20d458685',
+//       });
+
+//     return blocks;
+// }
 
 export default notion;

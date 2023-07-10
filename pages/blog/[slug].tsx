@@ -9,7 +9,7 @@ import {
 
 import { ArticleList } from "@/components/ArticleList";
 import { CodeBlock } from "@/components/Codeblock";
-import { Container } from "../../layout/Container";
+import Layout from "layout/Layout";
 
 import { Client } from "@notionhq/client";
 import Image from "next/legacy/image";
@@ -59,6 +59,7 @@ export function renderBlocks (block) {
   const { type, id } = block;
   const value = block[type];
 
+  
   switch (type) {
     case "paragraph":
       return (
@@ -201,7 +202,7 @@ export function renderBlocks (block) {
     case "quote":
       return (
         <blockquote className="p-4 rounded-r-lg">
-          <Text text={value.text} />
+          <Text text={value.rich_text} />
         </blockquote>
       );
     case "divider":
@@ -220,7 +221,6 @@ const ArticlePage = ({
   title,
   coverImage,
   slug,
-  summary,
   moreArticles,
 }) => {
   const { push } = useRouter();
@@ -232,18 +232,18 @@ const ArticlePage = ({
   }, [slug]);
 
   return (
-    <Container
-      title={title}
-      description={summary}
-      imageUrl={coverImage}
-      type={PageType.ARTICLE}
-      isArticle={true}
+    <Layout
+    // title={title}
+    //description={content}
+    // imageUrl={coverImage}
+    //type={PageType.ARTICLE}
+    // isArticle={true}
     >
-      <div className="grid justify-center grid-cols-1 lg:grid-cols-12 lg:gap-8">
+      <div className="grid justify-center grid-cols-1 lg:grid-cols-12 lg:gap-8 prose prose-lg dark:prose-dark max-w-none ">
         <article className="col-span-12 mt-12">
           <div className="space-y-16">
             <div>
-              <h1 className="mb-5 text-3xl text-center font-headings md:text-5xl">
+              <h1 className="mb-5 text-3xl text-center font-openSans md:text-5xl">
                 {title}
               </h1>
             </div>
@@ -267,7 +267,7 @@ const ArticlePage = ({
         </article>
         {/* Left Sticky */}
 
-        <div className="lg:col-start-3 lg:col-end-11">
+        <div className="lg:col-start-1 lg:col-end-13 text-lg">
           {content.map((block) => (
             <Fragment key={block.id}>{renderBlocks(block)}</Fragment>
           ))}
@@ -288,7 +288,7 @@ const ArticlePage = ({
           <ArticleList articles={moreArticles} />
         </div>
       </div>
-    </Container>
+    </Layout>
   );
 };
 
@@ -319,7 +319,6 @@ export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
   let articleTitle = "";
   let publishedDate = null;
   let coverImage = null;
-  let summary = null;
 
   const notion = new Client({
     auth: process.env.NOTION_KEY,
@@ -330,8 +329,7 @@ export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
   const page: any = getArticlePage(data, slug);
 
   articleTitle = page.properties.Name.title[0].plain_text;
-  publishedDate = page.properties.Published.date.start;
-  summary = page.properties.Summary?.rich_text[0]?.plain_text;
+  publishedDate = page.properties['Publish date'].date.start;
   coverImage =
     page.cover?.file?.url ||
     page.cover?.external?.url ||
@@ -366,7 +364,6 @@ export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
       publishedDate,
       slug,
       coverImage,
-      summary,
       moreArticles,
     },
     revalidate: 30,
