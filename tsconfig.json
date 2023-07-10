@@ -18,7 +18,9 @@
       "@/components/*": ["components/*"],
       "@/lib/*": ["lib/*"],
       "@/styles/*": ["styles/*"],
-      "@/hooks/*": ["lib/hooks/*"]
+      "@/hooks/*": ["lib/hooks/*"],
+      "@/public/*": ["public/*"],
+
     },
     "incremental": true
   },
