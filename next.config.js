@@ -12,6 +12,7 @@ const nextConfig = {
       'iad.microlink.io', // link preview
       'images.unsplash.com', // If notion cover image is from, unsplash
       'res.cloudinary.com',
+      "img.icons8.com"      
     ],
   },
   rewrites: async () => [
