@@ -8,13 +8,11 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <div className="flex flex-col mx-auto max-w-screen-md justify-center px-4 bg-white dark:bg-dark prose prose-lg dark:prose-dark relative pt-24">
-        <Navbar />
-        <div>
-          <main>{children}</main>
-        </div>
-        <Footer />
-      </div>
+      <Navbar />
+      <main className="flex flex-col mx-auto max-w-4xl justify-center px-4 relative pt-24 min-h-screen">
+        {children}
+      </main>
+      <Footer />
     </>
   );
 };

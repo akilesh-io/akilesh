@@ -110,7 +110,7 @@ export const CodeBlock = ({ code, language, metastring }: Props) => {
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <div className="relative not-prose">
             <pre
-              className={`rounded-xl relative overflow-hidden ${className}`}
+              className={`rounded-md relative overflow-hidden ${className}`}
               style={style}
             >
               <div className="relative flex text-xs leading-6 ">

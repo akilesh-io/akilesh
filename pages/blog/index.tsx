@@ -11,8 +11,9 @@ export default function Blog({ articles }) {
         <span className="block text-base font-semibold tracking-wide text-center text-indigo-500 uppercase dark:text-sky-400">
           My Blog
         </span>
-        <span className="block max-w-2xl mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl">
-          Tech, Life, and Everything in Between
+        <span className="block max-w-2xl mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl m-4">
+          Tech, Life and Everything 
+          in Between
         </span>
       </h1>
       <ArticleList articles={articles} showEndMessage fullHeight />

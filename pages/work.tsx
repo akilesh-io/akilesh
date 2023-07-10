@@ -11,13 +11,13 @@ export default function Work() {
         <meta name="description" content="Works" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <main className={styles.main}>
+      <div className={styles.main}>
         <div className={styles.grid}>
           <a
             href="https://play.google.com/store/apps/details?id=com.livestorm.control"
             className={styles.card}
           >
-            <h2>Livestorm control&rarr;</h2>
+            <h2 className="text-gray-900 dark:text-white">Livestorm control&rarr;</h2>
             <p>
               Control is my take on a external sidebar plugin for livestorm.
             </p>
@@ -31,7 +31,7 @@ export default function Work() {
             </p>
           </a>
         </div>
-      </main>
+      </div>
     </Layout>
   );
 }

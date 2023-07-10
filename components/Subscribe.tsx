@@ -5,14 +5,13 @@ import { ErrorMessage } from "./ErrorMessage";
 import { LoadingSpinner } from "./LoadingSpinner";
 import { SuccessMessage } from "./SuccessMessage";
 
-
 function InlineSubscribe({ handleSubscribe, form, inputRef }) {
   return (
     <div>
       <form action="" onSubmit={handleSubscribe}>
         <div className="grid md:grid-cols-3 gird-cols-1 gap-4 justify-center items-center">
           <div className="md:ml-auto md:mb-6">
-            <p className="text-slate-800">
+            <p className="text-slate-800 dark:text-slate-200">
               <strong>Sign up for my newsletter</strong>
             </p>
           </div>
@@ -35,6 +34,8 @@ function InlineSubscribe({ handleSubscribe, form, inputRef }) {
       font-normal
       text-gray-700
       bg-white bg-clip-padding
+      dark:bg-gray-700
+      dark:text-gray-200
       border border-solid border-gray-300
       rounded
       transition
