@@ -1,11 +1,12 @@
 import { useState } from "react";
-import Image from "next/image";
-
-import logo from "../public/svg/logo.svg";
 import Link from "next/link";
+import Image from "next/image";
+import { useTheme } from "next-themes";
+
 
 export const Navbar = () => {
   const [active, setActive] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   const handleClick = () => {
     setActive(!active);
@@ -13,10 +14,10 @@ export const Navbar = () => {
 
   return (
     <>
-      <div className="container mx-auto">
-        <nav className="flex items-center flex-wrap p-3 lg:p-0 ">
+      <div className="container mx-auto max-w-4xl mt-6 px-7">
+        <nav className="flex items-center flex-wrap lg:p-0   dark:bg-gradient-to-br dark:from-slate-300 dark:via-cyan-100 dark:to-lime-100 rounded-md ">
           <Link href="/" passHref>
-            <Image src={logo} alt="logo" />
+            <Image  src="https://img.icons8.com/doodle/48/iceberg.pnghttps://img.icons8.com/doodle/48/iceberg.png" alt="logo" width={48} height={48} className="p-1" />
           </Link>
 
           <div className="group ml-auto">
@@ -41,37 +42,113 @@ export const Navbar = () => {
             </button>
           </div>
 
-          {/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
           <div
             className={`${
-              active ? "" : "hidden"
-            }   w-full lg:inline-flex lg:flex-grow lg:w-auto`}
+              active ? "slide-in" : "slide-out"
+            } w-full lg:inline-flex lg:flex-grow lg:w-auto `}
           >
-            <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto pt-6 lg:pt-0 lg:mr-5">
-              {/* navigate to blog.akilesh.io */}
+            <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto pt-6 lg:pt-0 lg:mr-5">
               <Link
                 href="/blog"
-                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white  "
+                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
               >
                 Blog
               </Link>
               <Link
                 href="/work"
                 passHref
-                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white "
+                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
               >
-                work
+                Work
               </Link>
               <a
                 href="mailto:2112akilesh@gmail.com"
-                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white "
+                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
               >
                 Contact
               </a>
+              <button
+                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              >
+                {theme === "dark" ? (
+                  <Image
+                    src="https://img.icons8.com/pulsar-color/48/sun.png"
+                    alt="sun"
+                    width={24}
+                    height={24}
+                  />
+                ) : (
+                  <Image
+                    src="https://img.icons8.com/pulsar-color/48/crescent-moon.png"
+                    alt="moon"
+                    width={24}
+                    height={24}
+                  />
+                )}
+              </button>
+            </div>
+          </div>
+
+          <div className="hidden w-full lg:inline-flex lg:flex-grow lg:w-auto ">
+            <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto pt-6 lg:pt-0 lg:mr-5">
+              <Link
+                href="/blog"
+                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
+              >
+                Blog
+              </Link>
+              <Link
+                href="/work"
+                passHref
+                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
+              >
+                Work
+              </Link>
+              <a
+                href="mailto:2112akilesh@gmail.com"
+                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
+              >
+                Contact
+              </a>
+
+              <button
+              
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              >
+                {theme === "dark" ? (
+                  <Image
+                    src="https://img.icons8.com/pulsar-color/48/sun.png"
+                    alt="sun"
+                    width={24}
+                    height={24}
+                  />
+                ) : (
+                  <Image
+                    src="https://img.icons8.com/pulsar-color/48/crescent-moon.png"
+                    alt="moon"
+                    width={24}
+                    height={24}
+                  />
+                )}
+              </button>
             </div>
           </div>
         </nav>
       </div>
+      <style jsx>{`
+        .slide-in {
+          max-height: 500px;
+          overflow: hidden;
+          transition: max-height 0.5s ease-in-out;
+        }
+
+        .slide-out {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.5s ease-in-out;
+        }
+      `}</style>
     </>
   );
 };
