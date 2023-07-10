@@ -18,13 +18,13 @@ export function ArticleCard({ article }: Props) {
       <button onClick={() => handleArticleClicked(slug)}>
         <div className="group">
           <Image
-            className="rounded-3xl group-hover:opacity-75"
+            className="rounded-md group-hover:opacity-75"
             objectFit="cover"
             src={article.coverImage}
             placeholder="blur"
             blurDataURL={article.coverImage}
             width={684}
-            height={800}
+            height={350}
             layout="intrinsic"
             alt={'article cover'}
           />
