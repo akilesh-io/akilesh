@@ -2,6 +2,7 @@ import { Subscribe } from "./Subscribe";
 
 export const Footer = () => {
   return (
+    // fit to the bottom
     <footer className="text-center">
       <div>
         <div className="col-span-2 mt-8 xl:mt-0">
