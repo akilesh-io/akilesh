@@ -14,7 +14,7 @@ export const Navbar = () => {
   return (
     <>
       <div className="container mx-auto max-w-4xl mt-6 px-7">
-        <nav className="flex items-center flex-wrap lg:p-0   dark:bg-gradient-to-br dark:from-slate-300 dark:via-cyan-100 dark:to-lime-100 rounded-md ">
+        <nav className="flex items-center flex-wrap lg:p-0   dark:bg-gradient-to-br dark:from-slate-300 dark:via-cyan-100 dark:to-lime-100 rounded-md  bg-neutral-200">
           <Link href="/" passHref>
             <Image
               src="https://img.icons8.com/doodle/48/iceberg.pnghttps://img.icons8.com/doodle/48/iceberg.png"
@@ -52,7 +52,7 @@ export const Navbar = () => {
               active ? "slide-in" : "slide-out"
             } w-full lg:inline-flex lg:flex-grow lg:w-auto `}
           >
-            <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto pt-6 lg:pt-0 lg:mr-5">
+            <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto pt-1 lg:pt-0 lg:mr-5">
               <Link
                 href="/blog"
                 className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center "

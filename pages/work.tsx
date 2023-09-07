@@ -12,6 +12,9 @@ export default function Work() {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
+      <span className="block text-base font-semibold tracking-wide text-center text-slate-800 uppercase dark:text-sky-400 mt-8">
+        My Work
+      </span>
       <div className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:px-0">
         {works.map(({ title, description, link, image }) => (
           <Card
