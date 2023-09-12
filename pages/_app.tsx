@@ -24,13 +24,13 @@ const ptSerif = PT_Serif({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+    <Meta />
       <ThemeProvider attribute="class">
         <main className={`${openSans.variable} ${ptSerif.variable} font-sans`}>
           <Component {...pageProps} />
         </main>
       </ThemeProvider>
       <Analytics />
-      <Meta />
     </>
   );
 }
