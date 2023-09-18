@@ -5,8 +5,8 @@ export default function Meta() {
   return (
     <>
       <NextSeo
-        title="Akilesh io"
-        description= "I'm Akilesh, a indie developer who occasionally writes .."
+        title="Hello there 👋 Akilesh here"
+        description= "A indie developer who occasionally writes .."
         canonical="https://www.akilesh.io/"
         openGraph={{
           type: "website",
