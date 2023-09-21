@@ -83,4 +83,12 @@ const works = [
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1693814513/livestorm%20logo.png",
   },
+  {
+    title: "Lamento",
+    description:
+      "A modern, minimalist platform for managing your blog content using Notion and sharing it across multiple platforms.",
+    link: "https://www.lamento.in/",
+    image:
+      "https://res.cloudinary.com/davkfrmah/image/upload/v1695034105/Lamento/lamento%20banner.png",
+  },  
 ];
