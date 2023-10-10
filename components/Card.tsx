@@ -21,6 +21,7 @@ export default function Card({
             src={image}
             alt={title}
             className="w-full h-full object-cover object-center"
+            placeholder="blur"
           />
         </div>
         <div className="mx-auto max-w-md text-center mt-1">

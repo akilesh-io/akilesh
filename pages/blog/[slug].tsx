@@ -143,6 +143,7 @@ export function renderBlocks (block) {
           }}
         >
           <Image
+            placeholder="blur"
             className="rounded-xl"
             layout="fill"
             sizes="100vw"
