@@ -13,7 +13,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <div className="container mx-auto max-w-4xl mt-6 px-7">
+      <div className="container mx-auto max-w-5xl mt-6 px-7">
         <nav className="flex items-center flex-wrap lg:p-0   dark:bg-gradient-to-br dark:from-slate-300 dark:via-cyan-100 dark:to-lime-100 rounded-md  bg-neutral-200">
           <Link href="/" passHref>
             <Image
@@ -66,12 +66,13 @@ export const Navbar = () => {
               >
                 Work
               </Link>
-              <a
-                href="mailto:2112akilesh@gmail.com"
-                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center "
+              <Link
+                  href="https://store.akilesh.io/"
+                  passHref
+                  className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center "
               >
-                Contact
-              </a>
+                Store
+              </Link>
               <button
                 className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -110,12 +111,14 @@ export const Navbar = () => {
               >
                 Work
               </Link>
-              <a
-                href="mailto:2112akilesh@gmail.com"
-                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
+
+              <Link
+                  href="https://store.akilesh.io/"
+                  passHref
+                  className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
               >
-                Contact
-              </a>
+                Store
+              </Link>
 
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
