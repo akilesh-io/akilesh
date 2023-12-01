@@ -4,6 +4,7 @@
 
 This is a [Next.js](https://nextjs.org/) personal blog project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+![image](https://github.com/akilesh-io/akilesh/assets/53332156/7eca741d-14bc-450c-a3a7-247ea5c1167d)
 
 ## Getting Started
 
@@ -20,8 +21,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Tech Stack
 Tools and technologies used in this project :
 
-- [Next.js](https://nextjs.org/) - learn about Next.js features and API.
-- [Tailwind css](https://tailwindcss.com/) - an interactive Next.js tutorial.
+- [Next.js](https://nextjs.org/) - Front-end.
+- [Tailwind css](https://tailwindcss.com/) - UI.
+- [Notion]() - CMS.
 
 
 
