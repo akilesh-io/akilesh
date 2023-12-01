@@ -2,9 +2,12 @@
 
 [![DeepSource](https://deepsource.io/gh/akilesh-io/akilesh.svg/?label=resolved+issues&show_trend=true&token=VKpH0jbNa6Cr4c_AAEcBgNCr)](https://deepsource.io/gh/Akilesh2112/hselika/?ref=repository-badge)
 
-This is a [Next.js](https://nextjs.org/) personal blog project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ![image](https://github.com/akilesh-io/akilesh/assets/53332156/7eca741d-14bc-450c-a3a7-247ea5c1167d)
+
+![image](https://github.com/akilesh-io/akilesh/assets/53332156/d98286c7-3df7-457f-9858-6e8bf28e9f3e)
+
+![image](https://github.com/akilesh-io/akilesh/assets/53332156/4b30adb8-6646-42a6-ac26-493c9b6ac295)
+
 
 ## Getting Started
 
