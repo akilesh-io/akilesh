@@ -25,7 +25,9 @@ Tools and technologies used in this project :
 
 - [Next.js](https://nextjs.org/) - Front-end.
 - [Tailwind css](https://tailwindcss.com/) - UI.
-- [Notion]() - CMS.
+- [Notion](https://lamento.in) - CMS.
+- [substack](https://substack.com/) - Newsletter.
+
 
 
 
