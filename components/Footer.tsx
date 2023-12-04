@@ -1,14 +1,8 @@
-import { Subscribe } from "./Subscribe";
-
 export const Footer = () => {
   return (
     // fit to the bottom
     <footer className="text-center">
-      <div>
-        <div className="col-span-2 mt-8 xl:mt-0">
-          <Subscribe />
-        </div>
-      </div>
+
 
       <div className="text-center text-gray-700 dark:text-gray-100 bg-black/0.25 font-mono text-sm md:text-base">
         Crafted with 💙 by Akilesh
