@@ -81,7 +81,7 @@ const works = [
       "Control is my take on a external sidebar plugin for livestorm.",
     link: "https://play.google.com/store/apps/details?id=com.livestorm.control",
     image:
-      "https://res.cloudinary.com/davkfrmah/image/upload/v1693814513/livestorm%20logo.png",
+      "https://res.cloudinary.com/davkfrmah/image/upload/v1702914394/Akilesh/livestorm.png",
   },
   {
     title: "Lamento",
@@ -89,6 +89,6 @@ const works = [
       "Notion as CMS",
     link: "https://www.lamento.in/",
     image:
-      "https://res.cloudinary.com/davkfrmah/image/upload/v1695034105/Lamento/lamento%20banner.png",
+      "https://res.cloudinary.com/davkfrmah/image/upload/v1702915379/Akilesh/lamento%20landing.png",
   },  
 ];
