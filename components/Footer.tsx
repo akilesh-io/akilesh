@@ -1,12 +1,16 @@
+import { useRouter } from 'next/router';
 import SubstackWidget from "@/components/SubstackWidget";
 
 export const Footer = () => {
+  const router = useRouter();
+  const showSubstackWidget = router.pathname !== '/work';
+
   return (
     // fit to the bottom
     <footer className="text-center">
       <div>
-        <div className="col-span-2 m-8 xl:mt-0">
-          <SubstackWidget />
+        <div className="col-span-2 m-4 xl:mt-0">
+          {showSubstackWidget && <SubstackWidget />}
         </div>
       </div>
 

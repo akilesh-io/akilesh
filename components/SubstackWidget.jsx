@@ -10,11 +10,10 @@ const SubstackWidget = () => {
       theme: "custom",
       colors: {
         primary: "#FFFFFF",
-        input: "#000000",
+        input: "#334155",
         email: "#FFFFFF",
         text: "#000000",
       },
-      // Go to substackapi.com to unlock custom redirect
     };
 
     // Create a new script element
