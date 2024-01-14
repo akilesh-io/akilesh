@@ -87,7 +87,7 @@ const works = [
     title: "Lamento",
     description:
       "Notion as CMS",
-    link: "https://www.lamento.in/",
+    link: "https://app.lamento.in/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1702915379/Akilesh/lamento%20landing.png",
   },  
