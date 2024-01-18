@@ -84,6 +84,14 @@ const works = [
       "https://res.cloudinary.com/davkfrmah/image/upload/c_scale,q_75,w_659/v1693820228/Akilesh/2050%20Technologies.jpg",
   },  
   {
+    title: "ACT",
+    description:
+      "ACT creative web design agency based in India that crafts beautiful and original websites ",
+    link: "https://akictech.in/",
+    image:
+      "https://res.cloudinary.com/davkfrmah/image/upload/v1705562847/Akilesh/act.png",
+  },
+  {
     title: "Filmingo",
     description:
       "Filmingo is an innovative and immersive movie-watching application.",
