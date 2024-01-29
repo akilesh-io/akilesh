@@ -9,7 +9,7 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <Navbar />
-      <main className="flex flex-col mx-auto max-w-4xl justify-center px-4 place-items-center grid">
+      <main className=" mx-auto max-w-4xl justify-center px-4 place-items-center grid">
         {children}
       </main>
       <Footer />
