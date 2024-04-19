@@ -67,7 +67,7 @@ export const Navbar = () => {
                 Work
               </Link>
               <Link
-                  href="https://store.akilesh.io/"
+                  href="https://store.akilesh.in/"
                   passHref
                   className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center "
               >
@@ -113,7 +113,7 @@ export const Navbar = () => {
               </Link>
 
               <Link
-                  href="https://store.akilesh.io/"
+                  href="https://store.akilesh.in/"
                   passHref
                   className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
               >

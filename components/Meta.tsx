@@ -7,11 +7,11 @@ export default function Meta() {
       <NextSeo
         title="Hello there 👋 Akilesh here"
         description= "A indie developer who occasionally writes .."
-        canonical="https://www.akilesh.io/"
+        canonical="https://www.akilesh.in/"
         openGraph={{
           type: "website",
           locale: "en_IE",
-          url: "https://www.akilesh.io/",
+          url: "https://www.akilesh.in/",
           siteName: "Akilesh_io",
           title: "Akilesh io",
           description:
