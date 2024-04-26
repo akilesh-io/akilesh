@@ -17,7 +17,7 @@ const nextConfig = {
   },
   rewrites: async () => [
     {
-      source: "/blog/:subdir*",
+      source: "/limeblog/:subdir*",
       destination: "https://blog.akilesh.in/:subdir*",
     },
     { source: "/(.*)", destination: "/" },
