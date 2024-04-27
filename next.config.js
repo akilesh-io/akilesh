@@ -18,12 +18,12 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/blog/:path*/",
-        destination: "https://akilesh.lamento.in/:path*/",
+        source: "/blogs/:path*/",
+        destination: "https://blog.akilesh.in/:path*/",
       },
       {
-        source: "/blog/:path*",
-        destination: "https://akilesh.lamento.in/:path*",
+        source: "/blogs/:path*",
+        destination: "https://blog.akilesh.in/:path*",
       },
       {
         source: "/api/:path*",
@@ -41,7 +41,7 @@ const nextConfig = {
     return [
       {
         source: "/blog/:path*",
-        headers: [{ key: "x-forwarded-host", value: "your-custom-domain.com" }],
+        headers: [{ key: "x-forwarded-host", value: "akilesh.lamento.in" }],
       },
     ];
   },
