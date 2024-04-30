@@ -15,7 +15,6 @@ const nextConfig = {
       "img.icons8.com",
     ],
   },
-  trailingSlash: true,
   async rewrites() {
     return [
       {
