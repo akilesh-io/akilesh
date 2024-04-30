@@ -15,15 +15,16 @@ const nextConfig = {
       "img.icons8.com",
     ],
   },
+  trailingSlash: true,
   async rewrites() {
     return [
       {
         source: "/blogs/:path*/",
-        destination: "https://blog.akilesh.in/:path*/",
+        destination: "https://akilesh.lamento.in/:path*/",
       },
       {
         source: "/blogs/:path*",
-        destination: "https://blog.akilesh.in/:path*",
+        destination: "https://akilesh.lamento.in/:path*",
       },
       {
         source: "/api/:path*",
@@ -40,7 +41,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/blog/:path*",
+        source: "/blogs/:path*",
         headers: [{ key: "x-forwarded-host", value: "akilesh.lamento.in" }],
       },
     ];
