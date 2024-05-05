@@ -1,7 +1,7 @@
 import "styles/globals.css";
 import type { AppProps } from "next/app";
 import Meta from "@/components/Meta";
-import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
 import { PT_Serif, Open_Sans } from "next/font/google";
@@ -24,13 +24,13 @@ const ptSerif = PT_Serif({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-    <Meta />
+      <Meta />
       <ThemeProvider attribute="class">
         <main className={`${openSans.variable} ${ptSerif.variable} font-sans`}>
           <Component {...pageProps} />
         </main>
       </ThemeProvider>
-      <Analytics />
+      <GoogleAnalytics gaId="G-N23NY12Z30" />
     </>
   );
 }

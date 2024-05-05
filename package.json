@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^14.2.3",
     "@notionhq/client": "^2.2.5",
     "@tailwindcss/typography": "tailwindcss/typography",
-    "@vercel/analytics": "^1.0.1",
     "@vercel/postgres": "^0.3.0",
     "copy-to-clipboard": "^3.3.3",
     "framer-motion": "^10.12.17",
