@@ -1,10 +1,11 @@
 import "styles/globals.css";
 import type { AppProps } from "next/app";
 import Meta from "@/components/Meta";
-import { GoogleAnalytics } from '@next/third-parties/google'
 import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
 import { PT_Serif, Open_Sans } from "next/font/google";
+import { GoogleAnalytics } from '@next/third-parties/google'
+import MicrosoftClarity from "@/components/MicrosoftClarity";
 
 // core styles shared by all of react-notion-x (required)
 import "react-notion-x/src/styles.css";
@@ -30,7 +31,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </main>
       </ThemeProvider>
+
+      {/* Analytics */}
       <GoogleAnalytics gaId="G-N23NY12Z30" />
+      <MicrosoftClarity />
     </>
   );
 }
