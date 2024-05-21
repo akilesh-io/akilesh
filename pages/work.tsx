@@ -95,7 +95,7 @@ const works = [
     title: "Filmingo",
     description:
       "Filmingo is an innovative and immersive movie-watching application.",
-    link: "https://filmingo.us/",
+    link: "https://filmingo.akilesh.in/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1686146984/Filmingo/temp_film_bvuced.jpg",
   },
