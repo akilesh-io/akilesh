@@ -1,34 +1,55 @@
-import Image from "next/image"
-import Link from "next/link";
+
+import styles from "@/styles/404.module.css";
+import { gsap } from "gsap";
+import Burger404 from "@/components/Burger404";
+import Solo404 from "@/components/Solo404";
+import { MorphingCircle } from "@/components/MorphingCircle";
+import { useEffect } from "react";
 
 export default function Custom404() {
-    return <>
-        <div className="lg:px-24 lg:py-24 md:py-20 md:px-44 px-4 py-24 items-center flex justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16">
-            <div className="xl:pt-24 w-full xl:w-1/2 relative pb-12 lg:pb-0">
-                <div className="relative">
-                    <div className="absolute">
-                        <div className="">
-                            <h1 className="my-2 text-gray-800 font-bold text-2xl">
-                                Looks like you&#39;ve found the
-                                doorway to the great nothing
-                            </h1>
-                            <p className="my-2 text-gray-800">Sorry about that! Please visit my hompage to get where you need to go.</p>
-                            <Link href="/" passHref>
 
-                                <button className="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50">Take me there!</button>
 
-                            </Link>
-                        </div>
+    useEffect(() => {
+        const tl = gsap.timeline();
+        tl.from(".notFound span, .logo", {
+            duration: 0.8,
+            stagger: {
+                amount: 0.7,
+            },
+            y: 200,
+            skewY: 10,
+            opacity: 0,
+        });
+        tl.from(".home-btn", {
+            scale: 0,
+            duration: 0.5,
+            stagger: {
+                amount: 0.6,
+            },
+        }, "-=.4");
+    }, []);
+
+    return (
+        // <div className=" mx-auto max-w-4xl justify-center px-4 place-items-center grid">
+        <div className=" mx-auto h-screen justify-center px-4 grid">
+
+            <div className="flex-wrap flex flex-col sm:flex-row sm:justify-center items-center  mx-0 my-auto font-bigilla">
+                <div className="flex flex-col sm:flex-row items-center ">
+                    <div className="text-center sm:text-start flex flex-col w-7/10 relative order-1 m-16 overflow-visible">
+                        <span className="sm:text-9xl text-8xl leading-[89%] text-gray-200 font-bold overflow-hidden">PAGE</span>
+                        <span className="sm:text-9xl text-8xl leading-[89%] text-gray-200 font-bold overflow-hidden ">
+                            <div className="inline-block w-max sm:text-9xl text-8xl text-center py-2 my-2 px-12 mr-5 rounded-full border-2 border-yellow-600">404</div>
+                            NOT
+                        </span>
+                        <span className="sm:text-9xl text-8xl leading-[89%] text-gray-200 font-bold overflow-hidden">FOUND</span>
                     </div>
-                    <div>
-                        <img src="https://res.cloudinary.com/davkfrmah/image/upload/v1684478940/Akilesh/404.png" alt="404" />
-                    </div>
+                    {/* <Solo404 /> */}
+
                 </div>
-            </div>
-            <div className="hidden lg:block lg:w-1/2 relative">
-                {/* <Image src={me} /> */}
-                <img src="https://res.cloudinary.com/davkfrmah/image/upload/v1684478941/Akilesh/Group.png" alt="Group" />
+                {/* <Burger404 /> */}
+                <MorphingCircle />
+
             </div>
         </div>
-    </>;
+    )
 }
