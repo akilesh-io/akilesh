@@ -39,6 +39,7 @@ module.exports = {
       fontFamily: {
         openSans: [ 'var(--font-open-sans)' ],
         ptSerif: [ 'var(--font-pt-serif)' ],
+        bigilla: [ 'var(--font-bigilla)' ],
         fancy: ['Sriracha']
       },
     },

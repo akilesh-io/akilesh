@@ -21,13 +21,17 @@ const ptSerif = PT_Serif({
   subsets: ["latin"],
   variable: "--font-pt-serif",
 });
+const bigilla = localFont({ 
+  src: '../public/fonts/Bigilla.otf',
+  variable: '--font-bigilla'
+ })
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Meta />
       <ThemeProvider attribute="class">
-        <main className={`${openSans.variable} ${ptSerif.variable} font-sans`}>
+        <main className={`${openSans.variable} ${ptSerif.variable} font-sans ${bigilla.variable}`}>
           <Component {...pageProps} />
         </main>
       </ThemeProvider>
