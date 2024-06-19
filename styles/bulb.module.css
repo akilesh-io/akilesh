@@ -1,0 +1,96 @@
+  .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* height: 100vh; */
+      cursor: pointer;
+  }
+
+  .wire {
+
+      position: absolute;
+      left: calc(50% - 2px);
+      bottom: 50%;
+      width: 4px;
+      height: 232px;
+      background: #ffd37b78;
+      z-index: 1;
+  }
+
+  .bulb {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      background: #9ca3af;
+      border-radius: 50%;
+      z-index: 2;
+  }
+
+  .bulb:before {
+      content: "";
+      position: absolute;
+      left: 22.5px;
+      top: -50px;
+      width: 35px;
+      height: 80px;
+      background: #9ca3af;
+      border-top: 30px solid #111827;
+      border-radius: 10px;
+  }
+
+  .on .bulb::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      background: #FFD580;
+      border-radius: 50%;
+      filter: blur(40px);
+  }
+
+  .on .bulb {
+      background-color: #FFD580;
+      box-shadow: 0 0 50px #FFD580, 0 0 100px #FFD580, 0 0 150px #FFD580, 0 0 200px #FFD580,
+          0 0 250px #FFD580, 0 0 300px #FFD580, 0 0 350px #FFD580;
+  }
+
+  .on .bulb::before {
+      background: #FFD580;
+  }
+
+  .on .bulb span:nth-child(1) {
+      box-shadow: 20px 20px 0 10px #FFD580;
+  }
+
+  .on .bulb span:nth-child(2) {
+      box-shadow: -20px 20px 0 10px #FFD580;
+  }
+
+  .bulb span:nth-child(1) {
+      position: absolute;
+      top: -16px;
+      left: -4px;
+      display: block;
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      transform: rotate(342deg);
+      border-bottom-right-radius: 40px;
+      box-shadow: 20px 20px 0 10px #9ca3af;
+  }
+
+  .bulb span:nth-child(2) {
+      position: absolute;
+      top: -16px;
+      right: -4px;
+      display: block;
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      transform: rotate(17deg);
+      border-bottom-left-radius: 40px;
+      box-shadow: -20px 20px 0 10px #9ca3af;
+  }

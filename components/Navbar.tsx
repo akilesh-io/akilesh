@@ -2,6 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import Bulb from "@/components/Bulb";
 
 export const Navbar = () => {
   const [active, setActive] = useState(false);
@@ -13,8 +14,8 @@ export const Navbar = () => {
 
   return (
     <>
-      <div className="container mx-auto max-w-5xl mt-6 px-7">
-        <nav className="flex items-center flex-wrap lg:p-0   dark:bg-gradient-to-br dark:from-slate-300 dark:via-cyan-100 dark:to-lime-100 rounded-md  bg-neutral-200">
+      <div className="container max-w-5xl px-7 mx-auto mt-6 relative ">
+        <nav className="flex items-center flex-wrap lg:p-0  dark:bg-gradient-to-br dark:from-slate-300 dark:via-cyan-100 dark:to-lime-100 rounded-md  bg-neutral-200">
           <Link href="/" passHref>
             <Image
               src="https://img.icons8.com/doodle/48/iceberg.pnghttps://img.icons8.com/doodle/48/iceberg.png"
@@ -48,9 +49,8 @@ export const Navbar = () => {
           </div>
 
           <div
-            className={`${
-              active ? "slide-in" : "slide-out"
-            } w-full lg:inline-flex lg:flex-grow lg:w-auto `}
+            className={`${active ? "slide-in" : "slide-out"
+              } w-full lg:inline-flex lg:flex-grow lg:w-auto `}
           >
             <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto pt-1 lg:pt-0 lg:mr-5">
               <Link
@@ -67,9 +67,9 @@ export const Navbar = () => {
                 Work
               </Link>
               <Link
-                  href="https://store.akilesh.in/"
-                  passHref
-                  className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center "
+                href="https://store.akilesh.in/"
+                passHref
+                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center "
               >
                 Store
               </Link>
@@ -113,9 +113,9 @@ export const Navbar = () => {
               </Link>
 
               <Link
-                  href="https://store.akilesh.in/"
-                  passHref
-                  className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
+                href="https://store.akilesh.in/"
+                passHref
+                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
               >
                 Store
               </Link>
@@ -142,6 +142,9 @@ export const Navbar = () => {
             </div>
           </div>
         </nav>
+        <div className="absolute top-0 right-0 mt-60 mr-4 hidden lg:block">
+          <Bulb />
+        </div>
       </div>
       <style jsx>{`
         .slide-in {
