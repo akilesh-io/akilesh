@@ -2,7 +2,6 @@
 import styles from "@/styles/404.module.css";
 import { gsap } from "gsap";
 import Burger404 from "@/components/Burger404";
-// import Solo404 from "@/components/Solo404";
 import { MorphingCircle } from "@/components/MorphingCircle";
 import { useEffect } from "react";
 
@@ -43,7 +42,6 @@ export default function Custom404() {
                         </span>
                         <span className="sm:text-9xl text-8xl leading-[89%] text-gray-200 font-bold overflow-hidden">FOUND</span>
                     </div>
-                    {/* <Solo404 /> */}
 
                 </div>
                 {/* <Burger404 /> */}
