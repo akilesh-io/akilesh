@@ -3,10 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import Bulb from "@/components/Bulb";
+import { useRouter } from 'next/router';
 
 export const Navbar = () => {
   const [active, setActive] = useState(false);
   const { theme, setTheme } = useTheme();
+  const router = useRouter();
+  const showBulb = router.pathname == '/';
 
   const handleClick = () => {
     setActive(!active);
@@ -143,7 +146,7 @@ export const Navbar = () => {
           </div>
         </nav>
         <div className="absolute top-0 right-0 mt-60 mr-4 hidden lg:block">
-          <Bulb />
+          {showBulb && <Bulb />}
         </div>
       </div>
       <style jsx>{`
