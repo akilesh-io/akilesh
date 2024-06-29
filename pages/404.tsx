@@ -29,7 +29,6 @@ export default function Custom404() {
     }, []);
 
     return (
-        // <div className=" mx-auto max-w-4xl justify-center px-4 place-items-center grid">
         <div className=" mx-auto h-screen justify-center px-4 grid">
 
             <div className="flex-wrap flex flex-col sm:flex-row sm:justify-center items-center  mx-0 my-auto font-bigilla">
