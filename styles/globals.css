@@ -6,3 +6,39 @@
     margin: 0;
     padding: 0;
 }
+
+
+.bg {
+    width: 300%;
+    height: 300%;
+    max-width: none;
+    background-image: url(../public/images/Grain.png);
+    background-position: 50%;
+    background-size: 256px;
+    flex: none;
+    position: fixed;
+    top: -150%;
+    bottom: 0%;
+    left: -150%;
+    right: 0%; 
+	animation: bg-animation 2s steps(1) infinite;
+   
+    /* background: transparent url('https://assets-global.website-files.com/60db5e59f76ae577e9f50d42/60e488bfc45685c61a395120_Grain.png') repeat 0 0;
+    background-repeat: repeat;
+    opacity: .9;
+    visibility: visible;  */
+}
+
+@keyframes bg-animation {
+    0% { background-position: 0 0; }
+    10% { background-position: -5% -10%; }
+    20% { background-position: -15% 5%; }
+    30% { background-position: 7% -25%; }
+    40% { background-position: 20% 25%; }
+    50% { background-position: -25% 15%; }
+    60% { background-position: 15% 5%; }
+    70% { background-position: 0% 15%; }
+    80% { background-position: 25% 35%; }
+    90% { background-position: -10% 10%; }
+    100% { background-position: 0 0; }
+}

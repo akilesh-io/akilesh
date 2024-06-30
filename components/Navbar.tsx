@@ -18,7 +18,8 @@ export const Navbar = () => {
   return (
     <>
       <div className="container max-w-5xl px-7 mx-auto mt-6 relative ">
-        <nav className="flex items-center flex-wrap lg:p-0  dark:bg-gradient-to-br dark:from-slate-300 dark:via-cyan-100 dark:to-lime-100 rounded-md  bg-neutral-200">
+        {/* <nav className="flex items-center flex-wrap lg:p-0  dark:bg-gradient-to-br dark:from-slate-300 dark:via-cyan-100 dark:to-lime-100 rounded-md  bg-neutral-200"> */}
+        <nav className="flex items-center flex-wrap lg:p-0 rounded-md dark:bg-[#e8e5f0] ">
           <Link href="/" passHref>
             <Image
               src="https://img.icons8.com/doodle/48/iceberg.pnghttps://img.icons8.com/doodle/48/iceberg.png"
@@ -69,13 +70,13 @@ export const Navbar = () => {
               >
                 Work
               </Link>
-              <Link
+              {/* <Link
                 href="https://store.akilesh.in/"
                 passHref
                 className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center "
               >
                 Store
-              </Link>
+              </Link> */}
               <button
                 className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -115,13 +116,13 @@ export const Navbar = () => {
                 Work
               </Link>
 
-              <Link
+              {/* <Link
                 href="https://store.akilesh.in/"
                 passHref
                 className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
               >
                 Store
-              </Link>
+              </Link> */}
 
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}

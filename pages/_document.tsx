@@ -1,15 +1,20 @@
-import { Head, Html, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
-export default function Document(props) {
-  return (
-    <Html lang="en">
-      <Head>
+class MyDocument extends Document {
+  render() {
+    return (
+      <Html lang="en">
+        <Head>
 
-      </Head>
-      <body className="prose-headings:font-headings dark:bg-gray-800">
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  );
+        </Head>
+        <body className="prose-headings:font-headings dark:bg-[#0e1012]">
+          <div className='bg'></div>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
 }
+
+export default MyDocument;
