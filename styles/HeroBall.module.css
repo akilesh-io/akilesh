@@ -1,0 +1,115 @@
+.content {
+    position: relative;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.content--fixed {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    display: grid;
+    align-content: space-between;
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    height: 100vh;
+    padding: 1.5em;
+    pointer-events: none;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto 4em;
+    grid-template-areas: 'header ...'
+        '... ...'
+        'github demos';
+}
+
+
+.scene {
+    position: absolute;
+}
+
+.scene--left {
+    width: 100vmin;
+    height: 100vmin;
+    transform: translate3d(-50vmin, 0, 0);
+}
+
+.scene--full {
+    width: 100%;
+    height: 100vh;
+}
+
+.scene--up {
+    height: 150vmin;
+    width: 150vmin;
+    top: -50vh;
+    left: 50%;
+    margin-left: -75vmin;
+}
+
+.content__inner {
+    grid-area: 1 / 1 / 1 / 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+
+
+
+.demo-3 {
+    --color-text: #fff;
+    --color-bg: #A9E7DA;
+    --color-link: #523bdc;
+    --color-link-hover: #fff;
+    --color-title: #fff;
+}
+
+.content__title {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.025em;
+    font-size: 7vw;
+    color: var(--color-title);
+    line-height: 1;
+    margin: 0;
+    position: relative;
+}
+
+.content__title::before,
+.content__title::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    background: url(../public/images/dot.png);
+    background-size: 25px;
+    opacity: 0.4;
+}
+
+.content__title::before {
+    top: 120%;
+    right: 81%;
+}
+
+.content__title::after {
+    bottom: 120%;
+    left: 81%;
+}
+
+@media screen and (max-width: 55em) {
+
+    .content__title::before,
+    .content__title::after {
+        width: 50px;
+        height: 100px;
+        background-size: 12px;
+    }
+}

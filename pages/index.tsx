@@ -5,6 +5,8 @@ import Lottie from "lottie-react";
 import spaceGuy from "@/public/animation/space-guy.json";
 import walkMan from "@/public/animation/walk-man.json";
 import Layout from "layout/Layout";
+import Marquee from "@/components/Marquee";
+import HeroBall from "@/components/HeroBall";
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +14,7 @@ const Home: NextPage = () => {
       <Layout>
         <Head>
           <title>Akilesh</title>
-          <meta name="description" content="Hello There :)" />
+          <meta name="description" content="akilesh io" />
           <link rel="icon" href="/favicon.png" />
         </Head>
 
@@ -27,7 +29,6 @@ const Home: NextPage = () => {
               Akilesh !!
             </a>
           </h1>
-          {/* place it in center and size it according ly to the screen size */}
           <div className="flex justify-center -mt-10 md:-mt-20">
             <Lottie
               animationData={spaceGuy}
@@ -35,6 +36,9 @@ const Home: NextPage = () => {
             />
           </div>
         </div>
+        <Marquee />
+        <HeroBall />
+
       </Layout>
     </div>
   );
