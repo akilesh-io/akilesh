@@ -9,6 +9,9 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
+    colors: {
+      pelagos : "#0e1012",
+      paper: "#e8e5f0",
     typography: (theme) => ({
       DEFAULT: {
         css: {
