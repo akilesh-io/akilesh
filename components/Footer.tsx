@@ -1,24 +1,49 @@
 import { useRouter } from 'next/router';
 import SubstackWidget from "@/components/SubstackWidget";
+import SlidingText from "@/components/SlidingText";
+import React, { useState, useEffect } from 'react';
 
 export const Footer = () => {
   const router = useRouter();
-  const showSubstackWidget = router.pathname !== '/work';
+  const workPath = router.pathname !== '/work';
+  const emojis = ['💙', '🌠', '💠', '🧙', '🔮'];
+  // State to keep track of the current emoji index
+  const [currentEmojiIndex, setCurrentEmojiIndex] = useState(0);
+
+  useEffect(() => {
+    // Set up an interval to change the emoji every 2 seconds (2000 milliseconds)
+    const intervalId = setInterval(() => {
+      setCurrentEmojiIndex((prevIndex) => (prevIndex + 1) % emojis.length);
+    }, 1500);
+
+    // Clear the interval when the component unmounts
+    return () => clearInterval(intervalId);
+  }, []); // Empty dependency array means this effect runs once on mount
+
+
 
   return (
-    // fit to the bottom
-    <footer className="text-center">
+    <footer className="max-w-2xl mx-auto relative text-center border-2 border-dashed rounded-t-2xl border-gray-200 border-b-0 py-4 bg-[#e8e5f0]/30 dark:bg-[#27272a]/70 ">
       <div>
         <div className="col-span-2 m-4 xl:mt-0">
-          {showSubstackWidget && <SubstackWidget />}
+          {workPath && <SubstackWidget />}
         </div>
       </div>
 
       <div className="text-center text-gray-700 dark:text-gray-100 bg-black/0.25 font-mono text-sm md:text-base">
-        Crafted with 💙 by Akilesh
+        <div className="text-center text-gray-700 dark:text-gray-100 bg-black/0.25 font-mono text-sm md:text-base">
+
+          {workPath ? `Crafted with ${emojis[currentEmojiIndex]} by Akilesh` : <>
+            <div className='flex justify-center '>
+              {/* items-end */}
+              <SlidingText text="Foreground Midground Background" />
+              , Is My Design Philosophy
+            </div>
+          </>}
+        </div>
       </div>
 
-      <div className="flex justify-center mb-9 pt-4">
+      <div className={`flex justify-center ${workPath ? 'pt-4' : 'pb-4'}`}>
         {/* Facebook */}
         <a
           target="_blank"
