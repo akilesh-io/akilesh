@@ -19,7 +19,7 @@ export const Navbar = () => {
     <>
       <div className="container max-w-5xl px-7 mx-auto mt-6 relative ">
         {/* <nav className="flex items-center flex-wrap lg:p-0  dark:bg-gradient-to-br dark:from-slate-300 dark:via-cyan-100 dark:to-lime-100 rounded-md  bg-neutral-200"> */}
-        <nav className="flex items-center flex-wrap lg:p-0 rounded-md dark:bg-[#e8e5f0] ">
+        <nav className="flex items-center flex-wrap lg:p-0 rounded-md bg-[#e8e5f0]/30 dark:bg-[#e8e5f0]/70 ">
           <Link href="/" passHref>
             <Image
               src="https://img.icons8.com/doodle/48/iceberg.pnghttps://img.icons8.com/doodle/48/iceberg.png"
