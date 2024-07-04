@@ -1,12 +1,14 @@
 
 import styles from "@/styles/404.module.css";
-import { gsap } from "gsap";
 import Burger404 from "@/components/Burger404";
 import { MorphingCircle } from "@/components/MorphingCircle";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { gsap } from "gsap";
+
+const tossCoin = () => Math.random() >= 0.5;
 
 export default function Custom404() {
-
+    const [coinTossResult, setCoinTossResult] = useState<boolean | null>(null);
 
     useEffect(() => {
         const tl = gsap.timeline();
@@ -26,7 +28,11 @@ export default function Custom404() {
                 amount: 0.6,
             },
         }, "-=.4");
+
+        setCoinTossResult(tossCoin());
     }, []);
+
+
 
     return (
         <div className=" mx-auto h-screen justify-center px-4 grid">
@@ -43,9 +49,13 @@ export default function Custom404() {
                     </div>
 
                 </div>
-                {/* <Burger404 /> */}
-                <MorphingCircle />
-
+                {
+                    coinTossResult ? (
+                        <MorphingCircle />
+                    ) : (
+                        <Burger404 />
+                    )
+                }
             </div>
         </div>
     )

@@ -24,10 +24,10 @@ const MorphingCircle = () => {
             delay: 0,
             easing: 'easeOutElastic',
             elasticity: 400,
-            scaleX: 1,
-            scaleY: 1,
-            translateX: 0,
-            translateY: 0,
+            scalex: 1,
+            scaley: 1,
+            translatex: 0,
+            translatey: 0,
             rotate: 0
         },
         image: {
@@ -35,10 +35,10 @@ const MorphingCircle = () => {
             delay: 0,
             easing: 'easeOutElastic',
             elasticity: 400,
-            scaleX: 1.1,
-            scaleY: 1.1,
-            translateX: 0,
-            translateY: 0,
+            scalex: 1.1,
+            scaley: 1.1,
+            translatex: 0,
+            translatey: 0,
             rotate: 0
         },
         deco: {
@@ -46,10 +46,10 @@ const MorphingCircle = () => {
             delay: 0,
             easing: 'easeOutQuad',
             elasticity: 400,
-            scaleX: 0.9,
-            scaleY: 0.9,
-            translateX: 0,
-            translateY: 0,
+            scalex: 0.9,
+            scaley: 0.9,
+            translatex: 0,
+            translatey: 0,
             rotate: 0
         }
     };
@@ -91,17 +91,15 @@ const MorphingCircle = () => {
             delay: config[targetStr].delay,
             easing: config[targetStr].easing,
             elasticity: config[targetStr].elasticity,
-            scaleX: isActive ? config[targetStr].scaleX : 1,
-            scaleY: isActive ? config[targetStr].scaleY : 1,
-            translateX: isActive ? config[targetStr].translateX : 0,
-            translateY: isActive ? config[targetStr].translateY : 0,
+            scalex: isActive ? config[targetStr].scalex : 1,
+            scaley: isActive ? config[targetStr].scaley : 1,
+            translatex: isActive ? config[targetStr].translatex : 0,
+            translatey: isActive ? config[targetStr].translatey : 0,
             rotate: isActive ? config[targetStr].rotate : 0,
 
         };
         if (targetStr === 'path') {
             animeOpts.d = isActive ? paths.end : paths.start;
-            console.log("asdfasdf" + paths.start)
-
         }
         anime.remove(target);
         return animeOpts;
@@ -140,26 +138,26 @@ const MorphingCircle = () => {
                 data-animation-path-easing="easeInOutCubic"
                 data-path-elasticity="300"
                 data-morph-path="M 189,80.37 C 232.6,46.67 352.5,67.06 350.9,124.1 349.5,173.4 311.7,168 312.4,248.1 312.9,301.1 382.5,319.2 368.5,379.1 349.4,460.6 137.7,467.5 117.6,386.3 98.68,309.7 171.5,292.2 183.6,240.1 195.7,188.2 123.8,130.7 189,80.37 Z"
-                data-path-scaleX="0.8"
-                data-path-scaleY="1.1"
-                data-path-translateX="0"
-                data-path-translateY="30"
+                data-path-scalex="0.8"
+                data-path-scaley="1.1"
+                data-path-translatex="0"
+                data-path-translatey="30"
                 data-path-rotate="5"
                 data-animation-image-duration="800"
                 data-animation-image-easing="easeInOutQuart"
                 data-image-elasticity="300"
-                data-image-scaleX="1.2"
-                data-image-scaleY="1.2"
-                data-image-translateX="-20"
-                data-image-translateY="-45"
+                data-image-scalex="1.2"
+                data-image-scaley="1.2"
+                data-image-translatex="-20"
+                data-image-translatey="-45"
                 data-image-rotate="-5"
                 data-animation-deco-duration="1300"
                 data-animation-deco-easing="easeOutQuad"
                 data-deco-elasticity="300"
-                data-deco-scaleX="0.8"
-                data-deco-scaleY="0.9"
-                data-deco-translateX="-5"
-                data-deco-translateY="-5"
+                data-deco-scalex="0.8"
+                data-deco-scaley="0.9"
+                data-deco-translatex="-5"
+                data-deco-translatey="-5"
                 data-deco-rotate="2"
                 onClick={() => {
                     // Navigate to home
