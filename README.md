@@ -29,6 +29,10 @@ Tools and technologies used in this project :
 - [substack](https://substack.com/) - Newsletter.
 
 
+## Todo
+
+🔲 404 for light theme - https://codepen.io/sfrisk/pen/Kxvbdy
+✅ 404 for Dark theme 
 
 
 Inspired from [this repository ](https://github.com/GLaDO8/nextjs-portfolio.git)
