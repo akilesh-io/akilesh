@@ -10,8 +10,14 @@ module.exports = {
   darkMode: "class",
   theme: {
     colors: {
-      pelagos : "#0e1012",
-      paper: "#e8e5f0",
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: '#0e1012',
+      white: '#e8e5f0',
+      gray: colors.gray,
+      emerald: colors.emerald,
+      indigo: colors.indigo,
+      yellow: colors.yellow,
     },
     typography: (theme) => ({
       DEFAULT: {
