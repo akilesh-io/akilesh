@@ -31,16 +31,13 @@ export const Footer = () => {
       </div>
 
       <div className="text-center text-gray-700 dark:text-gray-100 bg-black/0.25 font-mono text-sm md:text-base">
-        <div className="text-center text-gray-700 dark:text-gray-100 bg-black/0.25 font-mono text-sm md:text-base">
-
-          {workPath ? `Crafted with ${emojis[currentEmojiIndex]} by Akilesh` : <>
-            <div className='flex justify-center '>
-              {/* items-end */}
-              <SlidingText text="Foreground Midground Background" />
-              , Is My Design Philosophy
-            </div>
-          </>}
-        </div>
+        {workPath ? `Crafted with ${emojis[currentEmojiIndex]} by Akilesh` : <>
+          <div className='flex justify-center '>
+            {/* items-end */}
+            <SlidingText text="Foreground Midground Background" />
+            , Is My Design Philosophy
+          </div>
+        </>}
       </div>
 
       <div className={`flex justify-center ${workPath ? 'pt-4' : 'pb-4'}`}>
