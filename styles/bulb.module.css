@@ -11,9 +11,9 @@
       left: calc(50% - 2px);
       bottom: 50%;
       width: 4px;
-      height: 230px;
+      height: 330px;
       background: #111827;
-      z-index: 1;
+      z-index: 2;
   }
 
   .bulb {
@@ -22,7 +22,7 @@
       height: 80px;
       background: #9ca3af;
       border-radius: 50%;
-      z-index: 2;
+      z-index: 3;
   }
 
   .bulb:before {

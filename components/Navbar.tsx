@@ -120,7 +120,7 @@ export const Navbar = () => {
           </div>
         </div>
 
-        <div className="absolute top-0 right-0 mt-60 mr-4 hidden lg:block">
+        <div className="absolute top-0 left-0 m-48 mr-4 hidden lg:block">
           {showBulb && <Bulb />}
         </div>
       </div>
