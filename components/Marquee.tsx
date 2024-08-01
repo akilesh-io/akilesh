@@ -16,8 +16,8 @@ export default function Marquee() {
         <>
             <div className="relative flex justify-center items-center h-36">
 
-                <div className="relative flex overflow-x-hidden rotate-6 bg-[#e8e5f0] text-gray-900">
-                    <div className="flex items-center border-t-4 border-b-4 py-2 animate-marquee whitespace-nowrap">
+                <div className="relative flex rotate-6 bg-[#e8e5f0] text-gray-900">
+                    <div className="flex items-center border-t-4 border-b-4 py-2 animate-marquee whitespace-nowrap bg-[#e8e5f0] text-gray-900">
                         <span className="text-4xl mx-14">akilesh io</span>
                         <StarSvg />
                         <span className="text-4xl mx-14">akilesh io</span>
@@ -30,7 +30,7 @@ export default function Marquee() {
                         <StarSvg />
                     </div>
 
-                    <div className="flex items-center border-t-4 border-b-4 absolute top-0 py-2 animate-marquee2 whitespace-nowrap">
+                    <div className="flex items-center border-t-4 border-b-4 absolute top-0 py-2 animate-marquee2 whitespace-nowrap bg-[#e8e5f0] text-gray-900">
                         <span className="text-4xl mx-14">akilesh io</span>
                         <StarSvg />
                         <span className="text-4xl mx-14">akilesh io</span>
@@ -46,9 +46,7 @@ export default function Marquee() {
 
 
                 <div className="absolute inset-0 flex justify-center items-center z-10">
-
-
-                    <div className="relative flex overflow-x-hidden -rotate-6 bg-[#e8e5f0] dark:bg-[#0e1012] dark:shadow-md">
+                    <div className="relative flex -rotate-6 bg-[#e8e5f0] dark:bg-[#0e1012] dark:shadow-md">
                         <div className="flex items-center border-t-4 border-b-4 py-2 animate-marquee whitespace-nowrap dark:border-[#0e1012]">
                             <span className="text-4xl mx-14">Complete Website</span>
                             <StarSvg />
