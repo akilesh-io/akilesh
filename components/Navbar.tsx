@@ -1,15 +1,25 @@
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import Bulb from "@/components/Bulb";
 import { useRouter } from 'next/router';
+import styles from "@/styles/Nav.module.scss";
+import Magnetic from "@/common/Magnetic";
+import sun from "@/public/images/sun.png";
+import moon from "@/public/images/moon.png";
+import { useEffect, useState } from "react";
 
 export const Navbar = () => {
   const [active, setActive] = useState(false);
   const { theme, setTheme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
+
   const router = useRouter();
   const showBulb = router.pathname == '/';
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleClick = () => {
     setActive(!active);
@@ -17,135 +27,99 @@ export const Navbar = () => {
 
   return (
     <>
-      <div className="container max-w-5xl px-7 mx-auto mt-6 relative ">
-        {/* <nav className="flex items-center flex-wrap lg:p-0  dark:bg-gradient-to-br dark:from-slate-300 dark:via-cyan-100 dark:to-lime-100 rounded-md  bg-neutral-200"> */}
-        <nav className="flex items-center flex-wrap lg:p-0 rounded-md bg-[#e8e5f0]/30 dark:bg-[#e8e5f0]/70 ">
-          <Link href="/" passHref>
-            <Image
-              src="https://img.icons8.com/doodle/48/iceberg.pnghttps://img.icons8.com/doodle/48/iceberg.png"
-              alt="logo"
-              width={48}
-              height={48}
-              className="p-1"
-            />
-          </Link>
+      <div className="container max-w-screen-xl mx-auto mt-6 relative ">
+        <div className={`px-5 ${styles.header} xl:px-0`}>
+          <div className={styles.logo}>
+            <Magnetic>
 
-          <div className="group ml-auto">
-            <button
-              className="inline-flex p-3 rounded lg:hidden text-white "
-              onClick={handleClick}
-            >
-              <svg
-                className="w-6 h-6 text-cyan-900 "
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
+              <Link href="/" passHref>
+                <svg
+                  width="37"
+                  height="26"
+                  viewBox="0 0 37 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ width: "100%", height: "100%", rotate: "90deg", color: "wihte" }}
+                >
+                  <path
+                    d="M10.512 24.84C8.184 24.84 6.24 24.552 4.68 23.976C3.12 23.424 1.944 22.644 1.152 21.636C0.384 20.652 0 19.512 0 18.216C0 17.616 0.132 17.028 0.396 16.452C0.66 15.876 1.068 15.396 1.62 15.012C1.932 14.796 2.268 14.616 2.628 14.472C2.988 14.328 3.456 14.22 4.032 14.148C4.632 14.076 5.412 14.04 6.372 14.04H33.264L33.372 16.632H6.768C6.024 16.632 5.448 16.644 5.04 16.668C4.656 16.692 4.368 16.74 4.176 16.812C3.984 16.884 3.792 16.992 3.6 17.136C3.24 17.424 3.06 17.832 3.06 18.36C3.06 19.536 3.696 20.472 4.968 21.168C6.24 21.864 8.16 22.212 10.728 22.212H11.34C13.764 22.212 15.84 21.924 17.568 21.348C19.32 20.796 20.76 20.028 21.888 19.044C23.04 18.06 23.904 16.944 24.48 15.696L24.624 15.012C24.84 14.412 24.996 13.812 25.092 13.212C25.188 12.588 25.236 11.964 25.236 11.34C25.236 9.948 24.996 8.628 24.516 7.38C24.036 6.132 23.292 5.088 22.284 4.248C21.3 3.384 20.028 2.832 18.468 2.592C18.156 2.544 17.856 2.52 17.568 2.52C17.304 2.496 17.016 2.484 16.704 2.484C15.96 2.484 15.276 2.616 14.652 2.88C14.028 3.144 13.524 3.54 13.14 4.068C12.78 4.596 12.6 5.268 12.6 6.084C12.6 6.972 12.864 7.728 13.392 8.352C13.944 8.952 14.712 9.252 15.696 9.252C16.608 9.252 17.328 8.976 17.856 8.424C18.408 7.848 18.684 7.032 18.684 5.976C18.684 5.184 18.552 4.476 18.288 3.852C18.048 3.204 17.616 2.592 16.992 2.016L19.044 1.404C19.476 1.764 19.872 2.184 20.232 2.664C20.616 3.144 20.916 3.684 21.132 4.284C21.372 4.86 21.492 5.472 21.492 6.12C21.492 6.96 21.36 7.728 21.096 8.424C20.856 9.096 20.484 9.684 19.98 10.188C19.476 10.668 18.852 11.04 18.108 11.304C17.388 11.568 16.56 11.7 15.624 11.7C14.544 11.7 13.56 11.496 12.672 11.088C11.784 10.68 11.076 10.068 10.548 9.252C10.02 8.436 9.756 7.428 9.756 6.228C9.756 4.74 10.104 3.54 10.8 2.628C11.496 1.716 12.396 1.056 13.5 0.648C14.628 0.216 15.816 0 17.064 0C18.912 0 20.532 0.312 21.924 0.936001C23.34 1.56 24.516 2.412 25.452 3.492C26.412 4.572 27.132 5.784 27.612 7.128C28.092 8.472 28.332 9.864 28.332 11.304C28.332 11.952 28.296 12.588 28.224 13.212C28.152 13.812 28.044 14.4 27.9 14.976L27.684 15.768C27.012 17.736 25.884 19.392 24.3 20.736C22.74 22.08 20.844 23.1 18.612 23.796C16.404 24.492 13.956 24.84 11.268 24.84H10.512ZM33.048 25.92V0.432001H36.144V25.92H33.048Z"
+                    fill={isMounted ? (theme === "dark" ? "#e8e5f0" : "#0e1012") : "#0e1012"}
+                  />
+                </svg>
+              </Link>
+            </Magnetic>
           </div>
+          <div className={styles.nav}>
+            <Magnetic>
+              <div className={styles.el}>
+                <Link
+                  href="/blog"
+                  className="dark:white black font-semibold text-lg"
+                >
+                  Blog
+                </Link>
+                <div className={`dark:bg-white bg-black ${styles.indicator}`}></div>
+              </div>
+            </Magnetic>
 
-          <div
-            className={`${active ? "slide-in" : "slide-out"
-              } w-full lg:inline-flex lg:flex-grow lg:w-auto `}
-          >
-            <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto pt-1 lg:pt-0 lg:mr-5">
-              <Link
-                href="/blog"
-                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center "
-              >
-                Blog
-              </Link>
-              <Link
-                href="/work"
-                passHref
-                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center "
-              >
-                Work
-              </Link>
-              {/* <Link
-                href="https://store.akilesh.in/"
-                passHref
-                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center "
-              >
-                Store
-              </Link> */}
-              <button
-                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center"
+            <Magnetic>
+              <div className={styles.el}>
+                <Link
+                  href="/work"
+                  className="dark:white black font-semibold text-lg"
+                >
+                  Work
+                </Link>
+                <div className={`dark:bg-white bg-black ${styles.indicator}`}></div>
+              </div>
+            </Magnetic>
+            {/* <Magnetic>
+              <div className={styles.el}>
+                <Link
+                  href="https://store.akilesh.in/"
+                  passHref
+                  target="_blank"
+                  className="dark:white black"
+                >
+                  Store
+                </Link>
+                <div className={styles.indicator}></div>
+              </div>
+            </Magnetic> */}
+            <Magnetic>
+              <div
+                className="flex flex-col relative z-10 py-4 pl-3"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               >
-                {theme === "dark" ? (
-                  <Image
-                    src="https://img.icons8.com/pulsar-color/48/sun.png"
-                    alt="sun"
-                    width={24}
-                    height={24}
-                  />
+                {isMounted ? (
+                  theme === "dark" ? (
+                    <Image
+                      // src="https://img.icons8.com/pulsar-color/48/sun.png"
+                      src={sun}
+                      alt="sun"
+                      width={37}
+                    />
+                  ) : (
+                    <Image
+                      // src="https://img.icons8.com/pulsar-color/48/crescent-moon.png"
+                      src={moon}
+                      alt="moon"
+                      width={28}
+                    />
+                  )
                 ) : (
                   <Image
-                    src="https://img.icons8.com/pulsar-color/48/crescent-moon.png"
-                    alt="moon"
-                    width={24}
-                    height={24}
-                  />
-                )}
-              </button>
-            </div>
-          </div>
-
-          <div className="hidden w-full lg:inline-flex lg:flex-grow lg:w-auto ">
-            <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto pt-6 lg:pt-0 lg:mr-5">
-              <Link
-                href="/blog"
-                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
-              >
-                Blog
-              </Link>
-              <Link
-                href="/work"
-                passHref
-                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
-              >
-                Work
-              </Link>
-
-              {/* <Link
-                href="https://store.akilesh.in/"
-                passHref
-                className="lg:inline-flex lg:w-auto lg:mr-5 w-full px-3 py-2 rounded text-gray-700 font-bold items-center justify-center hover:bg-white"
-              >
-                Store
-              </Link> */}
-
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              >
-                {theme === "dark" ? (
-                  <Image
-                    src="https://img.icons8.com/pulsar-color/48/sun.png"
+                    // src="https://img.icons8.com/pulsar-color/48/sun.png"
+                    src={sun}
                     alt="sun"
-                    width={24}
-                    height={24}
-                  />
-                ) : (
-                  <Image
-                    src="https://img.icons8.com/pulsar-color/48/crescent-moon.png"
-                    alt="moon"
-                    width={24}
-                    height={24}
+                    width={37}
                   />
                 )}
-              </button>
-            </div>
+              </div>
+            </Magnetic>
           </div>
-        </nav>
+        </div>
+
         <div className="absolute top-0 right-0 mt-60 mr-4 hidden lg:block">
           {showBulb && <Bulb />}
         </div>

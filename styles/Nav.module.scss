@@ -1,0 +1,46 @@
+.header{
+    display: flex;
+    z-index: 1;
+    top: 0;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 300;
+    box-sizing: border-box;
+    align-items: center;
+    .logo{
+        display: flex;
+        cursor: pointer;
+        p{
+            margin: 0px;
+            transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+    }
+    .nav{
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        .el{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+            padding: 15px;
+            cursor: pointer;
+            &:hover{
+                .indicator{
+                    transform: scale(1);
+                }
+            }
+            .indicator{
+                position: absolute;
+                width: 5px;
+                height: 5px;
+                top: 45px;
+                left: 50%;
+                border-radius: 50%;
+                transform: scale(0) translateX(-50%);
+                transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+            }
+        }
+    } 
+}
