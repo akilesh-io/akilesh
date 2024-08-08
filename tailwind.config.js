@@ -9,16 +9,6 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      black: '#0e1012',
-      white: '#e8e5f0',
-      gray: colors.gray,
-      emerald: colors.emerald,
-      indigo: colors.indigo,
-      yellow: colors.yellow,
-    },
     typography: (theme) => ({
       DEFAULT: {
         css: {
@@ -45,6 +35,16 @@ module.exports = {
       },
     }),
     extend: {
+      colors: {
+        transparent: "transparent",
+        current: "currentColor",
+        black: "#0e1012",
+        white: "#e8e5f0",
+        gray: colors.gray,
+        emerald: colors.emerald,
+        indigo: colors.indigo,
+        yellow: colors.yellow,
+      },
       animation: {
         marquee: "marquee 25s linear infinite",
         marquee2: "marquee2 25s linear infinite",
