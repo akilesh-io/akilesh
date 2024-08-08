@@ -15,27 +15,40 @@ const nextConfig = {
       "img.icons8.com",
     ],
   },
+  // assetPrefix: 'https://akilesh.lamento.in/',
   async rewrites() {
-    return [
-      {
-        source: "/blogs/:path*/",
-        destination: "https://akilesh.lamento.in/:path*/",
-      },
-      {
-        source: "/blogs/:path*",
-        destination: "https://akilesh.lamento.in/:path*",
-      },
-      {
-        source: "/api/:path*",
-        has: [
-          {
-            type: "header",
-            key: "Access-Control-Allow-Origin",
-          },
-        ],
-        destination: "http://localhost:3000/api/:path*",
-      },
-    ];
+    return {
+      beforeFiles: [
+        {
+          source: "/docs/:path*",
+          destination: "https://docs.lamento.in/:path*",
+        },
+      ],
+      fallback: [
+        // {
+        //   source: "/blogs/:path*/",
+        //   destination: "https://akilesh.lamento.in/:path*/",
+        // },
+        {
+          source: "/blogs/:path*",
+          destination: "https://akilesh.lamento.in/:path*",
+        },
+        // {
+        //   source: "/:path*",
+        //   destination: "https://akilesh.lamento.in/:path*",
+        // },
+        {
+          source: "/api/:path*",
+          has: [
+            {
+              type: "header",
+              key: "Access-Control-Allow-Origin",
+            },
+          ],
+          destination: "http://localhost:3000/api/:path*",
+        },
+      ],
+    };
   },
   async headers() {
     return [
