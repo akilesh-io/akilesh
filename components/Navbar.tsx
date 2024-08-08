@@ -27,11 +27,10 @@ export const Navbar = () => {
 
   return (
     <>
-      <div className="container mx-auto px-4 max-w-screen-xl mt-6 relative">
+      <div className="container mx-auto px-4 max-w-screen-xl mt-6 relative flex flex-col items-center justify-center">
         <div className={`px-5 ${styles.header} xl:px-0`}>
           <div className={styles.logo}>
             <Magnetic>
-
               <Link href="/" passHref>
                 <svg
                   width="37"
@@ -122,6 +121,14 @@ export const Navbar = () => {
 
         <div className="absolute top-0 left-0 m-48 mr-4 hidden lg:block">
           {showBulb && <Bulb />}
+        </div>
+
+        {/* Gradients */}
+        <div className="w-[40rem] relative my-2 block md:hidden scale-67.5">
+          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-blue-500 dark:via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-blue-500 dark:via-indigo-500 to-transparent h-px w-3/4" />
+          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-violet-500 dark:via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-violet-500 dark:via-sky-500 to-transparent h-px w-1/4" />
         </div>
       </div>
       <style jsx>{`

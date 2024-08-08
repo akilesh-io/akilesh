@@ -35,6 +35,9 @@ module.exports = {
       },
     }),
     extend: {
+      scale: {
+        '67.5': '0.675', // 100% - 32.5% = 67.5%
+      },
       colors: {
         transparent: "transparent",
         current: "currentColor",
