@@ -27,7 +27,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <div className="container max-w-screen-xl mx-auto mt-6 relative ">
+      <div className="container mx-auto px-4 max-w-screen-xl mt-6 relative">
         <div className={`px-5 ${styles.header} xl:px-0`}>
           <div className={styles.logo}>
             <Magnetic>
