@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Layout from "layout/Layout";
 import Head from "next/head";
-import Card from "@/components/Card";
+import { HoverEffect } from "@/components/Card";
 
 export default function Work() {
   return (
@@ -20,16 +20,9 @@ export default function Work() {
           Some Of My Finest Works
         </span>
       </h1>
-      <div className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:px-0">
-        {works.map(({ title, description, link, image }) => (
-          <Card
-            key={title}
-            title={title}
-            description={description}
-            link={link}
-            image={image}
-          />
-        ))}
+
+      <div className="my-10 grid w-full max-w-screen-xl mx-auto animate-fade-up px-5 xl:px-0">
+        <HoverEffect items={projects} />
       </div>
       <div className="fixed bottom-0 right-0 mb-4 mr-4 z-10">
         <Link
@@ -51,7 +44,8 @@ export default function Work() {
   );
 }
 
-const works = [
+
+export const projects = [
   {
     title: "Livestorm control",
     description:
@@ -73,7 +67,7 @@ const works = [
     description: "Landing Page based on Gym and Fitness ",
     link: "https://www.thebossgym.in/",
     image:
-      "https://res.cloudinary.com/davkfrmah/image/upload/v1693840960/Akilesh/the%20boss%20gym.jpg",
+      "https://res.cloudinary.com/davkfrmah/image/upload/v1723204796/boss.png",
   },
   {
     title: "2050 Technologies",
@@ -96,6 +90,13 @@ const works = [
       "Filmingo is an innovative and immersive movie-watching application.",
     link: "https://filmingo.akilesh.in/",
     image:
-      "https://res.cloudinary.com/davkfrmah/image/upload/v1686146984/Filmingo/temp_film_bvuced.jpg",
+      "https://res.cloudinary.com/davkfrmah/image/upload/v1723204464/filmingo1.png",
   },
+  {
+    title: 'Wealth Pandit',
+    description: "Logo Design",
+    link: "https://stage-eight.vercel.app/",
+    image:
+      "https://res.cloudinary.com/davkfrmah/image/upload/v1723205790/wp%20logo.png"
+  }
 ];

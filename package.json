@@ -16,6 +16,7 @@
     "@vercel/postgres": "^0.3.0",
     "animejs": "^3.2.2",
     "charming": "^3.0.2",
+    "clsx": "^2.1.1",
     "copy-to-clipboard": "^3.3.3",
     "framer-motion": "^11.3.24",
     "gsap": "^3.12.5",
@@ -31,7 +32,8 @@
     "react-wrap-balancer": "^1.1.0",
     "sass": "^1.52.3",
     "slugify": "^1.6.6",
-    "swr": "^1.3.0"
+    "swr": "^1.3.0",
+    "tailwind-merge": "^2.4.0"
   },
   "devDependencies": {
     "@types/node": "17.0.23",
