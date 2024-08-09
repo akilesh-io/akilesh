@@ -13,11 +13,11 @@ export default function Work() {
       </Head>
 
       <h1>
-        <span className="block text-base font-semibold tracking-wide text-center text-slate-800 uppercase dark:text-sky-400 mt-8">
-          Artworks
+        <span className="block text-base font-semibold tracking-wide text-center text-sky-800 uppercase dark:text-violet-400 mt-8">
+          Projects
         </span>
         <span className="block max-w-2xl mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl m-4">
-          Collection of My Art Works
+          Some Of My Finest Works
         </span>
       </h1>
       <div className="my-10 grid w-full max-w-screen-xl animate-fade-up grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:px-0">

@@ -8,8 +8,8 @@ export default function Blog({ articles }) {
   return (
     <Layout>
       <h1>
-        <span className="block text-base font-semibold tracking-wide text-center text-slate-800 uppercase dark:text-sky-400 mt-8">
-          My Blog
+        <span className="block text-base font-semibold tracking-wide text-center text-sky-800 uppercase dark:text-violet-400 mt-8">
+          Writing
         </span>
         <span className="block max-w-2xl mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl m-4">
           Tech, Life and Everything in Between
