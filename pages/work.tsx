@@ -21,7 +21,7 @@ export default function Work() {
         </span>
       </h1>
 
-      <div className="my-10 grid w-full max-w-screen-xl mx-auto animate-fade-up px-5 xl:px-0">
+      <div className="grid w-full max-w-screen-xl mx-auto animate-fade-up">
         <HoverEffect items={projects} />
       </div>
       <div className="fixed bottom-0 right-0 mb-4 mr-4 z-10">
