@@ -23,7 +23,7 @@ export const Footer = () => {
 
 
   return (
-    <footer className="max-w-2xl mx-auto relative text-center border-2 border-dashed rounded-t-2xl border-gray-200 border-b-0 py-4 bg-[#e8e5f0]/30 dark:bg-[#27272a]/70 ">
+    <footer className="max-w-2xl mx-auto relative text-center border-2 border-dashed rounded-t-2xl border-gray-200 border-b-0 py-4 bg-white/30 dark:bg-mild/70 ">
       <div>
         <div className="col-span-2 m-4 xl:mt-0">
           {workPath && <SubstackWidget />}
