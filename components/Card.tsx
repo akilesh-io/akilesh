@@ -21,7 +21,7 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-4",
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
         className
       )}
     >
@@ -84,21 +84,18 @@ export const HoverEffect = ({
                   <motion.button className="text-xs font-semibold dark:text-white mt-1 mr-1 p-1">
                     {item?.tech}
                   </motion.button>
-                  {/* <motion.button className="text-xs font-semibold dark:text-white mt-1">
-                    {item.title}
-                  </motion.button> */}
                 </motion.div>
               )}
 
               <motion.div
-                className="absolute top-0 right-0 bg-white dark:bg-mild rounded-bl-lg shadow-lg sm:hidden block"
+                className="absolute top-0 left-0 bg-white dark:bg-mild rounded-br-lg shadow-lg sm:hidden block"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="absolute -top-0 -left-24 h-3 w-24 rounded-tr-lg bg-transparent shadow-[0.5rem_0_0_0] shadow-white dark:shadow-mild"></div>
-                <div className="absolute -bottom-0 right-0 h-3 w-24 top-6 rounded-tr-lg bg-transparent shadow-[0.5rem_0_0_0] shadow-white dark:shadow-mild"></div>
+                <div className="absolute -bottom-3 right-2 h-3 w-24 rounded-tl-3xl bg-transparent shadow-[-0.5rem_0_0_0] shadow-white dark:shadow-mild"></div>
+                <div className="absolute bottom-5 -right-24 h-2 w-24  rounded-tl-3xl bg-transparent shadow-[-0.5rem_0_0_0] shadow-white dark:shadow-mild"></div>
 
                 <motion.button className="text-xs font-semibold dark:text-white mt-1 mr-1 p-1">
                   {item?.tech}
@@ -159,7 +156,7 @@ export const CardImage = ({
           "transition duration-300 w-full h-full object-cover object-center",
           isLoading ? "blur-sm" : "blur-0",
           "group-hover:rounded-tr-3xl",
-          "sm:rounded-tr-none rounded-tr-3xl" // Apply rounded-tr-3xl on mobile screens
+          "sm:rounded-tl-none rounded-tl-3xl" // Apply rounded-tr-3xl on mobile screens
 
         )}
       />
