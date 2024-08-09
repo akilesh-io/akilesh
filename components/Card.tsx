@@ -72,7 +72,7 @@ export const HoverEffect = ({
               <CardImage src={item?.image} title={item?.title} />
               {hoveredIndex === idx && (
                 <motion.div
-                  className="absolute top-0 right-0 bg-white dark:bg-mild rounded-bl-lg shadow-lg"
+                  className="absolute top-0 right-0 bg-white dark:bg-mild rounded-bl-lg shadow-lg hidden sm:block"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
