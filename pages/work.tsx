@@ -48,55 +48,55 @@ export default function Work() {
 export const projects = [
   {
     title: "Livestorm control",
-    description:
-      "Control is my take on a external sidebar plugin for livestorm.",
+    tech:
+      "Mobile App",
     link: "https://play.google.com/store/apps/details?id=com.livestorm.control",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1702914394/Akilesh/livestorm.png",
   },
   {
     title: "Lamento",
-    description:
-      "Notion as CMS",
-    link: "https://app.lamento.in/",
+    tech:
+      "Web Application",
+    link: "https://lamento.in/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1702915379/Akilesh/lamento%20landing.png",
   },
   {
     title: "The Boss Gym",
-    description: "Landing Page based on Gym and Fitness ",
+    tech: "Landing Page",
     link: "https://www.thebossgym.in/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1723204796/boss.png",
   },
   {
     title: "2050 Technologies",
-    description: " Green & Eco-Friendly Theme Landing Page ",
+    tech: "Landing Page",
     link: "https://www.2050-technologies.com/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/c_scale,q_75,w_659/v1693820228/Akilesh/2050%20Technologies.jpg",
   },
   {
     title: "ACT",
-    description:
-      "ACT creative web design agency based in India that crafts beautiful and original websites ",
+    tech:
+      "Landing Page",
     link: "https://akictech.in/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1705562847/Akilesh/act.png",
   },
   {
     title: "Filmingo",
-    description:
-      "Filmingo is an innovative and immersive movie-watching application.",
+    tech:
+      "Web Application",
     link: "https://filmingo.akilesh.in/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1723204464/filmingo1.png",
   },
   {
     title: 'Wealth Pandit',
-    description: "Logo Design",
+    tech: "Logo Design",
     link: "https://stage-eight.vercel.app/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1723205790/wp%20logo.png"
-  }
+  },
 ];
