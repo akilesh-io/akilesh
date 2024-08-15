@@ -161,6 +161,14 @@ export function Form() {
         }
     };
 
+    const handleRemoveFile = () => {
+        setFileName('');
+        const fileInput = document.getElementById('file-upload') as HTMLInputElement;
+        if (fileInput) {
+            fileInput.value = '';
+        }
+    };
+
     return (
         <>
             <Modal>
@@ -271,7 +279,29 @@ export function Form() {
                                                     </svg>
                                                     {dragActive ? 'Drop here' : fileName ? fileName : 'Attach files'}
                                                 </div>
-                                            </label>
+                                                {fileName && (
+                                                <button
+                                                    type="button"
+                                                    onClick={handleRemoveFile}
+                                                    className="mt-2 text-mild "
+                                                >
+                                                    <svg
+                                                        className="w-6 h-6"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth="2"
+                                                            d="M6 18L18 6M6 6l12 12"
+                                                        />
+                                                    </svg>
+                                                </button>
+                                            )}
+                                            </label>                                            
                                         </div>
                                     </div>
                                     <textarea
