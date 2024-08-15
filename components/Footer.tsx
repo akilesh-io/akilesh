@@ -40,7 +40,7 @@ export const Footer = () => {
         </>}
       </div>
 
-      <div className={`flex justify-center ${workPath ? 'pt-4' : 'pb-4'}`}>
+      <div className={`flex justify-center ${workPath ? 'pt-4' : 'sm:pb-4 pb-16 '}`}>
         {/* Facebook */}
         <a
           target="_blank"
