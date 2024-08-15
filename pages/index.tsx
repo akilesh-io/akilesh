@@ -6,7 +6,7 @@ import spaceGuy from "@/public/animation/space-guy.json";
 import walkMan from "@/public/animation/walk-man.json";
 import Layout from "layout/Layout";
 import Marquee from "@/components/Marquee";
-import HeroBall from "@/components/HeroBall";
+import UnderConstruction from "@/components/UnderConstruction";
 
 const Home: NextPage = () => {
   return (
@@ -36,8 +36,9 @@ const Home: NextPage = () => {
             />
           </div>
         </div>
-        <Marquee />
         <HeroBall />
+        <Marquee />
+        <UnderConstruction />
 
       </Layout>
     </div>

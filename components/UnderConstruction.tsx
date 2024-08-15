@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import styles from "@/styles/HeroBall.module.css";
+import styles from "@/styles/UnderConstruction.module.css";
 
-const HeroBall = () => {
+const UnderConstruction  = () => {
     return (
         <div className={styles.content}>
             <canvas
@@ -20,4 +20,4 @@ const HeroBall = () => {
     );
 };
 
-export default HeroBall;
+export default UnderConstruction;
