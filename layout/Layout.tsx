@@ -12,7 +12,7 @@ const Layout = ({ children }: Props) => {
       <Navbar />
       <main className=" mx-auto justify-center px-4 place-items-center grid">
         {children}
-        <Toaster />
+        <Toaster position="bottom-left" />
       </main>
       <Footer />
     </>
