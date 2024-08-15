@@ -23,7 +23,8 @@ export function Form() {
         "On-going support",
         "App from scratch",
     ];
-    const form = useRef();
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const formRef = useRef<HTMLFormElement>(null);
     const [selectedButtons, setSelectedButtons] = useState<string[]>([]);
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -72,10 +73,10 @@ export function Form() {
         );
     };
 
-    const sendEmail = () => {
+    const sendEmail = (formElement) => {
 
         emailjs
-            .sendForm('service_a3gos4i', 'template_kgvp809', form.current, {
+            .sendForm('service_a3gos4i', 'template_7wlewzm', formElement, {
                 publicKey: 'ezWzrBdfQ3YVZ9ied',
             })
             .then(
@@ -115,6 +116,8 @@ export function Form() {
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         setLoading(true);
+        const formElement = formRef.current;
+
 
         let fileUrl = null;
         if (file) {
@@ -143,7 +146,7 @@ export function Form() {
             .then(response => {
                 if (response.ok) {
                     toast.success('Your inquiry has been sent!');
-                    sendEmail();
+                    sendEmail(formElement);
                 } else {
                     toast.error('Failed to send inquiry. Please try again.');
                 }
@@ -153,7 +156,9 @@ export function Form() {
             });
 
         setLoading(false);
-
+        if (buttonRef.current) {
+            buttonRef.current.click();
+        }
     };
 
     return (
@@ -199,7 +204,7 @@ export function Form() {
                                         </button>
                                     ))}
                                 </div>
-                                <form className="space-y-6" onSubmit={handleSubmit}>
+                                <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         <input
                                             required
@@ -274,54 +279,60 @@ export function Form() {
                                         className="w-full pt-3 pb-1 bg-transparent border-b-2 border-mild dark:border-white focus:outline-none text-2xl font-medium"
                                         onChange={e => setMessage(e.target.value)}
                                     ></textarea>
+                                    <button
+                                        type="submit"
+                                        className="mt-8 py-3 px-6 bg-mild dark:bg-white dark:text-black text-white rounded-full hover:bg-gray-200 transition flex items-center justify-center font-semibold dark:hover:bg-black dark:hover:text-white border-2 border-mild dark:border-white hover:text-mild"
+                                    >
+                                        {loading ? (
+                                            <span className="flex items-center">
+                                                <svg
+                                                    className="animate-spin h-5 w-5 mr-3"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <circle
+                                                        className="opacity-25"
+                                                        cx="12"
+                                                        cy="12"
+                                                        r="10"
+                                                        stroke="currentColor"
+                                                        strokeWidth="4"
+                                                    ></circle>
+                                                    <path
+                                                        className="opacity-75"
+                                                        fill="currentColor"
+                                                        d="M4 12a8 8 0 018-8v8H4z"
+                                                    ></path>
+                                                </svg>
+                                                Loading...
+                                            </span>
+                                        ) : (
+                                            <>
+                                                Send Inquiry
+                                                <span className="ml-2">
+                                                    <svg
+                                                        className="w-5 h-5"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth="2"
+                                                            d="M5 12h14M12 5l7 7-7 7"
+                                                        />
+                                                    </svg>
+                                                </span>
+                                            </>
+                                        )}
+                                    </button>
                                     <ModalTrigger>
                                         <button
-                                            type="submit"
-                                            className="mt-8 py-3 px-6 bg-mild dark:bg-white dark:text-black text-white rounded-full hover:bg-gray-200 transition flex items-center justify-center font-semibold"
+                                            ref={buttonRef}
+                                            className="hidden"
                                         >
-                                            {loading ? (
-                                                <span className="flex items-center">
-                                                    <svg
-                                                        className="animate-spin h-5 w-5 mr-3"
-                                                        viewBox="0 0 24 24"
-                                                    >
-                                                        <circle
-                                                            className="opacity-25"
-                                                            cx="12"
-                                                            cy="12"
-                                                            r="10"
-                                                            stroke="currentColor"
-                                                            strokeWidth="4"
-                                                        ></circle>
-                                                        <path
-                                                            className="opacity-75"
-                                                            fill="currentColor"
-                                                            d="M4 12a8 8 0 018-8v8H4z"
-                                                        ></path>
-                                                    </svg>
-                                                    Loading...
-                                                </span>
-                                            ) : (
-                                                <>
-                                                    Send Inquiry
-                                                    <span className="ml-2">
-                                                        <svg
-                                                            className="w-5 h-5"
-                                                            fill="none"
-                                                            stroke="currentColor"
-                                                            viewBox="0 0 24 24"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                        >
-                                                            <path
-                                                                strokeLinecap="round"
-                                                                strokeLinejoin="round"
-                                                                strokeWidth="2"
-                                                                d="M5 12h14M12 5l7 7-7 7"
-                                                            />
-                                                        </svg>
-                                                    </span>
-                                                </>
-                                            )}
+                                            sad
                                         </button>
                                     </ModalTrigger>
                                 </form>
