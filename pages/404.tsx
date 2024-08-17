@@ -40,12 +40,12 @@ export default function Custom404() {
             <div className="flex-wrap flex flex-col sm:flex-row sm:justify-center items-center  mx-0 my-auto font-bigilla">
                 <div className="flex flex-col sm:flex-row items-center ">
                     <div className="text-center sm:text-start flex flex-col w-7/10 relative order-1 m-16 overflow-visible">
-                        <span className="sm:text-9xl text-8xl leading-[89%] text-gray-200 font-bold overflow-hidden">PAGE</span>
-                        <span className="sm:text-9xl text-8xl leading-[89%] text-gray-200 font-bold overflow-hidden ">
+                        <span className="sm:text-9xl text-8xl leading-[89%] dark:text-gray-200 font-bold overflow-hidden">PAGE</span>
+                        <span className="sm:text-9xl text-8xl leading-[89%] dark:text-gray-200 font-bold overflow-hidden ">
                             <div className="inline-block w-max sm:text-9xl text-8xl text-center py-2 my-2 px-12 mr-5 rounded-full border-2 border-yellow-600">404</div>
                             NOT
                         </span>
-                        <span className="sm:text-9xl text-8xl leading-[89%] text-gray-200 font-bold overflow-hidden">FOUND</span>
+                        <span className="sm:text-9xl text-8xl leading-[89%] dark:text-gray-200 font-bold overflow-hidden">FOUND</span>
                     </div>
 
                 </div>
