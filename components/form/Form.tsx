@@ -239,7 +239,7 @@ export function Form() {
                                         <div>
                                             <input
                                                 type="text"
-                                                placeholder="Budget ($)"
+                                                placeholder="Budget (₹)"
                                                 onChange={e => setBudget(Number(e.target.value))}
                                                 className="w-full pt-3 pb-1 bg-transparent border-b-2 border-mild dark:border-white focus:outline-none text-2xl font-medium"
                                             />
