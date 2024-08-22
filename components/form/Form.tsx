@@ -243,13 +243,13 @@ export function Form() {
                                                 onChange={e => setBudget(Number(e.target.value))}
                                                 className="w-full pt-3 pb-1 bg-transparent border-b-2 border-mild dark:border-white focus:outline-none text-2xl font-medium"
                                             />
-                                            <div className="text-gray-400 text-sm mt-2">
+                                            {/* <div className="text-gray-400 text-sm mt-2">
                                                 More info on minimum/typical budget sizes can be found{' '}
                                                 <a href="/faq" className="underline">
                                                     here
                                                 </a>
                                                 .
-                                            </div>
+                                            </div> */}
                                         </div>
 
                                         <div
