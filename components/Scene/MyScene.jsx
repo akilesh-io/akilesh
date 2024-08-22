@@ -59,7 +59,7 @@ const Model = () => {
 
 export default function MyScene() {
   const { theme } = useTheme();
-  const texts = ["அ"];
+  const texts = [""];
   // const texts = ["DEV", "DES"]
 
   return (
