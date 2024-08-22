@@ -26,6 +26,6 @@
     "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx",
-     "pages/_error.js"],
+     "pages/_error.js", "components/Scene/Scene.jsx", "components/Scene/MyScene1.jsx", "components/Scene/MyScene.jsx"],
   "exclude": ["node_modules"]
 }

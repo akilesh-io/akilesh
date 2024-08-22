@@ -7,6 +7,9 @@ import walkMan from "@/public/animation/walk-man.json";
 import Layout from "layout/Layout";
 import Marquee from "@/components/Marquee";
 import UnderConstruction from "@/components/UnderConstruction";
+// import {MyScene1} from "@/components/Scene/MyScene1";
+// import WoahText from "@/components/Scene/woahText";
+import MyScene from "@/components/Scene/MyScene";
 
 const Home: NextPage = () => {
   return (
@@ -18,7 +21,7 @@ const Home: NextPage = () => {
           <link rel="icon" href="/favicon.png" />
         </Head>
 
-        <div className="grid items-center grid-cols-1 text-center ">
+        {/* <div className="grid items-center grid-cols-1 text-center ">
           <h1 className="relative leading-tight md:leading-normal text-3xl sm:text-5xl font-openSans mt-20 md:mt-10">
             Hello I&#39;m{" "}
             <a
@@ -35,8 +38,10 @@ const Home: NextPage = () => {
               loop={true}
             />
           </div>
+        </div> */}
+        <div className="w-full h-screen overflow-hidden">
+          <MyScene />
         </div>
-        <HeroBall />
         <Marquee />
         <UnderConstruction />
 
