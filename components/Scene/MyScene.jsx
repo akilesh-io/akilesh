@@ -59,8 +59,8 @@ const Model = () => {
 
 export default function MyScene() {
   const { theme } = useTheme();
-  // const texts = ["அ"];
-  const texts = ["DEV", "DES"]
+  const texts = ["அ"];
+  // const texts = ["DEV", "DES"]
 
   return (
     <Canvas
