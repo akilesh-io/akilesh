@@ -19,6 +19,8 @@ export const Navbar = () => {
 
   useEffect(() => {
     setIsMounted(true);
+    console.log('%c✨ Design + Developed By Akilesh • https://www.akilesh.in', 'font-weight: bold; font-size: 16px;color: #00b894');
+
   }, []);
 
   const handleClick = () => {
@@ -120,18 +122,18 @@ export const Navbar = () => {
         </div>
 
         <div className="absolute top-0 left-0 m-48 mr-4 hidden lg:block">
-          {showBulb && <Bulb />}
+          {/* {showBulb && <Bulb />} */}
         </div>
 
         {/* Gradients */}
-        {!showBulb && (
+         {!showBulb && (
         <div className="w-[40rem] relative my-2 block md:hidden scale-67.5">
           <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-violet-400 dark:via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
           <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-violet-300 dark:via-indigo-500 to-transparent h-px w-3/4 " />
           <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-violet-400 dark:via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
           <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-violet-300 dark:via-sky-500 to-transparent h-px w-1/4 " />
         </div>
-        )}
+        )} 
       </div>
       <style jsx>{`
         .slide-in {
