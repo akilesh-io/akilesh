@@ -93,30 +93,22 @@ export const Navbar = () => {
                 className="flex flex-col relative z-10 py-4 pl-3"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               >
-                {theme ? (
-                  theme === "dark" ? (
-                    <Image
-                      // src="https://img.icons8.com/pulsar-color/48/sun.png"
-                      src={sun}
-                      alt="sun"
-                      width={37}
-                    />
-                  ) : (
-                    <Image
-                      // src="https://img.icons8.com/pulsar-color/48/crescent-moon.png"
-                      src={moon}
-                      alt="moon"
-                      width={28}
-                    />
-                  )
-                ) : (
+                {theme === "dark" ? (
                   <Image
                     // src="https://img.icons8.com/pulsar-color/48/sun.png"
                     src={sun}
                     alt="sun"
                     width={37}
                   />
-                )}
+                ) : (
+                  <Image
+                    // src="https://img.icons8.com/pulsar-color/48/crescent-moon.png"
+                    src={moon}
+                    alt="moon"
+                    width={28}
+                  />
+                )
+                }
               </div>
             </Magnetic>
           </div>
@@ -127,14 +119,14 @@ export const Navbar = () => {
         </div>
 
         {/* Gradients */}
-         {!showBulb && (
-        <div className="w-[40rem] relative my-2 block md:hidden scale-67.5">
-          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-violet-400 dark:via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
-          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-violet-300 dark:via-indigo-500 to-transparent h-px w-3/4 " />
-          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-violet-400 dark:via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-violet-300 dark:via-sky-500 to-transparent h-px w-1/4 " />
-        </div>
-        )} 
+        {!showBulb && (
+          <div className="w-[40rem] relative my-2 block md:hidden scale-67.5">
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-violet-400 dark:via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-violet-300 dark:via-indigo-500 to-transparent h-px w-3/4 " />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-violet-400 dark:via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-violet-300 dark:via-sky-500 to-transparent h-px w-1/4 " />
+          </div>
+        )}
       </div>
       <style jsx>{`
         .slide-in {
