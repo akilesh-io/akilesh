@@ -35,6 +35,7 @@ export function Form() {
     const [message, setMessage] = useState('');
     const [fileName, setFileName] = useState('');
     const [loading, setLoading] = useState<boolean>(false);
+    const isSubmitting = useRef(false); // Ref to track submission status
 
     const handleDrag = useCallback((e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault();
@@ -115,6 +116,10 @@ export function Form() {
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
+
+        if (isSubmitting.current) return; // Prevent multiple submissions
+        isSubmitting.current = true;
+
         setLoading(true);
         const formElement = formRef.current;
 
@@ -156,6 +161,8 @@ export function Form() {
             });
 
         setLoading(false);
+        isSubmitting.current = false; // Reset submission status
+
         if (buttonRef.current) {
             buttonRef.current.click();
         }
