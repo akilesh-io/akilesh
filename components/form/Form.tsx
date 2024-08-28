@@ -73,20 +73,15 @@ export function Form() {
         );
     };
 
-    const sendEmail = (formElement) => {
-
-        emailjs
-            .sendForm('service_a3gos4i', 'template_7wlewzm', formElement, {
+    const sendEmail = async (formElement: HTMLFormElement) => {
+        try {
+            await emailjs.sendForm('service_a3gos4i', 'template_7wlewzm', formElement, {
                 publicKey: 'ezWzrBdfQ3YVZ9ied',
-            })
-            .then(
-                () => {
-                    console.log('SUCCESS!');
-                },
-                (error) => {
-                    console.log('FAILED...', error.text);
-                },
-            );
+            });
+            console.log('SUCCESS!');
+        } catch (error) {
+            console.log('FAILED...', error.text);
+        }
     };
 
     const handleUpload = async (file: File) => {
@@ -152,12 +147,8 @@ export function Form() {
             }
         } catch (error) {
             toast.error('An error occurred while sending the inquiry. Please try again.');
-        }
-
-        setLoading(false);
-
-        if (buttonRef.current) {
-            buttonRef.current.click();
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -280,28 +271,28 @@ export function Form() {
                                                     {dragActive ? 'Drop here' : fileName ? fileName : 'Attach files'}
                                                 </div>
                                                 {fileName && (
-                                                <button
-                                                    type="button"
-                                                    onClick={handleRemoveFile}
-                                                    className="mt-2 text-mild "
-                                                >
-                                                    <svg
-                                                        className="w-6 h-6"
-                                                        fill="none"
-                                                        stroke="currentColor"
-                                                        viewBox="0 0 24 24"
-                                                        xmlns="http://www.w3.org/2000/svg"
+                                                    <button
+                                                        type="button"
+                                                        onClick={handleRemoveFile}
+                                                        className="mt-2 text-mild "
                                                     >
-                                                        <path
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                            strokeWidth="2"
-                                                            d="M6 18L18 6M6 6l12 12"
-                                                        />
-                                                    </svg>
-                                                </button>
-                                            )}
-                                            </label>                                            
+                                                        <svg
+                                                            className="w-6 h-6"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                            viewBox="0 0 24 24"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                            <path
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                strokeWidth="2"
+                                                                d="M6 18L18 6M6 6l12 12"
+                                                            />
+                                                        </svg>
+                                                    </button>
+                                                )}
+                                            </label>
                                         </div>
                                     </div>
                                     <textarea
@@ -356,15 +347,7 @@ export function Form() {
                                                 </span>
                                             </>
                                         )}
-                                    </button>
-                                    <ModalTrigger>
-                                        <button
-                                            ref={buttonRef}
-                                            className="hidden"
-                                        >
-                                            Hidden button not visible
-                                        </button>
-                                    </ModalTrigger>
+                                    </button>                                   
                                 </form>
                             </div>
                         </div>
