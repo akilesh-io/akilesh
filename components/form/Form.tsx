@@ -35,7 +35,6 @@ export function Form() {
     const [message, setMessage] = useState('');
     const [fileName, setFileName] = useState('');
     const [loading, setLoading] = useState<boolean>(false);
-    const isSubmitting = useRef(false); // Ref to track submission status
 
     const handleDrag = useCallback((e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault();
@@ -116,19 +115,14 @@ export function Form() {
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
-
-        if (isSubmitting.current) return; // Prevent multiple submissions
-        isSubmitting.current = true;
-
         setLoading(true);
-        const formElement = formRef.current;
-
 
         let fileUrl = null;
         if (file) {
             fileUrl = await handleUpload(file);
         }
         const services = selectedButtons.map(button => ({ name: button }));
+        const formElement = formRef.current;
 
 
         const data = {
@@ -141,27 +135,26 @@ export function Form() {
             fileUrl,
         };
 
-        await fetch('/api/notion', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-            .then(response => {
-                if (response.ok) {
-                    toast.success('Your inquiry has been sent!');
-                    sendEmail(formElement);
-                } else {
-                    toast.error('Failed to send inquiry. Please try again.');
-                }
-            })
-            .catch(error => {
-                toast.error('An error occurred while sending the inquiry. Please try again.');
+        try {
+            const response = await fetch('/api/notion', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
             });
 
+            if (response.ok) {
+                toast.success('Your inquiry has been sent!');
+                sendEmail(formElement);
+            } else {
+                toast.error('Failed to send inquiry. Please try again.');
+            }
+        } catch (error) {
+            toast.error('An error occurred while sending the inquiry. Please try again.');
+        }
+
         setLoading(false);
-        isSubmitting.current = false; // Reset submission status
 
         if (buttonRef.current) {
             buttonRef.current.click();
@@ -250,13 +243,13 @@ export function Form() {
                                                 onChange={e => setBudget(Number(e.target.value))}
                                                 className="w-full pt-3 pb-1 bg-transparent border-b-2 border-mild dark:border-white focus:outline-none text-2xl font-medium"
                                             />
-                                            {/* <div className="text-gray-400 text-sm mt-2">
+                                            <div className="text-gray-400 text-sm mt-2">
                                                 More info on minimum/typical budget sizes can be found{' '}
                                                 <a href="/faq" className="underline">
                                                     here
                                                 </a>
                                                 .
-                                            </div> */}
+                                            </div>
                                         </div>
 
                                         <div
@@ -369,7 +362,7 @@ export function Form() {
                                             ref={buttonRef}
                                             className="hidden"
                                         >
-                                            sad
+                                            Hidden button not visible
                                         </button>
                                     </ModalTrigger>
                                 </form>
