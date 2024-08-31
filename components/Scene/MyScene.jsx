@@ -59,8 +59,7 @@ const Model = () => {
 
 export default function MyScene() {
   const { theme } = useTheme();
-  const texts = [""];
-  // const texts = ["DEV", "DES"]
+  const texts = ["அ"];
 
   return (
     <Canvas
@@ -72,8 +71,8 @@ export default function MyScene() {
       {/* <color attach="background" args={["#e0e0e0"]} /> */}
       <spotLight position={[20, 20, 10]} penumbra={1} castShadow angle={0.2} />
       {/* <Status position={[0, 0, -10]} /> */}
-      {/* <AnimatedText text="Hello, World!" theme="dark" /> */}
-      <TextLoop texts={texts} theme="dark" />
+      <AnimatedText text={texts} theme="dark" />
+      {/* <TextLoop texts={texts} theme="dark" /> */}
 
       <Float floatIntensity={2}>
         {/* <Torus /> */}
@@ -170,12 +169,6 @@ const AnimatedText = ({ text, theme, ...props }) => {
     bounce: true,
   });
 
-  const splitText = text.split("").map((char, index) => (
-    <span key={index} className="char" style={charStyle}>
-      {char}
-    </span>
-  ));
-
   return (
     <animated.group position={position}>
       <Text
@@ -188,25 +181,5 @@ const AnimatedText = ({ text, theme, ...props }) => {
         {text}
       </Text>
     </animated.group>
-  );
-};
-
-const TextLoop = ({ texts, theme }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 2000); // Change text every 2 seconds
-
-    return () => clearInterval(interval); // Cleanup interval on component unmount
-  }, [texts.length]);
-
-  return (
-    <AnimatedText
-      key={texts[currentIndex]} // Force re-render on text change
-      text={texts[currentIndex]}
-      theme={theme}
-    />
   );
 };
