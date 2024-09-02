@@ -20,25 +20,6 @@ const Home: NextPage = () => {
           <meta name="description" content="akilesh io" />
           <link rel="icon" href="/favicon.png" />
         </Head>
-
-        {/* <div className="grid items-center grid-cols-1 text-center ">
-          <h1 className="relative leading-tight md:leading-normal text-3xl sm:text-5xl font-openSans mt-20 md:mt-10">
-            Hello I&#39;m{" "}
-            <a
-              className="text-blue-500"
-              target="_blank"
-              href="https://ayeb403edb0.typeform.com/to/MZSKhS0J"
-            >
-              Akilesh !!
-            </a>
-          </h1>
-          <div className="flex justify-center -mt-10 md:-mt-20">
-            <Lottie
-              animationData={spaceGuy}
-              loop={true}
-            />
-          </div>
-        </div> */}
         <div className="w-full h-screen overflow-hidden">
           <MyScene />
         </div>
