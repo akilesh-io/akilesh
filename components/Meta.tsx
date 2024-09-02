@@ -5,17 +5,17 @@ export default function Meta() {
   return (
     <>
       <NextSeo
-        title="Hello there 👋 Akilesh here"
-        description= "A indie developer who occasionally writes .."
+        title="Freelance Developer & Designer • Akilesh"
+        description="Freelance developer based in Coimbatore India. Experts in Web Design, App Developer & E commerce."
         canonical="https://www.akilesh.in/"
         openGraph={{
           type: "website",
           locale: "en_IE",
           url: "https://www.akilesh.in/",
-          siteName: "Akilesh_io",
-          title: "Akilesh io",
+          siteName: "Akilesh • Freelance developer",
+          title: "Akilesh • Freelance developer",
           description:
-            "I'm Akilesh, a indie developer who occasionally writes ..",
+            "Helping businesses to build a strong online presence with a modern website and mobile app. Located in Coimbatore, India.",
           images: [
             {
               url: "https://res.cloudinary.com/davkfrmah/image/upload/v1694539542/Akilesh/io%20home.png",
@@ -32,8 +32,7 @@ export default function Meta() {
         }}
       />
       <meta name="twitter:image" content="https://res.cloudinary.com/davkfrmah/image/upload/v1694539542/Akilesh/io%20home.png" />
-      
-      <Script src="//embed.typeform.com/next/embed.js"></Script>
+
       <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
       <noscript>
         {/* eslint-disable @next/next/no-img-element */}
