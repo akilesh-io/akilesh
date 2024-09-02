@@ -13,22 +13,13 @@ import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { easing } from "maath";
 import { useTheme } from "next-themes";
-import { useSpring, animated } from "@react-spring/three";
+import { useSpring, animated, Globals } from "@react-spring/three";
+
+Globals.assign({
+  frameLoop: "always",
+});
 
 function Rig() {
-  // useFrame((state, delta) => {
-  //   easing.damp3(
-  //     state.camera.position,
-  //     [
-  //       Math.sin(-state.pointer.x) * 5,
-  //       state.pointer.y * 3.5,
-  //       15 + Math.cos(state.pointer.x) * 10,
-  //     ],
-  //     0.2,
-  //     delta
-  //   );
-  //   state.camera.lookAt(0, 0, 0);
-  // });
   useFrame((state, delta) => {
     easing.damp3(state.camera.position, [0, 0, 20], 0.2, delta);
   });
@@ -43,21 +34,17 @@ const Model = () => {
   });
 
   return (
-    <mesh
-      receiveShadow
-      castShadow
-      rotation-x={Math.PI * 0.1}
-      ref={boxRef}
-    >
+    <mesh receiveShadow castShadow rotation-x={Math.PI * 0.1} ref={boxRef}>
       <torusGeometry args={[4, 1.2, 128, 64]} />
-      <meshStandardMaterial color={theme === "dark" ? "#27272a" : "#e0e0e0"} />{" "}
+      <meshStandardMaterial
+        color={theme === "dark" ? "#27272a" : "#e0e0e0"}
+      />{" "}
     </mesh>
   );
 };
 
-export default function MyScene() {
+const ComputerCanvas = () => {
   const { theme } = useTheme();
-  const texts = ["அ"];
 
   return (
     <Canvas
@@ -67,7 +54,7 @@ export default function MyScene() {
       className="width-full height-full"
     >
       <spotLight position={[20, 20, 10]} penumbra={1} castShadow angle={0.2} />
-      <AnimatedText text={texts} theme="dark" />
+      <AnimatedText theme="dark" />
       <Float floatIntensity={2}>
         <Model />
       </Float>
@@ -171,8 +158,11 @@ const AnimatedText = ({ text, theme, ...props }) => {
         style={{ ...h1Style, ...charStyle }}
         {...props}
       >
-        {text}
+        அ
       </Text>
     </animated.group>
   );
 };
+
+
+export default ComputerCanvas 

@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider attribute="class">
         <main className={`${openSans.variable} ${ptSerif.variable} font-sans ${bigilla.variable}`}>
           <AnimatePresence mode="wait">
-            {isLoading && <Preloader />}
+            {/* {isLoading && <Preloader />} */}
           </AnimatePresence>
           <PageTransition>
             <Component {...pageProps} />
