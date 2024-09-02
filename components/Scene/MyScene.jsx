@@ -47,11 +47,9 @@ const Model = () => {
       receiveShadow
       castShadow
       rotation-x={Math.PI * 0.1}
-      // rotation-y={Math.PI * 0.25}
       ref={boxRef}
     >
       <torusGeometry args={[4, 1.2, 128, 64]} />
-      {/* <MeshTransmissionMaterial backside backsideThickness={5} thickness={2} /> */}
       <meshStandardMaterial color={theme === "dark" ? "#27272a" : "#e0e0e0"} />{" "}
     </mesh>
   );
@@ -68,14 +66,9 @@ export default function MyScene() {
       camera={{ position: [0, 0, 20], fov: 50 }}
       className="width-full height-full"
     >
-      {/* <color attach="background" args={["#e0e0e0"]} /> */}
       <spotLight position={[20, 20, 10]} penumbra={1} castShadow angle={0.2} />
-      {/* <Status position={[0, 0, -10]} /> */}
       <AnimatedText text={texts} theme="dark" />
-      {/* <TextLoop texts={texts} theme="dark" /> */}
-
       <Float floatIntensity={2}>
-        {/* <Torus /> */}
         <Model />
       </Float>
       <Environment preset="city">
