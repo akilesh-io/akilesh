@@ -18,7 +18,7 @@ export default function Meta() {
             "Helping businesses to build a strong online presence with a modern website and mobile app. Located in Coimbatore, India.",
           images: [
             {
-              url: "https://res.cloudinary.com/davkfrmah/image/upload/v1694539542/Akilesh/io%20home.png",
+              url: "https://res.cloudinary.com/davkfrmah/image/upload/v1725990570/Akilesh/a%20doughnut.png",
               width: 1200,
               height: 630,
               alt: "Akilesh",
@@ -31,7 +31,7 @@ export default function Meta() {
           cardType: "summary_large_image",
         }}
       />
-      <meta name="twitter:image" content="https://res.cloudinary.com/davkfrmah/image/upload/v1694539542/Akilesh/io%20home.png" />
+      <meta name="twitter:image" content="https://res.cloudinary.com/davkfrmah/image/upload/v1725990570/Akilesh/a%20doughnut.png" />
 
       <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
       <noscript>
