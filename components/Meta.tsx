@@ -12,8 +12,8 @@ export default function Meta() {
           type: "website",
           locale: "en_IE",
           url: "https://www.akilesh.in/",
-          siteName: "Akilesh • Freelance developer",
-          title: "Akilesh • Freelance developer",
+          siteName: "Akilesh • Freelance Developer",
+          title: "Akilesh • Freelance Developer",
           description:
             "Helping businesses to build a strong online presence with a modern website and mobile app. Located in Coimbatore, India.",
           images: [
