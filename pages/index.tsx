@@ -10,6 +10,7 @@ import UnderConstruction from "@/components/UnderConstruction";
 // import {MyScene1} from "@/components/Scene/MyScene1";
 // import WoahText from "@/components/Scene/woahText";
 import ComputerCanvas from "@/components/Scene/ComputerCanvas";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   return (
@@ -18,7 +19,7 @@ const Home: NextPage = () => {
         <Head>
           <title>Akilesh</title>
           <meta name="description" content="akilesh io" />
-          <link rel="icon" href="/favicon.png" />
+          <link rel="icon" href="/favicon1.png" />
         </Head>
         <div className="w-full h-screen overflow-hidden">
           <ComputerCanvas />
