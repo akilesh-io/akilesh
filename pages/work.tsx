@@ -10,7 +10,6 @@ export default function Work() {
       <Head>
         <title>Works</title>
         <meta name="description" content="Works" />
-        <link rel="icon" href="/favicon.png" />
       </Head>
 
       <h1>
