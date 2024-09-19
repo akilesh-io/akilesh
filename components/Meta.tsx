@@ -23,12 +23,22 @@ export default function Meta() {
               height: 630,
               alt: "Akilesh",
             },
+            {
+              url: "https://res.cloudinary.com/davkfrmah/image/upload/v1725990570/Akilesh/a%20doughnut.png",
+              width: 900,
+              height: 800,
+              alt: "Akilesh",
+            },
+            {
+              url: "https://res.cloudinary.com/davkfrmah/image/upload/v1725990570/Akilesh/a%20doughnut.png",
+            }
           ],
         }}
         twitter={{
+          cardType: "summary_large_image",
           handle: "@akilesh_io",
           site: "@akilesh_io",
-          cardType: "summary_large_image",
+
         }}
       />
       <meta name="twitter:image" content="https://res.cloudinary.com/davkfrmah/image/upload/v1725990570/Akilesh/a%20doughnut.png" />
