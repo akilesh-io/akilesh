@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         <Head>
           <title>Akilesh</title>
           <meta name="description" content="akilesh io" />
-          <link rel="icon" href="/favicon1.png" />
+          <link rel="icon" href="/favicon.png" />
         </Head>
         <div className="w-full h-screen overflow-hidden">
           <ComputerCanvas />
