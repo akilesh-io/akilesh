@@ -66,7 +66,7 @@ export const projects = [
     title: "ACT",
     tech:
       "Landing Page",
-    link: "https://akictech.in/",
+    link: "https://act.akilesh.in/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1705562847/Akilesh/act.png",
   },
