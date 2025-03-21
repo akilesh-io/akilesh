@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import RotatingText from "@/components/reusable/RotatingText";
 
 export const HoverEffect = ({
   items,
@@ -10,7 +11,7 @@ export const HoverEffect = ({
 }: {
   items: {
     title: string;
-    tech: string;
+    tech: string[];
     link: string;
     image: string;
   }[];
@@ -80,10 +81,7 @@ export const HoverEffect = ({
                 >
                   <div className="absolute -top-0 -left-24 h-3 w-24 rounded-tr-lg bg-transparent shadow-[0.5rem_0_0_0] shadow-white dark:shadow-mild"></div>
                   <div className="absolute -bottom-0 right-0 h-3 w-24 top-6 rounded-tr-lg bg-transparent shadow-[0.5rem_0_0_0] shadow-white dark:shadow-mild"></div>
-
-                  <motion.button className="text-xs font-semibold dark:text-white mt-1 mr-1 p-1">
-                    {item?.tech}
-                  </motion.button>
+                  <RotatingText tech={item?.tech} />
                 </motion.div>
               )}
 
@@ -97,9 +95,9 @@ export const HoverEffect = ({
                 <div className="absolute -bottom-3 right-2 h-3 w-24 rounded-tl-3xl bg-transparent shadow-[-0.5rem_0_0_0] shadow-white dark:shadow-mild"></div>
                 <div className="absolute bottom-5 -right-24 h-2 w-24  rounded-tl-3xl bg-transparent shadow-[-0.5rem_0_0_0] shadow-white dark:shadow-mild"></div>
 
-                <motion.button className="text-xs font-semibold dark:text-white mt-1 mr-1 p-1">
-                  {item?.tech}
-                </motion.button>
+                <AnimatePresence>
+                  <RotatingText tech={item?.tech} />
+                </AnimatePresence>
               </motion.div>
             </Card>
           </Link>

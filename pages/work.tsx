@@ -33,9 +33,24 @@ export default function Work() {
 
 export const projects = [
   {
+    title: "ACT",
+    tech:
+      ["Landing Page"],
+    link: "https://act.akilesh.in/",
+    image:
+      "https://res.cloudinary.com/davkfrmah/image/upload/v1705562847/Akilesh/act.png",
+  },
+  {
+    title: 'Wealth Pandit',
+    tech: ["Admin Panel", "Mobile App", "Logo Design", "Landing Page", "Web Application",],
+    link: "https://stage-eight.vercel.app/",
+    image:
+      "https://res.cloudinary.com/davkfrmah/image/upload/v1723205790/wp%20logo.png"
+  },
+  {
     title: "Livestorm control",
     tech:
-      "Mobile App",
+      ["Mobile App"],
     link: "https://play.google.com/store/apps/details?id=com.livestorm.control",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1702914394/Akilesh/livestorm.png",
@@ -43,46 +58,45 @@ export const projects = [
   {
     title: "Lamento",
     tech:
-      "Web Application",
+      ["Web Application"],
     link: "https://lamento.in/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1702915379/Akilesh/lamento%20landing.png",
   },
   {
+    title: 'Swami Associates',
+    tech: ["Landing Page", "CMS",],
+    link: "https://www.swami-associates.in/",
+    image:
+      "https://res.cloudinary.com/davkfrmah/image/upload/v1742583282/Akilesh/swami%20associate.png"
+  },
+  {
     title: "The Boss Gym",
-    tech: "Landing Page",
+    tech: ["Landing Page"],
     link: "https://www.thebossgym.in/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1723204796/boss.png",
   },
   {
     title: "2050 Technologies",
-    tech: "Landing Page",
+    tech: ["Landing Page"],
     link: "https://www.2050-technologies.com/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/c_scale,q_75,w_659/v1693820228/Akilesh/2050%20Technologies.jpg",
   },
   {
-    title: "ACT",
-    tech:
-      "Landing Page",
-    link: "https://act.akilesh.in/",
-    image:
-      "https://res.cloudinary.com/davkfrmah/image/upload/v1705562847/Akilesh/act.png",
-  },
-  {
     title: "Filmingo",
     tech:
-      "Web Application",
+      ["Web Application"],
     link: "https://filmingo.akilesh.in/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1723204464/filmingo1.png",
   },
-  {
-    title: 'Wealth Pandit',
-    tech: "Logo Design",
-    link: "https://stage-eight.vercel.app/",
-    image:
-      "https://res.cloudinary.com/davkfrmah/image/upload/v1723205790/wp%20logo.png"
-  },
+  // {
+  //   title: 'Baltimore Health Analytics',
+  //   tech: ["Landing Page",],
+  //   link: "https://baltimorehealthanalytics.com/",
+  //   image:
+  //     "https://res.cloudinary.com/davkfrmah/image/upload/v1742582099/Akilesh/baltimorehealthanalytics.png"
+  // }
 ];
