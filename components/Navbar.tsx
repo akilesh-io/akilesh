@@ -41,7 +41,8 @@ export const Navbar = () => {
             <Magnetic>
               <div className={styles.el}>
                 <Link
-                  href="/blog"
+                  target="_blank"
+                  href="https://blog.akilesh.in/"
                   className="dark:white black font-semibold text-lg"
                 >
                   Blog
