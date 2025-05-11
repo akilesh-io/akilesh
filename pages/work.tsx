@@ -47,6 +47,13 @@ export const projects = [
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1723205790/wp%20logo.png"
   },
+    {
+    title: 'Baltimore Health Analytics',
+    tech: ["Landing Page"],
+    link: "https://baltimorehealthanalytics.com/",
+    image:
+      "https://res.cloudinary.com/davkfrmah/image/upload/v1742582099/Akilesh/baltimorehealthanalytics.png"
+  },
   {
     title: "Livestorm control",
     tech:
@@ -92,11 +99,4 @@ export const projects = [
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1723204464/filmingo1.png",
   },
-  // {
-  //   title: 'Baltimore Health Analytics',
-  //   tech: ["Landing Page",],
-  //   link: "https://baltimorehealthanalytics.com/",
-  //   image:
-  //     "https://res.cloudinary.com/davkfrmah/image/upload/v1742582099/Akilesh/baltimorehealthanalytics.png"
-  // }
 ];
