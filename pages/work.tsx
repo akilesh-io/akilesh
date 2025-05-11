@@ -41,9 +41,16 @@ export const projects = [
       "https://res.cloudinary.com/davkfrmah/image/upload/v1705562847/Akilesh/act.png",
   },
   {
+    title: 'Swami Associates',
+    tech: ["Landing Page", "CMS",],
+    link: "https://www.swami-associates.in/",
+    image:
+      "https://res.cloudinary.com/davkfrmah/image/upload/v1742583282/Akilesh/swami%20associate.png"
+  },
+  {
     title: 'Wealth Pandit',
     tech: ["Admin Panel", "Mobile App", "Logo Design", "Landing Page", "Web Application",],
-    link: "https://stage-eight.vercel.app/",
+    link: "https://uat.wealthpandit.com/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1723205790/wp%20logo.png"
   },
@@ -69,13 +76,6 @@ export const projects = [
     link: "https://lamento.in/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1702915379/Akilesh/lamento%20landing.png",
-  },
-  {
-    title: 'Swami Associates',
-    tech: ["Landing Page", "CMS",],
-    link: "https://www.swami-associates.in/",
-    image:
-      "https://res.cloudinary.com/davkfrmah/image/upload/v1742583282/Akilesh/swami%20associate.png"
   },
   {
     title: "The Boss Gym",
