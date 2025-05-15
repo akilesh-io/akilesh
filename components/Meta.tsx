@@ -6,7 +6,7 @@ export default function Meta() {
     <>
       <NextSeo
         title="Freelance Developer & Designer • Akilesh"
-        description="Freelance developer based in Coimbatore India. Experts in Web Design, App Developer & E commerce."
+        description=" Freelance web developer in Coimbatore. Experts in Web Design/Development, App Developer & E commerce."
         canonical="https://www.akilesh.in/"
         openGraph={{
           type: "website",
