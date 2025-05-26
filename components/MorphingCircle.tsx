@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import anime from 'animejs';
 import styles from '@/styles/MorphingCircle.module.css';
 
@@ -105,15 +105,17 @@ const MorphingCircle = () => {
         return animeOpts;
     }
 
-    function animate() {
+    const animate = useCallback(() => {
         anime(getAnimeObj('path'));
         anime(getAnimeObj('image'));
         anime(getAnimeObj('deco'));
-    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isActive]); // Add dependencies used inside animate
+
 
     useEffect(() => {
         animate();
-    }, [isActive]);
+    }, [animate]);
 
     return (
         <>

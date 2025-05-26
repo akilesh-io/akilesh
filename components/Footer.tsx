@@ -18,7 +18,7 @@ export const Footer = () => {
 
     // Clear the interval when the component unmounts
     return () => clearInterval(intervalId);
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, [emojis.length]); // Empty dependency array means this effect runs once on mount
 
 
 

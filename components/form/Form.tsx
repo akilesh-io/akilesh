@@ -9,6 +9,7 @@ import {
 
 import { toast } from 'sonner';
 import emailjs from '@emailjs/browser';
+import Link from "next/link";
 
 export function Form() {
 
@@ -112,10 +113,11 @@ export function Form() {
         event.preventDefault();
         setLoading(true);
 
-        let fileUrl = null;
+        let fileUrl: string | null | undefined = null;
         if (file) {
             fileUrl = await handleUpload(file);
         }
+
         const services = selectedButtons.map(button => ({ name: button }));
         const formElement = formRef.current;
 
@@ -141,7 +143,9 @@ export function Form() {
 
             if (response.ok) {
                 toast.success('Your inquiry has been sent!');
-                sendEmail(formElement);
+                if (formElement) {
+                    await sendEmail(formElement);
+                }
             } else {
                 toast.error('Failed to send inquiry. Please try again.');
             }
@@ -236,9 +240,9 @@ export function Form() {
                                             />
                                             <div className="text-gray-400 text-sm mt-2">
                                                 More info on minimum/typical budget sizes can be found{' '}
-                                                <a href="/faq" className="underline">
+                                                <Link href="/faq" className="underline">
                                                     here
-                                                </a>
+                                                </Link>
                                                 .
                                             </div>
                                         </div>
@@ -347,7 +351,7 @@ export function Form() {
                                                 </span>
                                             </>
                                         )}
-                                    </button>                                   
+                                    </button>
                                 </form>
                             </div>
                         </div>
