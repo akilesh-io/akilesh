@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/router";
 import React, {
     ReactNode,
     createContext,
@@ -47,6 +48,14 @@ export const ModalTrigger = ({
     className?: string;
 }) => {
     const { open, setOpen } = useModal(); // Retrieve the current state and the setter function
+    const router = useRouter();
+    
+    // Check URL parameters and open modal if form=active
+    useEffect(() => {
+        if (router.query.form === 'active') {
+            setOpen(true);
+        }
+    }, [router.query]);
 
     return (
         <button
