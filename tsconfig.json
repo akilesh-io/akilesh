@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -23,9 +27,21 @@
       "@/common/*": ["common/*"],
 
     },
-    "incremental": true
+    "incremental": true,
+    "plugins": [{"name": "next"}],
+    "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx",
-     "pages/_error.js", "components/Scene/Scene.jsx", "components/Scene/MyScene1.jsx", "components/Scene/CanvasLoader.jsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/_error.js",
+    "components/Scene/Scene.jsx",
+    "components/Scene/MyScene1.jsx",
+    "components/Scene/CanvasLoader.jsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
