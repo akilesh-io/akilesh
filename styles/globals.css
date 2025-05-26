@@ -13,6 +13,7 @@ html, body {
 }
 
 .bg {
+    z-index: -1;
     width: 300%;
     height: 300%;
     max-width: none;
