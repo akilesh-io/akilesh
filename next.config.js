@@ -13,9 +13,21 @@ const nextConfig = {
       "images.unsplash.com", // If notion cover image is from, unsplash
       "res.cloudinary.com",
       "img.icons8.com",
+      "prod-files-secure.s3.us-west-2.amazonaws.com", // <-- Add this line
     ],
   },
   // assetPrefix: 'https://akilesh.lamento.in/',
+  basePath: "",
+  // assetPrefix: '/',
+  async redirects() {
+    return [
+      {
+        source: "/works",
+        destination: "/work",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return {
       beforeFiles: [
