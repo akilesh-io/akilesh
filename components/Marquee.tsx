@@ -18,28 +18,28 @@ export default function Marquee() {
 
                 <div className="relative flex rotate-6 bg-[#e8e5f0] text-gray-900">
                     <div className="flex items-center border-t-4 border-b-4 py-2 animate-marquee whitespace-nowrap bg-[#e8e5f0] text-gray-900">
-                        <span className="text-4xl mx-14">akilesh io</span>
+                        <span className="text-4xl mx-14">React</span>
                         <StarSvg />
-                        <span className="text-4xl mx-14">akilesh io</span>
+                        <span className="text-4xl mx-14">Angular</span>
                         <StarSvg />
-                        <span className="text-4xl mx-14">akilesh io</span>
+                        <span className="text-4xl mx-14">Next.js</span>
                         <StarSvg />
-                        <span className="text-4xl mx-14">akilesh io</span>
+                        <span className="text-4xl mx-14">Capasitor.js</span>
                         <StarSvg />
-                        <span className="text-4xl mx-14">akilesh io</span>
+                        <span className="text-4xl mx-14">Ionic</span>
                         <StarSvg />
                     </div>
 
                     <div className="flex items-center border-t-4 border-b-4 absolute top-0 py-2 animate-marquee2 whitespace-nowrap bg-[#e8e5f0] text-gray-900">
-                        <span className="text-4xl mx-14">akilesh io</span>
+                        <span className="text-4xl mx-14">Github-Action</span>
                         <StarSvg />
-                        <span className="text-4xl mx-14">akilesh io</span>
+                        <span className="text-4xl mx-14">Ruby on Rails</span>
                         <StarSvg />
-                        <span className="text-4xl mx-14">akilesh io</span>
+                        <span className="text-4xl mx-14">Docker</span>
                         <StarSvg />
-                        <span className="text-4xl mx-14">akilesh io</span>
+                        <span className="text-4xl mx-14">SQL</span>
                         <StarSvg />
-                        <span className="text-4xl mx-14">akilesh io</span>
+                        <span className="text-4xl mx-14">Shopify</span>
                         <StarSvg />
                     </div>
                 </div>
