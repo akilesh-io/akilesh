@@ -55,7 +55,7 @@ export const ModalTrigger = ({
         if (router.query.form === 'active') {
             setOpen(true);
         }
-    }, [router.query]);
+    }, [router.query, setOpen]);
 
     return (
         <button

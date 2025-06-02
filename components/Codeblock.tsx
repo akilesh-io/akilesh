@@ -15,9 +15,12 @@ const calculateLinesToHighlight = (meta) => {
   if (!RE.test(meta)) {
     return () => false;
   }
-  const lineNumbers = RE.exec(meta)[1]
-    .split(`,`)
-    .map((v) => v.split(`-`).map((x) => parseInt(x, 10)));
+  const match = RE.exec(meta);
+  const lineNumbers = match && match[1]
+    ? match[1]
+        .split(`,`)
+        .map((v) => v.split(`-`).map((x) => parseInt(x, 10)))
+    : [];
   return (index) => {
     const lineNumber = index + 1;
     const inRange = lineNumbers.some(([start, end]) =>

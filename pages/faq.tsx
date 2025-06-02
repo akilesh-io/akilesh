@@ -86,7 +86,7 @@ export default function FAQ() {
                         Ready to Transform Your Ideas into Reality?
                     </h2>
                     <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-                        Don't just dream about your next big project. Let's build something extraordinary together.
+                        Don&#39;t just dream about your next big project. Let&#39;s build something extraordinary together.
                         Get a <span className="font-semibold text-black dark:text-white">free consultation</span> and see how we can bring your vision to life.
                     </p>
                     <div className="space-y-4">

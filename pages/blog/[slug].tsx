@@ -294,7 +294,7 @@ const ArticlePage = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = [];
+  const paths: { params: { slug: string } }[] = [];
   const data: any = await getAllArticles(process.env.NOTION_DATABASE_ID);
 
   data.forEach((result) => {
@@ -315,8 +315,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
-  let content = [];
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { params } = context;
+  if (!params || typeof params.slug !== "string") {
+    return {
+      notFound: true,
+    };
+  }
+  const slug = params.slug;
+
+  let content: any[] = [];
   let articleTitle = "";
   let publishedDate = null;
   let coverImage = null;
@@ -352,7 +360,7 @@ export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
   while (blocks.has_more) {
     blocks = await notion.blocks.children.list({
       block_id: page.id,
-      start_cursor: blocks.next_cursor,
+      start_cursor: blocks.next_cursor ?? undefined,
     });
 
     content = [...content, ...blocks.results];
