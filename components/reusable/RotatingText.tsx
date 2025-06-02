@@ -7,7 +7,7 @@ const RotatingText = ({ tech }: { tech: string[] }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setVisibleIndex((prevIndex) => (prevIndex + 1) % tech.length);
-    }, 2000); // Change text every 2 seconds
+    }, 1200); // Change text every 1.2 seconds
 
     return () => clearInterval(interval);
   }, [tech.length]);
