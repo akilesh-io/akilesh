@@ -46,7 +46,7 @@ export const Text = ({ text }) => {
       >
         {text.link ? (
           // <CustomLink href={text.link.url}>{text.content}</CustomLink>
-          <a>{text.content}</a>
+          (<a>{text.content}</a>)
         ) : (
           text.content
         )}

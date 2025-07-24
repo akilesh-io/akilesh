@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -13,14 +14,14 @@
     "@aws-sdk/s3-request-presigner": "^3.629.0",
     "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.1",
-    "@next/third-parties": "^14.2.3",
+    "@next/third-parties": "15.4.3",
     "@notionhq/client": "^2.2.5",
     "@react-spring/core": "^9.7.4",
     "@react-spring/three": "^9.7.4",
     "@react-three/drei": "^9.111.0",
     "@react-three/fiber": "^8.17.5",
     "@react-three/postprocessing": "^2.16.2",
-    "@tailwindcss/typography": "tailwindcss/typography",
+    "@tailwindcss/typography": "^0.5.16",
     "@vercel/postgres": "^0.3.0",
     "animejs": "^3.2.2",
     "charming": "^3.0.2",
@@ -29,13 +30,13 @@
     "framer-motion": "^11.3.24",
     "gsap": "^3.12.5",
     "lottie-react": "^2.4.0",
-    "next": "^13.4.3",
+    "next": "15.4.3",
     "next-seo": "^6.1.0",
     "next-themes": "^0.2.1",
     "notion-client": "^6.16.0",
     "prism-react-renderer": "^2.0.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-notion-x": "^6.16.0",
     "react-wrap-balancer": "^1.1.0",
     "sass": "^1.52.3",
@@ -48,13 +49,19 @@
   },
   "devDependencies": {
     "@types/node": "17.0.23",
-    "@types/react": "18.0.1",
-    "@types/react-dom": "18.0.0",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
     "autoprefixer": "^10.4.4",
     "eslint": "8.13.0",
-    "eslint-config-next": "^13.4.3",
+    "eslint-config-next": "15.4.3",
     "postcss": "^8.4.12",
     "tailwindcss": "^3.0.24",
     "typescript": "4.6.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.1.8",
+      "@types/react-dom": "19.1.6"
+    }
   }
 }
