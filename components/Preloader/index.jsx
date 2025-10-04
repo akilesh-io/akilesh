@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import { opacity, slideUp } from "./anim";
 
 // const words = ["Hello", "Bonjour", "Ciao", "Olà", "やあ", "Hallå", "Guten tag", "Hallo"]
-const words = ["Hello", "ನಮಸ್ಕಾರ", "ഹലോ", "హలో", "नमस्ते", "வணக்கம்", "Hallo"];
 
-export default function Index() {
+export default function Index(data) {  
   const [index, setIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
+  let words = data.words;
 
   useEffect(() => {
     setDimension({ width: window.innerWidth, height: window.innerHeight });

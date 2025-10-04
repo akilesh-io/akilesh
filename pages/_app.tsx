@@ -31,6 +31,7 @@ const bigilla = localFont({
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isLoading, setIsLoading] = useState(true);
+  const words = ["Hello", "ನಮಸ್ಕಾರ", "ഹലോ", "హలో", "नमस्ते", "வணக்கம்", "Hallo"];
 
   useEffect(() => {
     (async () => {
@@ -48,7 +49,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider attribute="class">
         <main className={`${openSans.variable} ${ptSerif.variable} font-sans ${bigilla.variable}`}>
           <AnimatePresence mode="wait">
-            {/* {isLoading && <Preloader />} */}
+            {isLoading && <Preloader words={words}/>}
           </AnimatePresence>
           <PageTransition>
             <Component {...pageProps} />
