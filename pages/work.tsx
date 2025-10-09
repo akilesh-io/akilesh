@@ -80,7 +80,7 @@ export const projects = [
   {
     title: "The Boss Gym",
     tech: ["Landing Page"],
-    link: "https://www.thebossgym.in/",
+    link: "https://the-boss-gym.vercel.app/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1723204796/boss.png",
   },
