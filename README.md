@@ -46,3 +46,7 @@ Inspired from [this repository ](https://github.com/GLaDO8/nextjs-portfolio.git)
 [![DeepSource](https://deepsource.io/gh/akilesh-io/akilesh.svg/?label=active+issues&show_trend=true&token=VKpH0jbNa6Cr4c_AAEcBgNCr)](https://deepsource.io/gh/Akilesh2112/hselika/?ref=repository-badge)
 
 [![DeepSource](https://deepsource.io/gh/akilesh-io/akilesh.svg/?label=resolved+issues&show_trend=true&token=VKpH0jbNa6Cr4c_AAEcBgNCr)](https://deepsource.io/gh/Akilesh2112/hselika/?ref=repository-badge)
+
+
+### Reference:
+* https://jfelix.info/blog/page-transitions-in-react
