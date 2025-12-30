@@ -25,12 +25,12 @@ export const Footer = () => {
   return (
     <footer className="max-w-2xl mx-auto relative text-center border-2 border-dashed rounded-t-2xl border-gray-200 border-b-0 py-4 bg-white/30 dark:bg-mild/70 ">
       <div>
-        <div className="col-span-2 m-4 xl:mt-0">
-          {workPath && <SubstackWidget />}
-        </div>
+        {/* <div className="col-span-2 m-4 xl:mt-0"> */}
+        {/*   {workPath && <SubstackWidget />} */}
+        {/* </div> */}
       </div>
 
-      <div className="text-center text-gray-700 dark:text-gray-100 bg-black/0.25 font-mono text-sm md:text-base">
+      <div className="my-4 text-center text-gray-700 dark:text-gray-100 bg-black/0.25 font-mono text-sm md:text-base">
         {workPath ? `Crafted with ${emojis[currentEmojiIndex]} by Akilesh` : <>
           <div className='flex justify-center '>
             {/* items-end */}
