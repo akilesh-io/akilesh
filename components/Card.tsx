@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
@@ -39,9 +39,9 @@ export const HoverEffect = ({
               duration: 0.5,
               delay: 0.2 * idx,
               ease: "easeOut",
-              once: true,
             },
-          }}
+          }}  
+          viewport={{ once: true }}
           key={"card" + idx}
         >
           <Link

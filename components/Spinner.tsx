@@ -7,7 +7,7 @@ import {
   useSpring,
   useTransform,
   useMotionValue
-} from "framer-motion";
+} from "motion/react";
 
 const Spinner: FC = () => {
   const { scrollYProgress } = useScroll();

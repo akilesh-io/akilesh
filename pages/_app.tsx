@@ -13,7 +13,7 @@ import "react-notion-x/src/styles.css";
 // used for code syntax highlighting (optional)
 import "prismjs/themes/prism-tomorrow.css";
 import { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 
 const openSans = Open_Sans({
   subsets: ["latin"],

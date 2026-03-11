@@ -6,7 +6,7 @@ import {
     useMotionValue,
     easeInOut,
     AnimatePresence
-} from "framer-motion";
+} from "motion/react";
 import { useEffect, useCallback, useRef, useState } from "react";
 
 
