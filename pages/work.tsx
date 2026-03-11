@@ -48,9 +48,9 @@ export const projects = [
       "https://res.cloudinary.com/davkfrmah/image/upload/v1742583282/Akilesh/swami%20associate.png"
   },
   {
-    title: 'Wealth Pandit',
+    title: 'Arthfy',
     tech: ["Admin Panel", "Mobile App", "Logo Design", "Landing Page", "Web Application",],
-    link: "https://uat.wealthpandit.com/",
+    link: "https://arthfy.com/",
     image:
       "https://res.cloudinary.com/davkfrmah/image/upload/v1723205790/wp%20logo.png"
   },
