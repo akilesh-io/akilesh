@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 export const Footer = () => {
   const router = useRouter();
   const workPath = router.pathname !== '/work';
-  const emojis = ['💙', '🌠', '💠', '🧙', '🔮'];
+  const emojis = ['💙', '🌠', '🧙', '🔮'];
   // State to keep track of the current emoji index
   const [currentEmojiIndex, setCurrentEmojiIndex] = useState(0);
 

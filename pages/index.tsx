@@ -21,8 +21,8 @@ const Home: NextPage = () => {
         <div className="w-full h-screen overflow-hidden">
           <ComputerCanvas />
         </div>
-        <Marquee />
-        <UnderConstruction />
+        {/* <Marquee />
+        <UnderConstruction /> */}
 
       </Layout>
     </div>
