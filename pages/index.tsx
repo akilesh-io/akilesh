@@ -18,7 +18,7 @@ const Home: NextPage = () => {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.png" />
         </Head>
-        <div className="w-full h-screen overflow-hidden">
+        <div className="w-screen h-screen overflow-visible">
           <ComputerCanvas />
         </div>
         {/* <Marquee />

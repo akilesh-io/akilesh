@@ -51,7 +51,7 @@ const ComputerCanvas = () => {
       eventPrefix="client"
       shadows
       camera={{ position: [0, 0, 20], fov: 50 }}
-      className="width-full height-full"
+      className="w-full h-full"
     >
       <spotLight position={[20, 20, 10]} penumbra={1} castShadow angle={0.2} />
       <AnimatedText theme="dark" />
