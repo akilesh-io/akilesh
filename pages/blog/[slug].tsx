@@ -295,19 +295,24 @@ const ArticlePage = ({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths: { params: { slug: string } }[] = [];
-  const data: any = await getAllArticles(process.env.NOTION_DATABASE_ID);
 
-  data.forEach((result) => {
-    if (result.object === "page") {
-      paths.push({
-        params: {
-          slug: slugify(
-            result.properties.Name.title[0].plain_text
-          ).toLowerCase(),
-        },
-      });
-    }
-  });
+  try {
+    const data: any = await getAllArticles(process.env.NOTION_DATABASE_ID);
+
+    data.forEach((result) => {
+      if (result.object === "page") {
+        paths.push({
+          params: {
+            slug: slugify(
+              result.properties.Name.title[0].plain_text
+            ).toLowerCase(),
+          },
+        });
+      }
+    });
+  } catch (error) {
+    console.error("Failed to fetch Notion articles for static paths:", error);
+  }
 
   return {
     paths,
@@ -329,54 +334,65 @@ export const getStaticProps: GetStaticProps = async (context) => {
   let publishedDate = null;
   let coverImage = null;
 
-  const notion = new Client({
-    auth: process.env.NOTION_KEY,
-  });
-
-  const data: any = await getAllArticles(process.env.NOTION_DATABASE_ID);
-
-  const page: any = getArticlePage(data, slug);
-
-  articleTitle = page.properties.Name.title[0].plain_text;
-  publishedDate = page.properties['Publish date'].date.start;
-  coverImage =
-    page.cover?.file?.url ||
-    page.cover?.external?.url ||
-    page.properties?.coverImage?.files[0]?.file?.url ||
-    page.properties.coverImage?.files[0]?.external?.url ||
-    "https://via.placeholder.com/600x400.png";
-
-  const moreArticles: any = await getMoreArticlesToSuggest(
-    process.env.NOTION_DATABASE_ID,
-    articleTitle
-  );
-
-  let blocks = await notion.blocks.children.list({
-    block_id: page.id,
-  });
-
-  content = [...blocks.results];
-
-  while (blocks.has_more) {
-    blocks = await notion.blocks.children.list({
-      block_id: page.id,
-      start_cursor: blocks.next_cursor ?? undefined,
+  try {
+    const notion = new Client({
+      auth: process.env.NOTION_KEY,
     });
 
-    content = [...content, ...blocks.results];
-  }
+    const data: any = await getAllArticles(process.env.NOTION_DATABASE_ID);
 
-  return {
-    props: {
-      content,
-      title: articleTitle,
-      publishedDate,
-      slug,
-      coverImage,
-      moreArticles,
-    },
-    revalidate: 30,
-  };
+    const page: any = getArticlePage(data, slug);
+
+    articleTitle = page.properties.Name.title[0].plain_text;
+    publishedDate = page.properties['Publish date'].date.start;
+    coverImage =
+      page.cover?.file?.url ||
+      page.cover?.external?.url ||
+      page.properties?.coverImage?.files[0]?.file?.url ||
+      page.properties.coverImage?.files[0]?.external?.url ||
+      "https://via.placeholder.com/600x400.png";
+
+    const moreArticles: any = await getMoreArticlesToSuggest(
+      process.env.NOTION_DATABASE_ID,
+      articleTitle
+    );
+
+    let blocks = await notion.blocks.children.list({
+      block_id: page.id,
+    });
+
+    content = [...blocks.results];
+
+    while (blocks.has_more) {
+      blocks = await notion.blocks.children.list({
+        block_id: page.id,
+        start_cursor: blocks.next_cursor ?? undefined,
+      });
+
+      content = [...content, ...blocks.results];
+    }
+
+    return {
+      props: {
+        content,
+        title: articleTitle,
+        publishedDate,
+        slug,
+        coverImage,
+        moreArticles,
+      },
+      revalidate: 30,
+    };
+  } catch (error) {
+    console.error("Failed to fetch Notion content for blog slug:", slug, error);
+
+    return {
+      notFound: true,
+      // Revalidate so that if the external service comes back,
+      // the page can be generated again.
+      revalidate: 30,
+    };
+  }
 };
 
 export default ArticlePage;

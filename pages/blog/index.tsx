@@ -22,17 +22,28 @@ export default function Blog({ articles }) {
 }
 
 export async function getStaticProps() {
-  const data = await getAllArticles(process.env.NOTION_DATABASE_ID);
-  const { articles, tags } = convertToArticleList(data);
+  try {
+    const data = await getAllArticles(process.env.NOTION_DATABASE_ID);
+    const { articles } = convertToArticleList(data);
 
-  const blogArticles = articles.filter(
-    (article) => article.status === "Publish"
-  );
+    const blogArticles = articles.filter(
+      (article) => article.status === "Publish"
+    );
 
-  return {
-    props: {
-      articles: blogArticles,
-    },
-    revalidate: 30,
-  };
+    return {
+      props: {
+        articles: blogArticles,
+      },
+      revalidate: 30,
+    };
+  } catch (error) {
+    console.error("Failed to fetch Notion articles for blog index:", error);
+
+    return {
+      props: {
+        articles: [],
+      },
+      revalidate: 30,
+    };
+  }
 }
