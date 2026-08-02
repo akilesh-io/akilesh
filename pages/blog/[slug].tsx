@@ -1,3 +1,8 @@
+// Blog content has moved to a third-party platform. Everything below this
+// point (including the Notion fetch in getStaticProps) is kept as reference
+// only and is intentionally never called: no paths are pre-rendered and
+// fallback is disabled, so /blog/[slug] always 404s.
+
 import { Fragment, useEffect } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { PageType, SubscribeSize } from "@/lib/types";
@@ -13,7 +18,6 @@ import Layout from "layout/Layout";
 
 import { Client } from "@notionhq/client";
 import Image from "next/image";
-import slugify from "slugify";
 import { useRouter } from "next/router";
 
 // Required for renderBlock
@@ -292,29 +296,31 @@ const ArticlePage = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths: { params: { slug: string } }[] = [];
+  // const paths: { params: { slug: string } }[] = [];
 
-  try {
-    const data: any = await getAllArticles(process.env.NOTION_DATABASE_ID);
+  // try {
+  //   const data: any = await getAllArticles(process.env.NOTION_DATABASE_ID);
 
-    data.forEach((result) => {
-      if (result.object === "page") {
-        paths.push({
-          params: {
-            slug: slugify(
-              result.properties.Name.title[0].plain_text
-            ).toLowerCase(),
-          },
-        });
-      }
-    });
-  } catch (error) {
-    console.error("Failed to fetch Notion articles for static paths:", error);
-  }
+  //   data.forEach((result) => {
+  //     if (result.object === "page") {
+  //       paths.push({
+  //         params: {
+  //           slug: slugify(
+  //             result.properties.Name.title[0].plain_text
+  //           ).toLowerCase(),
+  //         },
+  //       });
+  //     }
+  //   });
+  // } catch (error) {
+  //   console.error("Failed to fetch Notion articles for static paths:", error);
+  // }
 
   return {
-    paths,
-    fallback: "blocking",
+    // paths,
+    // fallback: "blocking",
+    paths: [],
+    fallback: false,
   };
 };
 
