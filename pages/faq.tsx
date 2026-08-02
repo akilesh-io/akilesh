@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Layout from "layout/Layout";
-import { useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import Marquee from "@/components/Marquee";
 
 const pricingData = [
@@ -51,6 +51,16 @@ const getMonthlyPromo = () => {
 
 
 export default function FAQ() {
+    const [promo, setPromo] = useState<string | null>(null);
+
+    useEffect(() => {
+        setPromo(
+            Math.floor(Math.random() * 100) % 2 === 0
+                ? "🚀 Limited time offer: Get priority scheduling for projects started this month"
+                : getMonthlyPromo()
+        );
+    }, []);
+
     return (
         <Layout>
             <div className="max-w-6xl mx-auto px-4 py-16">
@@ -102,10 +112,8 @@ export default function FAQ() {
                                 </svg>
                             </span>
                         </Link>
-                        {/* In your FAQ component, replace the static promo text with: */}
                         <p className="text-sm text-gray-500 dark:text-gray-400">
-                            {/* Random if else condition */}
-                            {Math.floor(Math.random() * 100) % 2 === 0 ? "🚀 Limited time offer: Get priority scheduling for projects started this month" : getMonthlyPromo()}
+                            {promo}
                         </p>
                     </div>
                 </div>

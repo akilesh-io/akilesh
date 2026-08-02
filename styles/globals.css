@@ -25,13 +25,18 @@ html, body {
     top: -150%;
     bottom: 0%;
     left: -150%;
-    right: 0%; 
-	animation: bg-animation 2s steps(1) infinite;
-   
+    right: 0%;
+
     /* background: transparent url('https://assets-global.website-files.com/60db5e59f76ae577e9f50d42/60e488bfc45685c61a395120_Grain.png') repeat 0 0;
     background-repeat: repeat;
     opacity: .9;
     visibility: visible;  */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .bg {
+        animation: bg-animation 2s steps(1) infinite;
+    }
 }
 
 @keyframes bg-animation {
