@@ -34,13 +34,29 @@ function MyApp({ Component, pageProps }: AppProps) {
   const words = ["Hello", "ನಮಸ್ಕಾರ", "ഹലോ", "హలో", "नमस्ते", "வணக்கம்", "Hallo"];
 
   useEffect(() => {
-    (async () => {
-      setTimeout(() => {
-        setIsLoading(false);
-        document.body.style.cursor = "default";
-        window.scrollTo(0, 0);
-      }, 2000);
-    })();
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      setIsLoading(false);
+      document.body.style.cursor = "default";
+      return;
+    }
+
+    // Preloader (components/Preloader/index.jsx) shows the first word for
+    // 1000ms, then advances every 150ms until the last word, where it holds.
+    // Derive the timeout from that instead of a disconnected magic number so
+    // the two stay in sync if `words` changes, plus a short dwell at the end.
+    const preloaderDuration = 1000 + (words.length - 2) * 150 + 250;
+
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      document.body.style.cursor = "default";
+      window.scrollTo(0, 0);
+    }, preloaderDuration);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (

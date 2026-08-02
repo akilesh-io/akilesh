@@ -2,3 +2,9 @@ packages:
   - 'services/*'
   - 'contracts/*'
   - 'packages/*'
+allowBuilds:
+  '@parcel/watcher': true
+  bufferutil: true
+  sharp: true
+  unrs-resolver: true
+  utf-8-validate: true

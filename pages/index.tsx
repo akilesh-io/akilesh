@@ -1,12 +1,19 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import styles from "@/styles/Home.module.css";
 import Layout from "layout/Layout";
 import Marquee from "@/components/Marquee";
 import UnderConstruction from "@/components/UnderConstruction";
 // import {MyScene1} from "@/components/Scene/MyScene1";
 // import WoahText from "@/components/Scene/woahText";
-import ComputerCanvas from "@/components/Scene/ComputerCanvas";
+
+// react-three-fiber/drei/three pull in a large WebGL bundle and can't render
+// server-side, so load them only in the browser once this page mounts.
+const ComputerCanvas = dynamic(
+  () => import("@/components/Scene/ComputerCanvas"),
+  { ssr: false }
+);
 
 const Home: NextPage = () => {
   return (

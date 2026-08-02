@@ -12,7 +12,7 @@ import { CodeBlock } from "@/components/Codeblock";
 import Layout from "layout/Layout";
 
 import { Client } from "@notionhq/client";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import slugify from "slugify";
 import { useRouter } from "next/router";
 
@@ -144,10 +144,9 @@ export function renderBlocks (block) {
         >
           <Image
             // placeholder="blur"
-            className="rounded-xl"
-            layout="fill"
+            className="rounded-xl object-cover"
+            fill
             sizes="100vw"
-            objectFit="cover"
             alt={
               caption
                 ? caption
@@ -254,10 +253,9 @@ const ArticlePage = ({
                 style={{ position: "relative", overflow: "hidden" }}
               >
                 <Image
-                  className="rounded-3xl"
-                  layout="fill"
+                  className="rounded-3xl object-cover"
+                  fill
                   sizes="100vw"
-                  objectFit="cover"
                   src={coverImage}
                   alt={"article cover"}
                   priority
