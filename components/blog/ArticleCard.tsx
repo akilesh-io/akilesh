@@ -1,5 +1,5 @@
 import { Article } from '@/lib/types';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import slugify from 'slugify';
 
 //import { useIsArticleRead } from '@/hooks/useIsArticleRead';
@@ -18,12 +18,14 @@ export function ArticleCard({ article }: Props) {
       <button onClick={() => handleArticleClicked(slug)}>
         <div className="group">
           <Image
-            className="rounded-md object-cover group-hover:opacity-75"
+            className="rounded-md group-hover:opacity-75"
+            objectFit="cover"
             src={article.coverImage}
             placeholder="blur"
             blurDataURL={article.coverImage}
             width={684}
             height={350}
+            layout="intrinsic"
             alt={'article cover'}
           />
           <div className="w-full text-left">

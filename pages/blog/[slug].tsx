@@ -1,8 +1,3 @@
-// Blog content has moved to a third-party platform. Everything below this
-// point (including the Notion fetch in getStaticProps) is kept as reference
-// only and is intentionally never called: no paths are pre-rendered and
-// fallback is disabled, so /blog/[slug] always 404s.
-
 import { Fragment, useEffect } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { PageType, SubscribeSize } from "@/lib/types";
@@ -12,18 +7,19 @@ import {
   getMoreArticlesToSuggest,
 } from "@/lib/notion";
 
-import { ArticleList } from "@/components/ArticleList";
-import { CodeBlock } from "@/components/Codeblock";
 import Layout from "layout/Layout";
 
 import { Client } from "@notionhq/client";
-import Image from "next/image";
+import Image from "next/legacy/image";
+import slugify from "slugify";
 import { useRouter } from "next/router";
 
+import { ArticleList } from "@/components/blog/ArticleList";
+import { CodeBlock } from "@/components/blog/Codeblock";
 // Required for renderBlock
-import { AnchorLink } from "@/components/AnchorLink";
-import { Callout } from "@/components/Callout";
-import { YoutubeEmbed } from "@/components/YoutubeEmbed";
+import { AnchorLink } from "@/components/blog/AnchorLink";
+import { Callout } from "@/components/blog/Callout";
+import { YoutubeEmbed } from "@/components/blog/YoutubeEmbed";
 
 export const Text = ({ text }) => {
   if (!text) {
@@ -148,9 +144,10 @@ export function renderBlocks (block) {
         >
           <Image
             // placeholder="blur"
-            className="rounded-xl object-cover"
-            fill
+            className="rounded-xl"
+            layout="fill"
             sizes="100vw"
+            objectFit="cover"
             alt={
               caption
                 ? caption
@@ -257,9 +254,10 @@ const ArticlePage = ({
                 style={{ position: "relative", overflow: "hidden" }}
               >
                 <Image
-                  className="rounded-3xl object-cover"
-                  fill
+                  className="rounded-3xl"
+                  layout="fill"
                   sizes="100vw"
+                  objectFit="cover"
                   src={coverImage}
                   alt={"article cover"}
                   priority
@@ -296,31 +294,29 @@ const ArticlePage = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // const paths: { params: { slug: string } }[] = [];
+  const paths: { params: { slug: string } }[] = [];
 
-  // try {
-  //   const data: any = await getAllArticles(process.env.NOTION_DATABASE_ID);
+  try {
+    const data: any = await getAllArticles(process.env.NOTION_DATABASE_ID);
 
-  //   data.forEach((result) => {
-  //     if (result.object === "page") {
-  //       paths.push({
-  //         params: {
-  //           slug: slugify(
-  //             result.properties.Name.title[0].plain_text
-  //           ).toLowerCase(),
-  //         },
-  //       });
-  //     }
-  //   });
-  // } catch (error) {
-  //   console.error("Failed to fetch Notion articles for static paths:", error);
-  // }
+    data.forEach((result) => {
+      if (result.object === "page") {
+        paths.push({
+          params: {
+            slug: slugify(
+              result.properties.Name.title[0].plain_text
+            ).toLowerCase(),
+          },
+        });
+      }
+    });
+  } catch (error) {
+    console.error("Failed to fetch Notion articles for static paths:", error);
+  }
 
   return {
-    // paths,
-    // fallback: "blocking",
-    paths: [],
-    fallback: false,
+    paths,
+    fallback: "blocking",
   };
 };
 
