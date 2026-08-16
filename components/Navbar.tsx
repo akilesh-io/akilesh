@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import Bulb from "@/components/Bulb";
 import { useRouter } from 'next/router';
 import styles from "@/styles/Nav.module.scss";
-import Magnetic from "@/common/Magnetic";
+import Magnetic from "@/components/Magnetic";
 import sun from "@/public/images/sun.png";
 import moon from "@/public/images/moon.png";
 import { useEffect, useState } from "react";
@@ -28,7 +28,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <div className="container mx-auto px-4 max-w-screen-xl mt-6 relative flex flex-col items-center justify-center">
+      <div className="mx-auto px-4 max-w-screen-xl mt-6 relative flex flex-col items-center justify-center">
         <div className={`px-5 ${styles.header} xl:px-0`}>
           <div className={styles.logo}>
             <Magnetic>
