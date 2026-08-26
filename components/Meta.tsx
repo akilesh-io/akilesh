@@ -43,7 +43,6 @@ export default function Meta() {
       />
       <meta name="twitter:image" content="https://res.cloudinary.com/davkfrmah/image/upload/v1725990570/Akilesh/a%20doughnut.png" />
 
-      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
       <noscript>
         {/* eslint-disable @next/next/no-img-element */}
         <img
