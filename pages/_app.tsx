@@ -8,10 +8,6 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import MicrosoftClarity from "@/components/MicrosoftClarity";
 import Preloader from "../components/Preloader";
 import { PageTransition } from "@/components/PageTransition";
-// core styles shared by all of react-notion-x (required)
-import "react-notion-x/src/styles.css";
-// used for code syntax highlighting (optional)
-import "prismjs/themes/prism-tomorrow.css";
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "motion/react";
 

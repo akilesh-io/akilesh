@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 // Blog content has moved to a third-party platform, so this no longer
-// queries Notion. getPublishedArticles() in lib/notion.ts is kept for
-// reference but is intentionally not called.
+// queries Notion. getPublishedArticles() is kept for reference in
+// _archive/blog/lib/notion-blog.ts but is intentionally not called.
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
