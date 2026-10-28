@@ -36,10 +36,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/_error.js",
-    "components/Scene/Scene.jsx",
-    "components/Scene/MyScene1.jsx",
-    "components/Scene/CanvasLoader.jsx",
+    "**/*.jsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
