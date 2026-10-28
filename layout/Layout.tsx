@@ -1,6 +1,7 @@
+import dynamic from "next/dynamic";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
-import { Toaster } from 'sonner';
+const Toaster = dynamic(() => import("sonner").then((mod) => mod.Toaster), { ssr: false });
 
 type Props = {
   children: React.ReactNode;
@@ -10,10 +11,10 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <Navbar />
-      <main className=" mx-auto justify-center px-4 place-items-center grid">
+      <main id="main-content" className=" mx-auto justify-center px-4 place-items-center grid">
         {children}
-        <Toaster position="bottom-left" />
       </main>
+      <Toaster position="bottom-left" />
       <Footer />
     </>
   );
