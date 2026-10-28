@@ -3,22 +3,19 @@ import SubstackWidget from "@/components/SubstackWidget";
 import SlidingText from "@/components/SlidingText";
 import React, { useState, useEffect } from 'react';
 
+const EMOJIS = ['💙', '🌠', '🧙', '🔮'];
+
 export const Footer = () => {
   const router = useRouter();
   const workPath = router.pathname !== '/work';
-  const emojis = ['💙', '🌠', '🧙', '🔮'];
-  // State to keep track of the current emoji index
   const [currentEmojiIndex, setCurrentEmojiIndex] = useState(0);
 
   useEffect(() => {
-    // Set up an interval to change the emoji every 2 seconds (2000 milliseconds)
     const intervalId = setInterval(() => {
-      setCurrentEmojiIndex((prevIndex) => (prevIndex + 1) % emojis.length);
+      setCurrentEmojiIndex((prevIndex) => (prevIndex + 1) % EMOJIS.length);
     }, 1500);
-
-    // Clear the interval when the component unmounts
     return () => clearInterval(intervalId);
-  }, [emojis.length]); // Empty dependency array means this effect runs once on mount
+  }, []);
 
 
 
@@ -31,7 +28,7 @@ export const Footer = () => {
       </div>
 
       <div className="my-4 text-center text-gray-700 dark:text-gray-100 bg-black/0.25 font-mono text-sm md:text-base">
-        {workPath ? `Crafted with ${emojis[currentEmojiIndex]} by Akilesh` : <>
+        {workPath ? `Crafted with ${EMOJIS[currentEmojiIndex]} by Akilesh` : <>
           <div className='flex justify-center '>
             {/* items-end */}
             <SlidingText text="Foreground Midground Background" />
@@ -64,9 +61,10 @@ export const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
           href="https://bsky.app/profile/akilesh.in"
+          aria-label="Akilesh on Bluesky"
           className="mr-9 text-gray-700 dark:text-gray-100"
         >
-         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
           <path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"/>
         </svg>
         </a>
@@ -98,8 +96,7 @@ export const Footer = () => {
         {/* Mail */}
         <a
           href="mailto:2112akilesh@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
+          aria-label="Email Akilesh"
           className="mr-9 text-gray-700 dark:text-gray-100"
         >
           <svg
@@ -147,9 +144,11 @@ export const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
           href="https://dribbble.com/Akilesh_io"
+          aria-label="Akilesh on Dribbble"
           className="text-gray-700 dark:text-gray-100"
         >
           <svg
+            aria-hidden="true"
             width="16"
             height="16"
             viewBox='0 0 64 64'
