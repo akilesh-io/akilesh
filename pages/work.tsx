@@ -8,8 +8,12 @@ export default function Work() {
   return (
     <Layout>
       <Head>
-        <title>Works</title>
-        <meta name="description" content="Works" />
+        <title>Work • Akilesh</title>
+        <meta
+          key="description"
+          name="description"
+          content="Selected web, e-commerce and mobile projects by Akilesh — landing pages, web apps, admin panels and brand identity."
+        />
       </Head>
 
       <h1>
@@ -32,6 +36,22 @@ export default function Work() {
 
 
 export const projects = [
+  {
+    title: "RBM",
+    tech:
+      ["Mobile App"],
+    link: "#",
+    image:
+      "https://res.cloudinary.com/davkfrmah/image/upload/v1705562847/Akilesh/act.png",
+  },
+  {
+    title: "Drop Share",
+    tech:
+      ["Web Application"],
+    link: "https://dropshare.akilesh.in/",
+    image:
+      "https://res.cloudinary.com/davkfrmah/image/upload/v1705562847/Akilesh/act.png",
+  },
   {
     title: "ACT",
     tech:
