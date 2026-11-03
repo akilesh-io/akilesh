@@ -17,10 +17,11 @@ const bigilla = localFont({
   display: 'swap',
   preload: false,
 })
+const PRELOADER_WORDS = ["Hello", "வணக்கம்", "ഹലോ", "హలో", "ನಮಸ್ಕಾರ", "नमस्ते", "Hallo"];
+const PRELOADER_DURATION_MS = 1000 + (PRELOADER_WORDS.length - 2) * 150 + 250;
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isLoading, setIsLoading] = useState(true);
-  const words = ["Hello", "ನಮಸ್ಕಾರ", "ഹലോ", "హలో", "नमस्ते", "வணக்கம்", "Hallo"];
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -44,7 +45,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider attribute="class">
         <div className={`font-sans ${bigilla.variable}`}>
           <AnimatePresence mode="wait">
-            {isLoading && <Preloader words={words}/>}
+            {isLoading && <Preloader words={PRELOADER_WORDS} />}
           </AnimatePresence>
           <PageTransition>
             <Component {...pageProps} />

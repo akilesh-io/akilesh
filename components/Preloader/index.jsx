@@ -4,12 +4,9 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { opacity, slideUp } from "./anim";
 
-// const words = ["Hello", "Bonjour", "Ciao", "Olà", "やあ", "Hallå", "Guten tag", "Hallo"]
-
-export default function Index(data) {  
+export default function Index({ words }) {
   const [index, setIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
-  let words = data.words;
 
   useEffect(() => {
     setDimension({ width: window.innerWidth, height: window.innerHeight });
@@ -17,13 +14,12 @@ export default function Index(data) {
 
   useEffect(() => {
     if (index == words.length - 1) return;
-    setTimeout(
-      () => {
-        setIndex(index + 1);
-      },
+    const timer = setTimeout(
+      () => setIndex(index + 1),
       index == 0 ? 1000 : 150
     );
-  }, [index]);
+    return () => clearTimeout(timer);
+  }, [index, words]);
 
   const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
     dimension.height
@@ -51,6 +47,8 @@ export default function Index(data) {
       initial="initial"
       exit="exit"
       className={styles.introduction}
+      data-preloader
+      aria-hidden="true"
     >
       {dimension.width > 0 && (
         <>
