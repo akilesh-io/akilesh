@@ -1,6 +1,6 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { motion } from 'motion/react';
 
-import React ,{ ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 const variants = {
   initial: {
@@ -12,7 +12,7 @@ const variants = {
     y: 0,
     transition: {
       duration: 0.7,
-      easing: [0.61, 1, 0.88, 1],
+      ease: [0.61, 1, 0.88, 1] as const,
     }
   }
 };
@@ -22,11 +22,8 @@ export const PageTransition = ({
 }: {
   children: ReactNode;
 }): React.ReactElement => {
-  const prefersReducedMotion = useReducedMotion();
-
-  if (prefersReducedMotion) return <>{children}</>;
   return (
-    <motion.div initial="initial" animate="enter" variants={variants}>
+    <motion.div data-page-transition initial="initial" animate="enter" variants={variants}>
       {children}
     </motion.div>
   );

@@ -8,7 +8,7 @@ import MicrosoftClarity from "@/components/MicrosoftClarity";
 import Preloader from "../components/Preloader";
 import { PageTransition } from "@/components/PageTransition";
 import { useState, useEffect } from "react";
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence, MotionConfig } from "motion/react";
 
 // TODO: Remove bigilla font
 const bigilla = localFont({
@@ -27,29 +27,19 @@ function MyApp({ Component, pageProps }: AppProps) {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    if (prefersReducedMotion) {
-      setIsLoading(false);
-      document.body.style.cursor = "default";
-      return;
-    }
-
-    // Preloader (components/Preloader/index.jsx) shows the first word for
-    // 1000ms, then advances every 150ms until the last word, where it holds.
-    // Derive the timeout from that instead of a disconnected magic number so
-    // the two stay in sync if `words` changes, plus a short dwell at the end.
-    const preloaderDuration = 1000 + (words.length - 2) * 150 + 250;
-
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      document.body.style.cursor = "default";
-      window.scrollTo(0, 0);
-    }, preloaderDuration);
+    const timer = setTimeout(
+      () => {
+        setIsLoading(false);
+        window.scrollTo(0, 0);
+      },
+      prefersReducedMotion ? 0 : PRELOADER_DURATION_MS
+    );
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <Meta />
       <ThemeProvider attribute="class">
         <div className={`font-sans ${bigilla.variable}`}>
@@ -59,13 +49,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           <PageTransition>
             <Component {...pageProps} />
           </PageTransition>
-        </main>
+        </div>
       </ThemeProvider>
 
       {/* Analytics */}
       <GoogleAnalytics gaId="G-N23NY12Z30" />
       <MicrosoftClarity />
-    </>
+    </MotionConfig>
   );
 }
 
