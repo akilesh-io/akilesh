@@ -1,9 +1,11 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import Image from "next/image";
 import RotatingText from "@/components/reusable/RotatingText";
+import { ProjectModal, type ProjectDetails } from "@/components/ProjectModal";
 
 export const HoverEffect = ({
   items,
@@ -14,10 +16,14 @@ export const HoverEffect = ({
     tech: string[];
     link: string;
     image: string;
+    project?: ProjectDetails;
   }[];
   className?: string;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const router = useRouter();
+  const openItem = router.isReady && items.find((item) => item.project && item.link === router.asPath);
 
   return (
     <div
@@ -47,7 +53,9 @@ export const HoverEffect = ({
             href={item?.link}
             rel="noopener noreferrer"
             className="relative group block py-4 md:p-2 h-full w-full"
-            target="_blank"
+            target={item.project ? undefined : "_blank"}
+            shallow
+            scroll={false}
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
@@ -69,7 +77,9 @@ export const HoverEffect = ({
               )}
             </AnimatePresence>
             <Card className="group-hover:shadow-lg">
-              <CardImage src={item?.image} title={item?.title} />
+              <motion.div layoutId={item.project ? item.link : undefined}>
+                <CardImage src={item?.image} title={item?.title} />
+              </motion.div>
               {hoveredIndex === idx && (
                 <motion.div
                   className="absolute top-0 right-0 bg-white dark:bg-mild rounded-bl-lg shadow-lg hidden sm:block"
@@ -101,6 +111,14 @@ export const HoverEffect = ({
           </Link>
         </motion.div>
       ))}
+      <AnimatePresence>
+        {openItem && (
+          <ProjectModal
+            item={openItem}
+            onClose={() => router.push("/work", undefined, { shallow: true, scroll: false })}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };

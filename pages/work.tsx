@@ -38,11 +38,15 @@ export default function Work() {
 export const projects = [
   {
     title: "Kolam",
-    tech:
-      ["Game"],
-    link: "#",
-    image:
-      "/work/kolam/thumbnail.png",
+    tech: ["Game"],
+    link: "/work?project=kolam",
+    image: "/work/kolam/thumbnail.png",
+    project: {
+      description: "Anu, living her best life in Hyderabad, came to her hometown for a Festival holiday and stumbles upon her mom's kolam book, where she used to admire her mom's kolam and wanted to learn and try to draw the same way her mom drew, but the busy adult life made her forget the things she used to enjoy and admire as a kid. We will  be playing as Anu till she find her inner child.",
+      // desciption : "geometrical line's connects past and present"
+      images: ["/work/kolam/kolam.gif", "/work/kolam/poster-lite.png"],
+      resource: { label: "Join the Wishlist", href: "https://akileshio.substack.com/subscribe?utm_source=akilesh.in" },
+    },
   },
   {
     title: "Zifo",
