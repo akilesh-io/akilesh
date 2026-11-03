@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { NextSeo } from "next-seo";
 import Layout from "layout/Layout";
 import { useEffect, useState } from 'react';
 import Marquee from "@/components/Marquee";
@@ -63,6 +64,10 @@ export default function FAQ() {
 
     return (
         <Layout>
+            <NextSeo
+                title="Pricing & FAQ"
+                description="Transparent pricing for web development, e-commerce, mobile apps and ongoing support."
+            />
             <div className="max-w-6xl mx-auto px-4 py-16">
                 <div className="text-center mb-16">
                     <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -79,7 +84,7 @@ export default function FAQ() {
                             key={index}
                             className="p-4 sm:p-6 rounded-2xl border-2 border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700 transition-all duration-300"
                         >
-                            <h3 className="text-lg sm:text-xl font-semibold mb-2">{item.category}</h3>
+                            <h2 className="text-lg sm:text-xl font-semibold mb-2">{item.category}</h2>
                             <div className="flex items-baseline gap-2 mb-3">
                                 <span className="text-2xl sm:text-3xl font-bold">${item.minPrice}</span>
                                 <span className="text-2xl sm:text-3xl font-bold">
