@@ -74,6 +74,7 @@
 }
 
 .content__title {
+    /* TODO: Remove Poppins */
     font-family: 'Poppins', sans-serif;
     letter-spacing: -0.025em;
     font-size: 7vw;

@@ -244,7 +244,7 @@ const ArticlePage = ({
         <article className="col-span-12 mt-12">
           <div className="space-y-16">
             <div>
-              <h1 className="mb-5 text-3xl text-center font-openSans md:text-5xl">
+              <h1 className="mb-5 text-3xl text-center md:text-5xl">
                 {title}
               </h1>
             </div>
