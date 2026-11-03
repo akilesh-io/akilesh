@@ -4,15 +4,19 @@
 // they are kept there for reference and are not built or called.
 import { Client } from '@notionhq/client';
 
-const notion = new Client({ auth: process.env.NOTION_KEY });
 const formNotion = new Client({ auth: process.env.FORM_NOTION_KEY });
 
-export const formUpload = async (formData) => {
+type FormSubmission = {
+    firstName: string;
+    lastName?: string;
+    email: string;
+    budget?: number | null;
+    message?: string;
+    fileUrl?: string | null;
+    services: { name: string }[];
+};
 
-    formData.services.map((service) => {
-        console.log(service);
-    });
-
+export const formUpload = async (formData: FormSubmission) => {
     const response = await formNotion.pages.create({
         "icon": {
             "type": "emoji",
@@ -37,13 +41,13 @@ export const formUpload = async (formData) => {
                 "email": formData.email
             },
             "Budget": {
-                "number": Number(formData.budget)
+                "number": Number.isFinite(Number(formData.budget)) ? Number(formData.budget) : null
             },
             "Attachments": {
-                "url": formData.fileUrl
+                "url": formData.fileUrl || null
             },
             "Service": {
-                "multi_select": formData.services.map((service) => ({ name: service.name, id: service.id }))
+                "multi_select": formData.services.map((service) => ({ name: service.name }))
             },
             "Source": {
                 "select": {
@@ -79,7 +83,7 @@ export const formUpload = async (formData) => {
                         {
                             "type": "text",
                             "text": {
-                                "content": formData.message
+                                "content": formData.message || ""
                             }
                         }
                     ]
@@ -90,6 +94,3 @@ export const formUpload = async (formData) => {
 
     return response;
 };
-
-
-export default notion;
