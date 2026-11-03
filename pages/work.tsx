@@ -37,20 +37,36 @@ export default function Work() {
 
 export const projects = [
   {
-    title: "RBM",
+    title: "Kolam",
     tech:
-      ["Mobile App"],
+      ["Game"],
     link: "#",
     image:
-      "https://res.cloudinary.com/davkfrmah/image/upload/v1705562847/Akilesh/act.png",
+      "/work/kolam/thumbnail.png",
   },
+  {
+    title: "Zifo",
+    tech:
+      ["Designer"],
+    link: "https://www.figma.com/community/file/1693921709392339178",
+    image:
+      "/work/zifo/thumbnail.png",
+  },
+  // {
+  //   title: "RBM",
+  //   tech:
+  //     ["Mobile App"],
+  //   link: "#",
+  //   image:
+  //     "",
+  // },
   {
     title: "Drop Share",
     tech:
       ["Web Application"],
     link: "https://dropshare.akilesh.in/",
     image:
-      "https://res.cloudinary.com/davkfrmah/image/upload/v1705562847/Akilesh/act.png",
+      "/work/dropshare/thumbnail.png"
   },
   {
     title: "ACT",
