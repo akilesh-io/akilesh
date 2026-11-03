@@ -1,18 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import Bulb from "@/components/Bulb";
 import { useRouter } from 'next/router';
 import styles from "@/styles/Nav.module.scss";
 import Magnetic from "@/components/Magnetic";
 import sun from "@/public/images/sun.png";
 import moon from "@/public/images/moon.png";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Logo from "./Logo";
+// import Bulb from "@/components/Bulb";
 
 export const Navbar = () => {
-  const [active, setActive] = useState(false);
-  const { theme, setTheme } = useTheme();
+  // `resolvedTheme` rather than `theme`: `theme` is the literal stored value,
+  // which is "system" for anyone who never picked one, so toggling off it
+  // sent OS-dark visitors to dark again.
+  const { resolvedTheme, setTheme } = useTheme();
 
   const router = useRouter();
   const showBulb = router.pathname == '/';
@@ -22,13 +24,8 @@ export const Navbar = () => {
 
   }, []);
 
-  const handleClick = () => {
-    setActive(!active);
-  };
-
   return (
-    <>
-      <div className="mx-auto px-4 max-w-screen-xl mt-6 relative flex flex-col items-center justify-center">
+    <nav className="mx-auto px-4 max-w-screen-xl mt-6 relative flex flex-col items-center justify-center">
         <div className={`px-5 ${styles.header} xl:px-0`}>
           <div className={styles.logo}>
             <Magnetic>
@@ -76,27 +73,29 @@ export const Navbar = () => {
               </div>
             </Magnetic> */}
             <Magnetic>
-              <div
+              <button
+                type="button"
+                aria-label="Toggle dark mode"
                 className="flex flex-col relative z-10 py-4 pl-3"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              >
-                {theme === "dark" ? (
-                  <Image
-                    // src="https://img.icons8.com/pulsar-color/48/sun.png"
-                    src={sun}
-                    alt="sun"
-                    width={37}
-                  />
-                ) : (
-                  <Image
-                    // src="https://img.icons8.com/pulsar-color/48/crescent-moon.png"
-                    src={moon}
-                    alt="moon"
-                    width={28}
-                  />
-                )
+                onClick={() =>
+                  setTheme(resolvedTheme === "dark" ? "light" : "dark")
                 }
-              </div>
+              >
+                <Image
+                  src={sun}
+                  alt=""
+                  aria-hidden="true"
+                  width={37}
+                  className="hidden dark:block"
+                />
+                <Image
+                  src={moon}
+                  alt=""
+                  aria-hidden="true"
+                  width={28}
+                  className="block dark:hidden"
+                />
+              </button>
             </Magnetic>
           </div>
         </div>
@@ -114,20 +113,6 @@ export const Navbar = () => {
             <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-violet-300 dark:via-sky-500 to-transparent h-px w-1/4 " />
           </div>
         )}
-      </div>
-      <style jsx>{`
-        .slide-in {
-          max-height: 500px;
-          overflow: hidden;
-          transition: max-height 0.5s ease-in-out;
-        }
-
-        .slide-out {
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.5s ease-in-out;
-        }
-      `}</style>
-    </>
+    </nav>
   );
 };
