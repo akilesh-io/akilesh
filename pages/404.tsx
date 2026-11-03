@@ -1,5 +1,5 @@
 
-import styles from "@/styles/404.module.css";
+import { NextSeo } from "next-seo";
 import Burger404 from "@/components/Burger404";
 import { MorphingCircle } from "@/components/MorphingCircle";
 import { useEffect, useState } from "react";
@@ -30,12 +30,17 @@ export default function Custom404() {
         }, "-=.4");
 
         setCoinTossResult(tossCoin());
+
+        return () => {
+            tl.kill();
+        };
     }, []);
 
 
 
     return (
         <div className=" mx-auto h-screen justify-center px-4 grid">
+            <NextSeo title="Page not found" noindex />
 
             <div className="flex-wrap flex flex-col sm:flex-row sm:justify-center items-center  mx-0 my-auto font-bigilla">
                 <div className="flex flex-col sm:flex-row items-center ">

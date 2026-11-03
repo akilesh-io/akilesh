@@ -3,7 +3,6 @@ import type { AppProps } from "next/app";
 import Meta from "@/components/Meta";
 import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
-import { PT_Serif, Open_Sans } from "next/font/google";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import MicrosoftClarity from "@/components/MicrosoftClarity";
 import Preloader from "../components/Preloader";
@@ -11,18 +10,12 @@ import { PageTransition } from "@/components/PageTransition";
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "motion/react";
 
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  variable: "--font-open-sans",
-});
-const ptSerif = PT_Serif({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-pt-serif",
-});
+// TODO: Remove bigilla font
 const bigilla = localFont({
   src: '../public/fonts/Bigilla.otf',
-  variable: '--font-bigilla'
+  variable: '--font-bigilla',
+  display: 'swap',
+  preload: false,
 })
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -59,7 +52,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Meta />
       <ThemeProvider attribute="class">
-        <main className={`${openSans.variable} ${ptSerif.variable} font-sans ${bigilla.variable}`}>
+        <div className={`font-sans ${bigilla.variable}`}>
           <AnimatePresence mode="wait">
             {isLoading && <Preloader words={words}/>}
           </AnimatePresence>

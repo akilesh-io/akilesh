@@ -4,10 +4,18 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link rel="me" href="https://mastodon.social/@akilesh_io" />
+        <noscript>
+          <style
+            dangerouslySetInnerHTML={{
+              __html:
+                '[data-preloader]{display:none!important}' +
+                '[data-page-transition]{opacity:1!important;transform:none!important}',
+            }}
+          />
+        </noscript>
       </Head>
-      <body className="prose-headings:font-headings dark:bg-[#0e1012]">
-        <div className='bg'></div>
+      <body className="text-black dark:bg-[#0e1012] dark:text-white">
+        <div className="bg" aria-hidden="true"></div>
         <Main />
         <NextScript />
       </body>
