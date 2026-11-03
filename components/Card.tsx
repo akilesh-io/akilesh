@@ -138,10 +138,10 @@ export const CardImage = ({
   const [isLoading, setLoading] = useState(true);
 
   return (
-    <div className="group relative">
+    <div className="group relative aspect-[4/3] w-full overflow-hidden">
       <Image
-        width={450}
-        height={450}
+        fill
+        sizes="(min-width: 768px) 50vw, 100vw"
         src={src}
         alt={title}
         loading="lazy"

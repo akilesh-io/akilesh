@@ -24,7 +24,7 @@ export default function Work() {
           Some Of My Finest Works
         </span>
       </h1>
-      <div className="grid w-full max-w-screen-xl mx-auto animate-fade-up py-2 sm:py-12">
+      <div className="grid w-[calc(75vw)] max-w-screen-2xl mx-auto animate-fade-up py-2 sm:py-12">
         <HoverEffect items={projects} />
       </div>
       <div className="fixed bottom-0 sm:bottom-0 mb-3 mr-4 2xl:mb-16 2xl:mr-16 z-10 right-0">
