@@ -77,7 +77,7 @@ export function ProjectModal({ item, onClose }: Props) {
               rel="noopener noreferrer"
               className="inline-block rounded-full border-2 border-current px-5 py-2 font-semibold"
             >
-              {item.project.resource.label} ↗
+              {item.project.resource.label}
             </a>
           )}
         </div>
