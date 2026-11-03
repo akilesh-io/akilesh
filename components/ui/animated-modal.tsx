@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import React, {
   ReactNode,
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useRef,
@@ -47,22 +48,24 @@ export const ModalTrigger = ({
   children: ReactNode;
   className?: string;
 }) => {
-    const { open, setOpen } = useModal(); // Retrieve the current state and the setter function
-    const router = useRouter();
-    
+  const { open, setOpen } = useModal();
+  const router = useRouter();
+
     // Check URL parameters and open modal if form=active
-    useEffect(() => {
-        if (router.query.form === 'active') {
-            setOpen(true);
-        }
-    }, [router.query, setOpen]);
+  const formParam = router.query.form;
+  useEffect(() => {
+    if (formParam === 'active') {
+      setOpen(true);
+    }
+  }, [formParam, setOpen]);
 
   return (
     <button
-      className={cn(
-        className
-      )}
-            onClick={() => setOpen(!open)} // Toggle the modal state
+      type="button"
+      aria-haspopup="dialog"
+      aria-expanded={open}
+      className={cn(className)}
+      onClick={() => setOpen(!open)}
     >
       {children}
     </button>
@@ -76,19 +79,27 @@ export const ModalBody = ({
   children: ReactNode;
   className?: string;
 }) => {
-  const { open } = useModal();
+  const { open, setOpen } = useModal();
+  const modalRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
   }, [open]);
 
-  const modalRef = useRef<HTMLDivElement | null>(null);
-  const { setOpen } = useModal();
-  useOutsideClick(modalRef, () => setOpen(false));
+  const close = useCallback(() => setOpen(false), [setOpen]);
+  useOutsideClick(modalRef, close);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => e.key === "Escape" && close();
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open, close]);
 
   return (
     <AnimatePresence>
@@ -111,6 +122,9 @@ export const ModalBody = ({
 
           <motion.div
             ref={modalRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Start your project"
             className={cn(
                             "min-h-[50%] max-h-[90%] max-w-[90%] bg-white dark:bg-black border border-transparent dark:border-neutral-800 rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden ",
               className
@@ -203,10 +217,13 @@ const CloseIcon = () => {
   const { setOpen } = useModal();
   return (
     <button
+      type="button"
+      aria-label="Close dialog"
       onClick={() => setOpen(false)}
-            className="absolute top-4 right-4 group md:mr-3"
+      className="absolute top-4 right-4 group md:mr-3"
     >
       <svg
+        aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"

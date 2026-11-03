@@ -1,10 +1,9 @@
 "use client";
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
 export default function Index({ children }) {
     const magnetic = useRef(null);
-    // const magnetic = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         if (!magnetic.current) return;
@@ -15,7 +14,7 @@ export default function Index({ children }) {
         const handleMouseMove = (e) => {
             if (!magnetic.current) return;
             const { clientX, clientY } = e;
-            const { height, width, left, top } = magnetic?.current?.getBoundingClientRect();
+            const { height, width, left, top } = magnetic.current.getBoundingClientRect();
             const x = clientX - (left + width / 2);
             const y = clientY - (top + height / 2);
             xTo(x * 0.35);
@@ -37,5 +36,9 @@ export default function Index({ children }) {
         };
     }, [children]);
 
-    return React.cloneElement(children, { ref: magnetic });
+    return (
+        <span ref={magnetic} style={{ display: 'inline-flex' }}>
+            {children}
+        </span>
+    );
 }

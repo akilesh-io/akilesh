@@ -1,16 +1,11 @@
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
-  useGLTF,
   Float,
   Lightformer,
   Text,
   Environment,
-  MeshTransmissionMaterial,
-  MeshStandardMaterial,
 } from "@react-three/drei";
-import { useLoader } from "@react-three/fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { easing } from "maath";
 import { useTheme } from "next-themes";
 import { useSpring, animated, Globals } from "@react-spring/three";
@@ -54,7 +49,7 @@ const ComputerCanvas = () => {
       className="w-full h-full"
     >
       <spotLight position={[20, 20, 10]} penumbra={1} castShadow angle={0.2} />
-      <AnimatedText theme="dark" />
+      <AnimatedText />
       <Float floatIntensity={2}>
         <Model />
       </Float>
@@ -71,64 +66,7 @@ const ComputerCanvas = () => {
   );
 }
 
-const Knot = (props) => (
-  <mesh receiveShadow castShadow {...props}>
-    <torusKnotGeometry args={[3, 1, 256, 32]} />
-    <MeshTransmissionMaterial backside backsideThickness={5} thickness={2} />
-  </mesh>
-);
-
-const Torus = (props) => (
-  <mesh
-    receiveShadow
-    castShadow
-    {...props}
-    rotation-x={Math.PI * 0.25}
-    rotation-y={Math.PI * 0.25}
-  >
-    <torusGeometry args={[4, 1.2, 128, 64]} />
-    {/* <MeshTransmissionMaterial backside backsideThickness={5} thickness={2} /> */}
-    <meshStandardMaterial color="#e8e5f0" /> {/* #27272a */}
-  </mesh>
-);
-
-function Bomb(props) {
-  const { nodes } = useGLTF("/bomb-gp.glb");
-  return (
-    <mesh
-      receiveShadow
-      castShadow
-      geometry={nodes.Little_Boy_Little_Boy_Material_0.geometry}
-      {...props}
-    >
-      <MeshTransmissionMaterial backside backsideThickness={10} thickness={5} />
-    </mesh>
-  );
-}
-
-const CustomModel = () => {
-  const gltf = useLoader(GLTFLoader, "./bomb-gp.glb");
-  return <primitive object={gltf.scene} />;
-};
-
-function Status(props) {
-  const { theme } = useTheme();
-
-  const text = "/அ";
-  return (
-    <Text
-      fontSize={14}
-      letterSpacing={-0.025}
-      // font={suspend(inter).default}
-      color={theme === "dark" ? "#e8e5f0" : "#27272a"}
-      {...props}
-    >
-      {text}
-    </Text>
-  );
-}
-
-const AnimatedText = ({ text, theme, ...props }) => {
+const AnimatedText = ({ text, ...props }) => {
   const h1Style = {
     fontSize: "7rem",
     textTransform: "uppercase",
@@ -154,7 +92,7 @@ const AnimatedText = ({ text, theme, ...props }) => {
       <Text
         fontSize={4}
         letterSpacing={-0.025}
-        color={theme === "dark" ? "#e8e5f0" : "#27272a"}
+        color="#e8e5f0"
         style={{ ...h1Style, ...charStyle }}
         {...props}
       >
@@ -164,5 +102,4 @@ const AnimatedText = ({ text, theme, ...props }) => {
   );
 };
 
-
-export default ComputerCanvas 
+export default ComputerCanvas

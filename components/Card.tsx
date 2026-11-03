@@ -40,13 +40,12 @@ export const HoverEffect = ({
               delay: 0.2 * idx,
               ease: "easeOut",
             },
-          }}  
-          viewport={{ once: true }}
-          key={"card" + idx}
+          }}
+          key={item.link + item.title}
         >
           <Link
             href={item?.link}
-            key={item?.link}
+            rel="noopener noreferrer"
             className="relative group block py-4 md:p-2 h-full w-full"
             target="_blank"
             onMouseEnter={() => setHoveredIndex(idx)}
@@ -85,19 +84,18 @@ export const HoverEffect = ({
                 </motion.div>
               )}
 
+              {/* No AnimatePresence wraps this one, so the `exit` variant it
+                  used to declare could never run. */}
               <motion.div
                 className="absolute top-0 left-0 bg-white dark:bg-mild rounded-br-lg shadow-lg sm:hidden block"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.2 }}
               >
                 <div className="absolute -bottom-3 right-2 h-3 w-24 rounded-tl-3xl bg-transparent shadow-[-0.5rem_0_0_0] shadow-white dark:shadow-mild"></div>
                 <div className="absolute bottom-5 -right-24 h-2 w-24  rounded-tl-3xl bg-transparent shadow-[-0.5rem_0_0_0] shadow-white dark:shadow-mild"></div>
 
-                <AnimatePresence>
-                  <RotatingText tech={item?.tech} />
-                </AnimatePresence>
+                <RotatingText tech={item?.tech} />
               </motion.div>
             </Card>
           </Link>
@@ -142,13 +140,12 @@ export const CardImage = ({
   return (
     <div className="group relative">
       <Image
-        width={400}
-        height={400}
+        width={450}
+        height={450}
         src={src}
         alt={title}
         loading="lazy"
         decoding="async"
-        blurDataURL={typeof src === "string" ? src : undefined}
         onLoad={() => setLoading(false)}
         className={cn(
           "transition duration-300 w-full h-full object-cover object-center",
@@ -159,38 +156,5 @@ export const CardImage = ({
         )}
       />
     </div>
-  );
-};
-
-export const CardTitle = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) => {
-  return (
-    <h4 className={cn("text-zinc-100 font-bold tracking-wide mt-4", className)}>
-      {children}
-    </h4>
-  );
-};
-
-export const CardDescription = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) => {
-  return (
-    <p
-      className={cn(
-        "mt-8 text-zinc-400 tracking-wide leading-relaxed text-sm",
-        className
-      )}
-    >
-      {children}
-    </p>
   );
 };
