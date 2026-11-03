@@ -3,7 +3,6 @@ import {
     Modal,
     ModalBody,
     ModalContent,
-    ModalFooter,
     ModalTrigger,
 } from "../ui/animated-modal";
 
@@ -24,7 +23,6 @@ export function Form() {
         "On-going support",
         "App from scratch",
     ];
-    const buttonRef = useRef<HTMLButtonElement>(null);
     const formRef = useRef<HTMLFormElement>(null);
     const [selectedButtons, setSelectedButtons] = useState<string[]>([]);
     const [firstName, setFirstName] = useState('');
@@ -79,9 +77,8 @@ export function Form() {
             await emailjs.sendForm('service_a3gos4i', 'template_7wlewzm', formElement, {
                 publicKey: 'ezWzrBdfQ3YVZ9ied',
             });
-            console.log('SUCCESS!');
         } catch (error) {
-            console.log('FAILED...', error.text);
+            console.error('emailjs notification failed', error);
         }
     };
 
@@ -118,12 +115,10 @@ export function Form() {
             fileUrl = await handleUpload(file);
         }
 
-        const services = selectedButtons.map(button => ({ name: button }));
         const formElement = formRef.current;
 
-
         const data = {
-            services: services,
+            services: selectedButtons.map(button => ({ name: button })),
             firstName,
             lastName,
             email,
@@ -158,6 +153,7 @@ export function Form() {
 
     const handleRemoveFile = () => {
         setFileName('');
+        setFile(null);
         const fileInput = document.getElementById('file-upload') as HTMLInputElement;
         if (fileInput) {
             fileInput.value = '';
@@ -193,52 +189,79 @@ export function Form() {
                                 </h1>
 
                                 <div className="w-full max-w-6xl mb-8">
-                                    {services.map((services, index) => (
+                                    {services.map((service) => (
                                         <button
-                                            key={index}
+                                            key={service}
                                             type="button"
-                                            className={`m-1 sm:m-2 py-1 px-3 sm:py-3 sm:px-6 border-2 border-mild dark:border-white rounded-full transition whitespace-nowrap text-base sm:text-xl font-semibold sm:font-medium ${selectedButtons.includes(services)
+                                            className={`m-1 sm:m-2 py-1 px-3 sm:py-3 sm:px-6 border-2 border-mild dark:border-white rounded-full transition whitespace-nowrap text-base sm:text-xl font-semibold sm:font-medium ${selectedButtons.includes(service)
                                                 ? 'bg-black text-white dark:bg-white dark:text-black'
                                                 : 'hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black'
                                                 }`}
-                                            onClick={() => handleButtonClick(services)}
+                                            aria-pressed={selectedButtons.includes(service)}
+                                            onClick={() => handleButtonClick(service)}
                                         >
-                                            {services}
+                                            {service}
                                         </button>
                                     ))}
                                 </div>
                                 <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <input
-                                            required
-                                            type="text"
-                                            placeholder="First name*"
-                                            onChange={e => setFirstName(e.target.value)}
-                                            className="w-full pt-3 pb-1 bg-transparent border-b-2 border-mild dark:border-white focus:outline-none text-2xl font-medium"
-                                        />
-                                        <input
-                                            type="text"
-                                            placeholder="Last name"
-                                            onChange={e => setLastName(e.target.value)}
-                                            className="w-full pt-3 pb-1 bg-transparent border-b-2 border-mild dark:border-white focus:outline-none text-2xl font-medium"
-                                        />
-                                        <input
-                                            required
-                                            type="email"
-                                            placeholder="Email*"
-                                            onChange={e => setEmail(e.target.value)}
-                                            className="w-full pt-3 pb-1 bg-transparent border-b-2 border-mild dark:border-white focus:outline-none text-2xl font-medium"
-                                        />
+                                        <div>
+                                            <label htmlFor="first-name" className="sr-only">First name (required)</label>
+                                            <input
+                                                required
+                                                id="first-name"
+                                                name="firstName"
+                                                type="text"
+                                                autoComplete="given-name"
+                                                placeholder="First name*"
+                                                value={firstName}
+                                                onChange={e => setFirstName(e.target.value)}
+                                                className="w-full pt-3 pb-1 bg-transparent border-b-2 border-mild dark:border-white focus:outline-none text-2xl font-medium"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="last-name" className="sr-only">Last name</label>
+                                            <input
+                                                id="last-name"
+                                                name="lastName"
+                                                type="text"
+                                                autoComplete="family-name"
+                                                placeholder="Last name"
+                                                value={lastName}
+                                                onChange={e => setLastName(e.target.value)}
+                                                className="w-full pt-3 pb-1 bg-transparent border-b-2 border-mild dark:border-white focus:outline-none text-2xl font-medium"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="email" className="sr-only">Email address (required)</label>
+                                            <input
+                                                required
+                                                id="email"
+                                                name="email"
+                                                type="email"
+                                                autoComplete="email"
+                                                placeholder="Email*"
+                                                value={email}
+                                                onChange={e => setEmail(e.target.value)}
+                                                className="w-full pt-3 pb-1 bg-transparent border-b-2 border-mild dark:border-white focus:outline-none text-2xl font-medium"
+                                            />
+                                        </div>
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         <div>
+                                            <label htmlFor="budget" className="sr-only">Budget in USD</label>
                                             <input
-                                                type="text"
+                                                id="budget"
+                                                name="budget"
+                                                type="number"
+                                                inputMode="numeric"
+                                                min="0"
                                                 placeholder="Budget $"
-                                                onChange={e => setBudget(Number(e.target.value))}
+                                                onChange={e => setBudget(e.target.value === '' ? null : Number(e.target.value))}
                                                 className="w-full pt-3 pb-1 bg-transparent border-b-2 border-mild dark:border-white focus:outline-none text-2xl font-medium"
                                             />
-                                            <div className="text-gray-400 text-sm mt-2">
+                                            <div className="text-gray-600 dark:text-gray-300 text-sm mt-2">
                                                 More info on minimum/typical budget sizes can be found{' '}
                                                 <Link href="/faq" className="underline">
                                                     here
@@ -254,8 +277,9 @@ export function Form() {
                                             onDragOver={handleDrag}
                                             onDrop={handleDrop}
                                         >
-                                            <input type="file" id="file-upload" className="hidden" onChange={handleChange} />
-                                            <label htmlFor="file-upload" className="text-gray-400 cursor-pointer flex items-center">
+                                            <input type="file" id="file-upload" name="attachment" className="sr-only" onChange={handleChange} />
+                                            <div className="flex items-center">
+                                            <label htmlFor="file-upload" className="text-gray-600 dark:text-gray-300 cursor-pointer flex items-center flex-1">
                                                 <span className="sr-only">Attach files</span>
                                                 <div className="flex items-center w-full pt-3 pb-1 bg-transparent border-b-2 border-mild dark:border-white focus:outline-none text-2xl font-medium">
                                                     <svg
@@ -274,36 +298,45 @@ export function Form() {
                                                     </svg>
                                                     {dragActive ? 'Drop here' : fileName ? fileName : 'Attach files'}
                                                 </div>
-                                                {fileName && (
-                                                    <button
-                                                        type="button"
-                                                        onClick={handleRemoveFile}
-                                                        className="mt-2 text-mild "
-                                                    >
-                                                        <svg
-                                                            className="w-6 h-6"
-                                                            fill="none"
-                                                            stroke="currentColor"
-                                                            viewBox="0 0 24 24"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                        >
-                                                            <path
-                                                                strokeLinecap="round"
-                                                                strokeLinejoin="round"
-                                                                strokeWidth="2"
-                                                                d="M6 18L18 6M6 6l12 12"
-                                                            />
-                                                        </svg>
-                                                    </button>
-                                                )}
                                             </label>
+                                            {fileName && (
+                                                <button
+                                                    type="button"
+                                                    onClick={handleRemoveFile}
+                                                    aria-label={`Remove ${fileName}`}
+                                                    className="mt-2 text-mild dark:text-white"
+                                                >
+                                                    <svg
+                                                        aria-hidden="true"
+                                                        className="w-6 h-6"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth="2"
+                                                            d="M6 18L18 6M6 6l12 12"
+                                                        />
+                                                    </svg>
+                                                </button>
+                                            )}
+                                            </div>
                                         </div>
                                     </div>
-                                    <textarea
-                                        placeholder="Tell me more about your project"
-                                        className="w-full pt-3 pb-1 bg-transparent border-b-2 border-mild dark:border-white focus:outline-none text-2xl font-medium"
-                                        onChange={e => setMessage(e.target.value)}
-                                    ></textarea>
+                                    <div>
+                                        <label htmlFor="message" className="sr-only">Tell me more about your project</label>
+                                        <textarea
+                                            id="message"
+                                            name="message"
+                                            placeholder="Tell me more about your project"
+                                            className="w-full pt-3 pb-1 bg-transparent border-b-2 border-mild dark:border-white focus:outline-none text-2xl font-medium"
+                                            value={message}
+                                            onChange={e => setMessage(e.target.value)}
+                                        ></textarea>
+                                    </div>
                                     <button
                                         type="submit"
                                         className="mt-8 py-3 px-6 bg-mild dark:bg-white dark:text-black text-white rounded-full hover:bg-gray-200 transition flex items-center justify-center font-semibold dark:hover:bg-black dark:hover:text-white border-2 border-mild dark:border-white hover:text-mild"
