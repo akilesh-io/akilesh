@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Image from "next/image";
 import RotatingText from "@/components/reusable/RotatingText";
-import { ProjectModal, type ProjectDetails } from "@/components/ProjectModal";
+import { HERO_SIZES, ProjectModal, type ProjectDetails } from "@/components/ProjectModal";
 
 export const HoverEffect = ({
   items,
@@ -52,7 +52,7 @@ export const HoverEffect = ({
           <Link
             href={item?.link}
             rel="noopener noreferrer"
-            className="relative group block py-4 md:p-2 h-full w-full"
+            className="relative group block py-4 md:p-2 h-full w-full rounded-3xl"
             target={item.project ? undefined : "_blank"}
             shallow
             scroll={false}
@@ -77,9 +77,7 @@ export const HoverEffect = ({
               )}
             </AnimatePresence>
             <Card className="group-hover:shadow-lg">
-              <motion.div layoutId={item.project ? item.link : undefined}>
-                <CardImage src={item?.image} title={item?.title} />
-              </motion.div>
+              <CardImage src={item?.image} title={item?.title} />
               {hoveredIndex === idx && (
                 <motion.div
                   className="absolute top-0 right-0 bg-white dark:bg-mild rounded-bl-lg shadow-lg hidden sm:block"
@@ -159,7 +157,7 @@ export const CardImage = ({
     <div className="group relative aspect-[4/3] w-full overflow-hidden">
       <Image
         fill
-        sizes="(min-width: 768px) 50vw, 100vw"
+        sizes={HERO_SIZES}
         src={src}
         alt={title}
         loading="lazy"
